@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KitFire mark — compare</title>
+<style>
+:root{--bg:#0a0a0c;--ink:#f4f1ee;--muted:#a7a3ad;--ember1:#ff8a1e;--ember2:#ff3d2e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(900px 500px at 50% -10%,rgba(255,90,30,.12),transparent 60%),var(--bg);
+  color:var(--ink);font-family:-apple-system,"Segoe UI",Inter,Arial,sans-serif;padding:40px 20px;text-align:center}
+h1{font-size:1.5rem;margin-bottom:6px}.sub{color:var(--muted);margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.card{background:#121218;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:28px 18px}
+.tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ember1);font-weight:700}
+.cap{color:var(--muted);font-size:.9rem;margin-top:14px;line-height:1.5}
+.stage{height:300px;display:flex;align-items:center;justify-content:center;margin:16px 0}
+.win{color:#7CFC9A;font-weight:700;font-size:.78rem}
+/* coded animated orbit (scaled) */
+.kf-orbit{position:relative;width:260px;height:260px}
+.kf-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px dashed rgba(255,170,90,.16)}
+.r1{width:120px;height:120px;margin:-60px 0 0 -60px;animation:spin 16s linear infinite}
+.r1b{width:120px;height:120px;margin:-60px 0 0 -60px;animation:spin 16s linear infinite;animation-delay:-8s}
+.r2{width:185px;height:185px;margin:-92px 0 0 -92px;animation:spin 26s linear infinite reverse}
+.r2b{width:185px;height:185px;margin:-92px 0 0 -92px;animation:spin 26s linear infinite reverse;animation-delay:-17s}
+.r3{width:250px;height:250px;margin:-125px 0 0 -125px;animation:spin 34s linear infinite}
+.r3b{width:250px;height:250px;margin:-125px 0 0 -125px;animation:spin 34s linear infinite;animation-delay:-12s}
+.node{position:absolute;top:0;left:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 35% 30%,#fff,#ffc070 45%,rgba(255,120,40,.25));box-shadow:0 0 12px rgba(255,150,70,.75)}
+.node.lg{width:20px;height:20px}.node.sm{width:10px;height:10px}
+.core{position:absolute;top:50%;left:50%;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;z-index:5;
+  background:radial-gradient(circle at 50% 30%,#fff 0%,#fff1cf 12%,#ffc04a 33%,#ff7a18 60%,#e11d2a 88%,#a30f1f 100%);
+  box-shadow:0 0 0 1px rgba(255,200,120,.25),0 0 34px 3px rgba(255,140,50,.7),0 0 80px 10px rgba(255,80,25,.45);
+  animation:pulse 3.4s ease-in-out infinite}
+.core span{font-weight:800;font-size:.8rem;color:#2a0f04}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<h1>KitFire mark — three options</h1>
+<p class="sub">Same concept (sun + orbiting AIs), three ways to make it.</p>
+<div class="grid">
+  <div class="card">
+    <div class="tag">Claude design · animated</div>
+    <div class="stage">
+      <div class="kf-orbit">
+        <div class="kf-ring r1"><i class="node"></i></div>
+        <div class="kf-ring r1b"><i class="node sm"></i></div>
+        <div class="kf-ring r2"><i class="node lg"></i></div>
+        <div class="kf-ring r2b"><i class="node"></i></div>
+        <div class="kf-ring r3"><i class="node sm"></i></div>
+        <div class="kf-ring r3b"><i class="node"></i></div>
+        <div class="core"><span>KitFire</span></div>
+      </div>
+    </div>
+    <div class="win">&#9733; Live on the site now</div>
+    <p class="cap">Vector + motion. Infinitely sharp, fully editable, animates. The hero.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Claude design · static SVG</div>
+    <div class="stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="220" height="220">
+      <defs>
+        <radialGradient id="sun2" cx="50%" cy="42%" r="60%">
+          <stop offset="0%" stop-color="#ffffff"/><stop offset="14%" stop-color="#fff1cf"/>
+          <stop offset="38%" stop-color="#ffc04a"/><stop offset="66%" stop-color="#ff7a18"/><stop offset="100%" stop-color="#e11d2a"/>
+        </radialGradient>
+        <radialGradient id="orb2" cx="38%" cy="32%" r="70%">
+          <stop offset="0%" stop-color="#ffffff"/><stop offset="45%" stop-color="#ffc070"/><stop offset="100%" stop-color="#ff5a1e"/>
+        </radialGradient>
+        <filter id="glow2" x="-70%" y="-70%" width="240%" height="240%">
+          <feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <g transform="rotate(-18 120 120)">
+        <ellipse cx="120" cy="120" rx="60" ry="24" fill="none" stroke="#ffaa5a" stroke-opacity=".22"/>
+        <ellipse cx="120" cy="120" rx="85" ry="34" fill="none" stroke="#ffaa5a" stroke-opacity=".16"/>
+        <ellipse cx="120" cy="120" rx="108" ry="44" fill="none" stroke="#ffaa5a" stroke-opacity=".11"/>
+        <circle cx="64" cy="112" r="6" fill="url(#orb2)" filter="url(#glow2)"/>
+        <circle cx="200" cy="132" r="9" fill="url(#orb2)" filter="url(#glow2)"/>
+        <circle cx="40" cy="132" r="5" fill="url(#orb2)" filter="url(#glow2)"/>
+        <circle cx="174" cy="82" r="7" fill="url(#orb2)" filter="url(#glow2)"/>
+        <circle cx="83" cy="161" r="6" fill="url(#orb2)" filter="url(#glow2)"/>
+      </g>
+      <circle cx="120" cy="120" r="34" fill="url(#sun2)" filter="url(#glow2)"/>
+    </svg></div>
+    <div class="win">&#9733; For favicon / social / app</div>
+    <p class="cap">Same system, flat. Vector = razor-sharp at any size. Matches the hero.</p>
+  </div>
+  <div class="card">
+    <div class="tag">GPT · painterly raster</div>
+    <div class="stage"><img src="assets/gpt-sun.png" width="240" height="240" style="object-fit:contain" alt="GPT sun"></div>
+    <div class="cap" style="margin-top:14px">Rich and dramatic — but fixed resolution, can't animate, can't precisely edit.</div>
+  </div>
+</div>
+</body></html>
