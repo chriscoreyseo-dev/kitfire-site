@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KitFire — Client Intake</title>
+<meta name="robots" content="noindex" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff8a1e' d='M12 1c1 4-4 6-4 10a4 4 0 0 0 2.6 3.8C10 12.5 13 11.5 13 8c2.5 1.6 5 4.4 5 8a6 6 0 0 1-12 0C6 9.5 12 8 12 1z'/%3E%3C/svg%3E" />
+<script>(function(){try{var s=localStorage.getItem('kf-theme');if(s==='dark')document.documentElement.classList.add('dark');}catch(e){}})();</script>
+<style>
+:root{
+  --bg:#ffffff; --card:#ffffff; --panel2:#f5f3f0;
+  --ink:#15151f; --muted:#5c5866; --line:rgba(15,15,30,.12);
+  --wash:radial-gradient(1100px 650px at 82% -12%,rgba(255,120,40,.10),transparent 60%);
+  --shadow:0 10px 40px rgba(20,20,40,.08); --glow:0 10px 30px rgba(255,90,30,.22);
+  --ember1:#ff8a1e; --ember2:#ff3d2e;
+}
+html.dark{
+  --bg:#0a0a0c; --card:#15151c; --panel2:#1b1b24;
+  --ink:#f4f1ee; --muted:#a7a3ad; --line:rgba(255,255,255,.1);
+  --wash:radial-gradient(1200px 700px at 80% -10%,rgba(255,90,30,.14),transparent 60%);
+  --shadow:none; --glow:0 0 60px rgba(255,90,30,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--wash),var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI",Inter,Roboto,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:40px 22px 90px}
+.mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.12rem;margin-bottom:28px}
+.mark svg{width:26px;height:26px}
+.ember{background:linear-gradient(90deg,var(--ember1),var(--ember2));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:-.02em;line-height:1.1}
+.sub{color:var(--muted);margin:10px 0 26px;font-size:.98rem}
+.progress{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-bottom:8px}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ember1),var(--ember2));border-radius:99px;transition:width .3s ease}
+.steplbl{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:30px}
+.step{display:none}
+.step.on{display:block}
+.step h2{font-size:1.25rem;margin-bottom:4px}
+.step .hint{color:var(--muted);font-size:.88rem;margin-bottom:20px}
+label{display:block;font-weight:700;font-size:.9rem;margin:18px 0 6px}
+label .req{color:var(--ember2)}
+label .why{display:block;font-weight:400;color:var(--muted);font-size:.8rem;margin-top:2px}
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],textarea,select{
+  width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:.95rem;font-family:inherit;outline:none}
+textarea{min-height:88px;resize:vertical}
+input:focus,textarea:focus,select:focus{border-color:var(--ember1)}
+input.bad,textarea.bad,select.bad{border-color:var(--ember2)}
+.check{display:flex;gap:10px;align-items:flex-start;margin:12px 0;font-size:.92rem}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--ember1)}
+.check span b{display:block}
+.check span small{color:var(--muted)}
+.nav{display:flex;gap:12px;margin-top:28px}
+.btn{padding:14px 26px;border-radius:999px;background:linear-gradient(90deg,var(--ember1),var(--ember2));color:#1a0d05;box-shadow:var(--glow);font-weight:700;font-size:.95rem;border:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn[disabled]{opacity:.5;cursor:wait}
+.spacer{flex:1}
+.err{color:var(--ember2);font-size:.85rem;margin-top:14px;display:none;font-weight:600}
+.done{text-align:center;padding:40px 10px;display:none}
+.done h2{font-size:1.5rem;margin-bottom:10px}
+.done p{color:var(--muted)}
+.savenote{text-align:center;color:var(--muted);font-size:.78rem;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">
+    <svg viewBox="0 0 24 24"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff8a1e"/><stop offset="1" stop-color="#ff3d2e"/></linearGradient></defs><path fill="url(#g)" d="M12 1c1 4-4 6-4 10a4 4 0 0 0 2.6 3.8C10 12.5 13 11.5 13 8c2.5 1.6 5 4.4 5 8a6 6 0 0 1-12 0C6 9.5 12 8 12 1z"/></svg>
+    Kit<span class="ember">Fire</span>
+  </div>
+
+  <h1>Let's build your <span class="ember">growth engine.</span></h1>
+  <p class="sub">About 15 minutes. Your answers become your ads, your funnel, and your scoreboard — so specific beats polished. You can close this page and pick up where you left off.</p>
+
+  <div class="progress"><i id="bar"></i></div>
+  <div class="steplbl" id="steplbl">Step 1 of 8</div>
+
+  <form class="card" id="f" novalidate>
+
+    <!-- STEP 1 -->
+    <div class="step on" data-step="1">
+      <h2>About your business</h2>
+      <p class="hint">The basics — who you are and where you work.</p>
+      <label>Legal business name <span class="req">*</span><span class="why">Exactly as it appears on official documents — used for paperwork and ad-platform verification.</span></label>
+      <input type="text" name="legal_business_name" autocomplete="organization" required />
+      <label>What name do your customers know you by? <span class="req">*</span></label>
+      <input type="text" name="brand_name" required />
+      <label>Website address <span class="req">*</span></label>
+      <input type="url" name="website_url" autocomplete="url" required placeholder="https://" />
+      <label>Main contact — name <span class="req">*</span></label>
+      <input type="text" name="primary_contact_name" autocomplete="name" required />
+      <label>Main contact — email <span class="req">*</span></label>
+      <input type="email" name="primary_contact_email" autocomplete="email" required />
+      <label>Main contact — best phone <span class="req">*</span></label>
+      <input type="tel" name="primary_contact_phone" autocomplete="tel" required />
+      <label>Where do you work? <span class="req">*</span><span class="why">Cities, zip codes, or a radius — e.g. "25 miles around Tulsa".</span></label>
+      <input type="text" name="service_area" required />
+      <label>Business hours <span class="req">*</span><span class="why">So leads get responded to at the right times.</span></label>
+      <input type="text" name="business_hours" required placeholder="Mon–Fri 8–6, Sat 9–1" />
+      <label>Years in business</label>
+      <input type="number" name="years_in_business" min="0" />
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" data-step="2">
+      <h2>What you sell</h2>
+      <p class="hint">The offer that goes in front of new customers.</p>
+      <label>Which services do you want more customers for? Top 3. <span class="req">*</span></label>
+      <textarea name="primary_services" required></textarea>
+      <label>If you could promise a new customer ONE thing to get them to call, what is it? <span class="req">*</span><span class="why">e.g. "Free estimate within 24 hours".</span></label>
+      <input type="text" name="offer_headline" required />
+      <label>What's a typical job worth to you, in dollars? <span class="req">*</span></label>
+      <input type="number" name="avg_ticket" required min="0" />
+      <label>Roughly what percent of that is profit?<span class="why">Private — never shown anywhere. It tells us what a lead is worth to you.</span></label>
+      <input type="number" name="profit_margin" min="0" max="100" placeholder="%" />
+      <label>Monthly ad budget you're comfortable with <span class="req">*</span><span class="why">You pay the ad platform directly — this never passes through us.</span></label>
+      <input type="number" name="monthly_ad_budget" required min="0" placeholder="$" />
+      <label>If you know it: what's a good cost-per-lead for you?</label>
+      <input type="number" name="target_cost_per_lead" min="0" placeholder="$" />
+      <label>How many new leads per week can you actually handle? <span class="req">*</span><span class="why">We pace ads so we never send more than you can serve.</span></label>
+      <input type="number" name="weekly_lead_capacity" required min="1" />
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" data-step="3">
+      <h2>Your customers</h2>
+      <p class="hint">This writes your targeting and your ad angles.</p>
+      <label>Describe your best customer. Who calls you and turns into a great job? <span class="req">*</span></label>
+      <textarea name="ideal_customer_description" required></textarea>
+      <label>What problems are they dealing with when they pick up the phone? <span class="req">*</span></label>
+      <textarea name="customer_pain_points" required></textarea>
+      <label>Why do customers choose you over the other guys? Be specific. <span class="req">*</span></label>
+      <textarea name="differentiators" required></textarea>
+      <label>Anything else about who we should (or shouldn't) reach?<span class="why">Ad platforms don't allow targeting by personal characteristics — we stay inside those rules.</span></label>
+      <textarea name="audience_notes"></textarea>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" data-step="4">
+      <h2>Your brand</h2>
+      <p class="hint">Links work great — Google Drive, Dropbox, your site.</p>
+      <label>How should your ads sound? <span class="req">*</span></label>
+      <select name="brand_voice_tone" required>
+        <option value="">Choose one…</option>
+        <option>Friendly neighbor</option>
+        <option>Straight-shooting pro</option>
+        <option>Premium &amp; polished</option>
+        <option>Other (describe in banned words box below)</option>
+      </select>
+      <label>Any words or phrases we should NEVER use?</label>
+      <textarea name="banned_words"></textarea>
+      <label>Link to your logo <span class="req">*</span><span class="why">Highest quality you have.</span></label>
+      <input type="url" name="logo_link" required placeholder="https://" />
+      <label>Brand colors or fonts, if you have them<span class="why">Hex codes ideal — "blue and white" works too.</span></label>
+      <input type="text" name="brand_colors_fonts" />
+      <label>Links to real photos or video of your work, team, or trucks<span class="why">Real beats stock — every time.</span></label>
+      <textarea name="media_links" placeholder="One link per line"></textarea>
+      <label>Paste your best reviews, or link to where they live (Google, Yelp)</label>
+      <textarea name="testimonials_reviews"></textarea>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step" data-step="5">
+      <h2>The legal stuff (protects you)</h2>
+      <p class="hint">We can only advertise claims you can back up.</p>
+      <label>Licenses or certifications you hold</label>
+      <textarea name="licenses_certifications"></textarea>
+      <label>Guarantees we CAN promise <span class="req">*</span><span class="why">Write "none" if you don't offer guarantees.</span></label>
+      <textarea name="guarantees_allowed" required></textarea>
+      <label>Things we must NEVER promise <span class="req">*</span></label>
+      <textarea name="guarantees_forbidden" required></textarea>
+      <label>Does your work touch health, finance, or legal services? <span class="req">*</span><span class="why">Changes which ad rules apply.</span></label>
+      <select name="regulated_flags" required>
+        <option value="">Choose one…</option>
+        <option>No</option>
+        <option>Health</option>
+        <option>Finance</option>
+        <option>Legal</option>
+        <option>More than one of these</option>
+      </select>
+      <label>Any competitors we should never mention or compare against?</label>
+      <textarea name="comparison_conflicts"></textarea>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step" data-step="6">
+      <h2>What success looks like</h2>
+      <p class="hint">This becomes your scoreboard.</p>
+      <label>What counts as a win? <span class="req">*</span></label>
+      <select name="primary_goal" required>
+        <option value="">Choose one…</option>
+        <option>Phone calls</option>
+        <option>Form leads</option>
+        <option>Booked appointments</option>
+      </select>
+      <label>What would make this a home run at 30, 60, and 90 days?</label>
+      <textarea name="success_30_60_90"></textarea>
+      <label>Where do leads come from today?</label>
+      <input type="text" name="current_lead_source" />
+      <label>Roughly how many leads per week right now?<span class="why">This is the "before" number on your scoreboard.</span></label>
+      <input type="number" name="baseline_volume" min="0" />
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step" data-step="7">
+      <h2>Account access checklist</h2>
+      <p class="hint">One-time grants done in YOUR accounts — you keep ownership and billing. We'll send a short how-to for each. Check off what's already done; leave the rest and we'll chase them with you.</p>
+      <div class="check"><input type="checkbox" name="meta_seat_granted" /><span><b>Meta partner seat granted</b><small>Facebook/Instagram Business Manager</small></span></div>
+      <div class="check"><input type="checkbox" name="meta_business_verified" /><span><b>Meta business verification done</b></span></div>
+      <div class="check"><input type="checkbox" name="ad_account_billing_confirmed" /><span><b>Ad account billing set up (your card)</b></span></div>
+      <div class="check"><input type="checkbox" name="google_youtube_granted" /><span><b>Google / YouTube access granted</b></span></div>
+      <div class="check"><input type="checkbox" name="capture_page_domain_access" /><span><b>Domain access for your capture page</b></span></div>
+      <div class="check"><input type="checkbox" name="sending_domain_verified" /><span><b>Email sending domain verified</b></span></div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step" data-step="8">
+      <h2>Sign-off</h2>
+      <p class="hint">Who says yes on your side.</p>
+      <label>Who approves ad copy and design? Name <span class="req">*</span></label>
+      <input type="text" name="creative_approver_name" required />
+      <label>Their email <span class="req">*</span></label>
+      <input type="email" name="creative_approver_email" required />
+      <label>Who gives the final "go" before anything launches? <span class="req">*</span><span class="why">Can be the same person.</span></label>
+      <input type="text" name="go_live_authorizer" required />
+    </div>
+
+    <div class="err" id="err">Please fill the highlighted required fields.</div>
+    <div class="nav">
+      <button type="button" class="btn ghost" id="back" style="display:none">Back</button>
+      <div class="spacer"></div>
+      <button type="button" class="btn" id="next">Next</button>
+    </div>
+  </form>
+
+  <div class="card done" id="done">
+    <h2>Got it. <span class="ember">The build starts now.</span></h2>
+    <p>Your answers are in. We'll confirm by email at the address you gave, and your onboarding checklist will show exactly what's left. Nothing launches without your sign-off.</p>
+  </div>
+
+  <p class="savenote">Answers save on this device as you type — close anytime, finish later.</p>
+</div>
+
+<script>
+/* WIRE (Chris): paste Supabase project values. The anon key is public-by-design
+   (safe in a static page); table RLS must allow INSERT only — see infra/client_intake.sql.
+   KitFire never handles the service-role key. */
+var SUPABASE_URL = "https://xlmwjobwjqhbnlcidryp.supabase.co";
+var SUPABASE_ANON_KEY = "sb_publishable_QRBibdm1Vdw2foQJVAQVxg_TqDLCfoI"; // publishable key — browser-safe by design
+
+(function(){
+  var f=document.getElementById('f'), steps=[].slice.call(f.querySelectorAll('.step')),
+      bar=document.getElementById('bar'), lbl=document.getElementById('steplbl'),
+      back=document.getElementById('back'), next=document.getElementById('next'),
+      err=document.getElementById('err'), cur=0, KEY='kf-intake-draft';
+
+  /* draft restore */
+  try{
+    var d=JSON.parse(localStorage.getItem(KEY)||'{}');
+    Object.keys(d).forEach(function(k){
+      var el=f.elements[k]; if(!el)return;
+      if(el.type==='checkbox')el.checked=!!d[k]; else el.value=d[k];
+    });
+  }catch(e){}
+  f.addEventListener('input',save); f.addEventListener('change',save);
+  function save(){
+    var o={};[].forEach.call(f.elements,function(el){
+      if(!el.name)return;
+      o[el.name]=el.type==='checkbox'?el.checked:el.value;
+    });
+    try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
+  }
+
+  function show(i){
+    steps[cur].classList.remove('on'); cur=i; steps[cur].classList.add('on');
+    bar.style.width=((cur+1)/steps.length*100)+'%';
+    lbl.textContent='Step '+(cur+1)+' of '+steps.length;
+    back.style.display=cur===0?'none':'inline-block';
+    next.textContent=cur===steps.length-1?'Submit':'Next';
+    err.style.display='none'; window.scrollTo({top:0,behavior:'smooth'});
+  }
+  bar.style.width=(1/steps.length*100)+'%';
+
+  function valid(){
+    var ok=true;
+    steps[cur].querySelectorAll('[required]').forEach(function(el){
+      var bad=!el.value||!el.checkValidity();
+      el.classList.toggle('bad',bad); if(bad)ok=false;
+    });
+    err.style.display=ok?'none':'block';
+    return ok;
+  }
+
+  back.addEventListener('click',function(){ if(cur>0)show(cur-1); });
+  next.addEventListener('click',function(){
+    if(!valid())return;
+    if(cur<steps.length-1){show(cur+1);return;}
+    submit();
+  });
+
+  function submit(){
+    next.disabled=true; next.textContent='Sending…';
+    var row={};
+    [].forEach.call(f.elements,function(el){
+      if(!el.name)return;
+      if(el.type==='checkbox'){row[el.name]=el.checked;return;}
+      var v=el.value.trim();
+      row[el.name]=(el.type==='number')?(v===''?null:Number(v)):(v===''?null:v);
+    });
+    fetch(SUPABASE_URL+'/rest/v1/client_intake',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Prefer':'return=minimal'},
+      body:JSON.stringify(row)
+    }).then(function(r){
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      try{localStorage.removeItem(KEY);}catch(e){}
+      f.style.display='none';
+      document.querySelector('.savenote').style.display='none';
+      document.getElementById('done').style.display='block';
+      bar.style.width='100%'; lbl.textContent='Done';
+    }).catch(function(e){
+      next.disabled=false; next.textContent='Submit';
+      err.textContent='Something hiccuped sending your answers ('+e.message+'). Your answers are saved on this device — try Submit again, or email us: ceo@kitfire.ai';
+      err.style.display='block';
+    });
+  }
+})();
+</script>
+</body>
+</html>
