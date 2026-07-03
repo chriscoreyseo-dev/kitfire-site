@@ -1,0 +1,10 @@
+{
+  "name": "kitfire-site",
+  "version": "1.0.0",
+  "description": "kitfire.ai homepage + Blaze site sales agent (Vercel deploy)",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}
