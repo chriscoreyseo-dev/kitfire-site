@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — C&amp;M Associates · Ben Hurst &amp; Our Michigan Install Crews Since 1983</title>
+<meta name="description" content="Meet Ben Hurst and the C&amp;M Associates install team — 43 years of family-owned gymnasium equipment expertise in Brighton, Michigan. Our crews. Our standards. Our reputation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0F2A4D;--navy-deep:#081B33;--orange:#FF6B1A;--orange-hover:#E05A12;--bg:#FFFFFF;--surface:#F5F6F8;--ink:#0F1923;--ink-muted:#5A6573;--line:#E4E7EC}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;color:var(--navy)}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1280px;margin:0 auto;padding:0 32px}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{display:inline-block}
+  .logo img{height:54px;width:auto;display:block}
+  .nav-links{display:flex;gap:36px;align-items:center}
+  .nav-links a{font-size:14px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;transition:color .15s}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{display:inline-block;padding:14px 28px;background:var(--orange);color:#fff;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.08em;border-radius:2px;border:none;cursor:pointer;transition:background .15s;text-align:center;text-decoration:none}
+  .btn:hover{background:var(--orange-hover)}
+  .btn-navy{background:var(--navy)}
+  .btn-navy:hover{background:var(--navy-deep)}
+  .btn-outline-dark{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+  .btn-outline-dark:hover{background:var(--navy);color:#fff}
+  .page-hero{background:var(--navy);color:#fff;padding:90px 0 60px;position:relative;overflow:hidden}
+  .page-hero::before{content:'';position:absolute;inset:0;background:url('photos/hero-groves.jpg') center/cover no-repeat;opacity:.18}
+  .page-hero-inner{position:relative;z-index:2;max-width:900px}
+  .crumb{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);font-weight:700;margin-bottom:16px}
+  .page-hero h1{font-size:clamp(48px,7vw,84px);color:#fff;margin-bottom:18px}
+  .page-hero h1 em{font-style:normal;color:var(--orange)}
+  .page-hero p{font-size:18px;color:rgba(255,255,255,.8);max-width:680px}
+  section{padding:100px 0}
+  .section-eyebrow{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--orange);margin-bottom:16px;display:block}
+  .founder-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:center}
+  .founder-photo{background:var(--surface);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;color:var(--ink-muted);position:relative;overflow:hidden;border-top:6px solid var(--orange)}
+  .founder-photo::after{content:'Ben Hurst — photo placeholder';position:absolute;bottom:20px;left:20px;font-size:12px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.1em}
+  .founder-photo .ph-name{font-family:'Barlow Condensed',sans-serif;font-size:120px;font-weight:800;color:var(--navy);opacity:.08}
+  .founder-text h2{font-size:clamp(40px,4.5vw,60px);margin-bottom:24px}
+  .founder-text h2 em{font-style:normal;color:var(--orange)}
+  .founder-text .lead{font-size:20px;font-weight:500;color:var(--ink);margin-bottom:24px;line-height:1.4}
+  .founder-text p{font-size:16px;color:var(--ink-muted);margin-bottom:18px}
+  .founder-quote{margin-top:32px;padding:28px 32px;background:var(--surface);border-left:4px solid var(--orange);font-size:18px;font-style:italic;color:var(--ink);line-height:1.5}
+  .founder-quote cite{display:block;margin-top:12px;font-style:normal;font-size:14px;color:var(--ink-muted);font-weight:600}
+  .timeline-section{background:var(--surface)}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 64px}
+  .section-head h2{font-size:clamp(36px,4.5vw,56px);margin-bottom:16px}
+  .section-head p{font-size:17px;color:var(--ink-muted)}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+  .milestone{background:#fff;padding:32px 24px;text-align:center;position:relative;z-index:2}
+  .milestone-year{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:800;color:var(--orange);line-height:1;margin-bottom:14px}
+  .milestone h3{font-size:18px;margin-bottom:8px}
+  .milestone p{font-size:14px;color:var(--ink-muted)}
+  .crew-intro{text-align:center;max-width:780px;margin:0 auto 56px}
+  .crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .crew-card{background:#fff;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .crew-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,42,77,.12);border-color:transparent}
+  .crew-photo{aspect-ratio:1/1;background:linear-gradient(135deg,var(--surface),#E8EAEE);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .crew-photo .ph-initials{font-family:'Barlow Condensed',sans-serif;font-size:96px;font-weight:800;color:var(--navy);opacity:.15}
+  .crew-body{padding:24px 26px 30px}
+  .crew-role{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);font-weight:700;margin-bottom:8px}
+  .crew-name{font-size:22px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:10px}
+  .crew-card p{font-size:14px;color:var(--ink-muted);line-height:1.55;margin-bottom:14px}
+  .crew-meta{display:flex;flex-wrap:wrap;gap:6px}
+  .crew-tag{font-size:11px;padding:4px 10px;background:var(--surface);color:var(--ink);border-radius:2px;font-weight:600}
+  .values{background:var(--navy);color:#fff;padding:90px 0}
+  .values .section-head h2{color:#fff}
+  .values .section-head p{color:rgba(255,255,255,.75)}
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .value{padding:32px;background:var(--navy-deep);border-top:4px solid var(--orange)}
+  .value-num{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:800;color:var(--orange);line-height:1;margin-bottom:16px}
+  .value h3{font-size:24px;color:#fff;margin-bottom:14px}
+  .value p{color:rgba(255,255,255,.8);font-size:15px}
+  .cta-final{padding:100px 0;text-align:center}
+  .cta-final h2{font-size:clamp(40px,5vw,64px);margin-bottom:18px}
+  .cta-final p{font-size:18px;color:var(--ink-muted);max-width:600px;margin:0 auto 32px}
+  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 32px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+  .foot-logo{margin-bottom:16px}
+  .foot-logo img{height:60px;width:auto;display:block;filter:brightness(0) invert(1) opacity(.95)}
+  .foot-tag{font-size:14px;line-height:1.7;color:rgba(255,255,255,.6);max-width:340px}
+  footer h5{font-family:'Barlow Condensed',sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:.1em;color:#fff;margin-bottom:20px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:10px;font-size:14px}
+  footer a:hover{color:var(--orange)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.45)}
+  @media (max-width:900px){
+    .founder-grid,.timeline,.crew-grid,.values-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links a:not(.btn){display:none}
+    section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><img src="CandM_Logo.png" alt="C&amp;M Associates"></a>
+    <div class="nav-links">
+      <a href="index.html#services">What We Do</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="inspections.html">Inspections</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#quote">Contact</a>
+      <a href="index.html#quote" class="btn">Request a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="crumb">Home · About</div>
+    <h1>Four Decades. <em>One Family.</em><br>Every Install, Our Name On It.</h1>
+    <p>C&amp;M Associates was founded in 1983 around a simple idea: if you're going to put your name on it, do it yourself. Forty-three years later, we still don't subcontract a single install. Here's who we are and the people who show up on site.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-photo"><span class="ph-name">BH</span></div>
+      <div class="founder-text">
+        <span class="section-eyebrow">Meet The Owner</span>
+        <h2>Ben Hurst, <em>Owner</em></h2>
+        <p class="lead">Ben Hurst runs C&amp;M Associates the way it's been run since 1983 — as a Michigan-rooted, family-owned business where the owner still answers the phone and walks the install sites.</p>
+        <p>Ben grew up around gymnasium equipment. He understands the difference between gear that gets specced into a bid sheet and gear that holds up after twenty years of district basketball, volleyball tournaments, and graduation ceremonies. That difference is the whole reason customers keep coming back.</p>
+        <p>Under Ben's leadership, C&amp;M has stayed focused on three things: knowing the product inside and out, hiring installers who treat every gym like it's their own school, and answering when an Athletic Director calls because something broke twelve hours before tip-off.</p>
+        <div class="founder-quote">
+          "We don't sell equipment. We sell the assurance that what we put in your gym will be safe, working, and supported for the life of the facility. That's the only promise that matters."
+          <cite>— Ben Hurst, Owner</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Our Story</span>
+      <h2>43 Years In Michigan Gymnasiums</h2>
+      <p>Founded in Brighton. Still in Brighton. The brands have grown, the technology has changed, the standards stay the same.</p>
+    </div>
+    <div class="timeline">
+      <div class="milestone"><div class="milestone-year">1983</div><h3>Founded</h3><p>C&amp;M Associates incorporated in Brighton, Michigan to serve schools across the state.</p></div>
+      <div class="milestone"><div class="milestone-year">1990s</div><h3>Brand Partnerships</h3><p>Became authorized dealer for Performance Sports, Daktronics, AAE, Schelde and Resilite.</p></div>
+      <div class="milestone"><div class="milestone-year">2000s</div><h3>In-House Crews</h3><p>Built our own installation teams — no subcontractors. Quality and timelines under our control.</p></div>
+      <div class="milestone"><div class="milestone-year">2026</div><h3>Today</h3><p>Thousands of completed projects, generations of returning customers, same family ownership.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="crew-intro">
+      <span class="section-eyebrow">The Team</span>
+      <h2 style="font-size:clamp(36px,4.5vw,52px);margin-bottom:18px">The People Behind Every Install</h2>
+      <p style="color:var(--ink-muted);font-size:17px">When you hire C&amp;M, these are the people behind your project — from the first quote to the final install and every inspection after. Family-owned since 1983, our own team, accountable to Ben directly.</p>
+    </div>
+    <div class="crew-grid">
+      <div class="crew-card"><div class="crew-photo"><span class="ph-initials">BH</span></div><div class="crew-body"><div class="crew-role">Owner</div><div class="crew-name">Ben Hurst</div><p>Owns and runs C&amp;M Associates — still answers the phone and walks the install sites himself.</p><div class="crew-meta"><span class="crew-tag">Brighton, MI</span><span class="crew-tag">Since 1983</span></div></div></div>
+      <div class="crew-card"><div class="crew-photo"><span class="ph-initials">TE</span></div><div class="crew-body"><div class="crew-role">Estimating / Sales</div><div class="crew-name">Tyler Emmert</div><p>Your point of contact for specs, quotes, and product selection across every C&amp;M service line.</p><div class="crew-meta"><span class="crew-tag">Estimating</span><span class="crew-tag">Sales</span></div></div></div>
+      <div class="crew-card"><div class="crew-photo"><span class="ph-initials">TH</span></div><div class="crew-body"><div class="crew-role">Project Administrator</div><div class="crew-name">Tammy Henning</div><p>Coordinates project scheduling and paperwork from the Brighton office so installs stay on track.</p><div class="crew-meta"><span class="crew-tag">Scheduling</span><span class="crew-tag">Admin</span></div></div></div>
+      <div class="crew-card"><div class="crew-photo"><span class="ph-initials">CE</span></div><div class="crew-body"><div class="crew-role">Accounting Manager</div><div class="crew-name">Cindy Erickson</div><p>Manages accounting and billing for C&amp;M Associates.</p><div class="crew-meta"><span class="crew-tag">Accounting</span><span class="crew-tag">Billing</span></div></div></div>
+      <div class="crew-card"><div class="crew-photo"><span class="ph-initials">TG</span></div><div class="crew-body"><div class="crew-role">Field Supervisor</div><div class="crew-name">Tom Gray</div><p>Runs C&amp;M's install crews in the field on gymnasium and athletic projects across Michigan.</p><div class="crew-meta"><span class="crew-tag">Field Crew</span><span class="crew-tag">Installs</span></div></div></div>
+      <div class="crew-card"><div class="crew-photo"><span class="ph-initials">JG</span></div><div class="crew-body"><div class="crew-role">Technician</div><div class="crew-name">John Gray</div><p>Field technician on C&amp;M install and service calls.</p><div class="crew-meta"><span class="crew-tag">Installs</span><span class="crew-tag">Service</span></div></div></div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:14px;color:var(--ink-muted);font-style:italic">Headshots and short bios are being collected from the team — placeholders shown here for now.</p>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">What We Believe</span>
+      <h2>Three Principles. No Exceptions.</h2>
+      <p>Forty-three years in business is built on saying the same thing every day and meaning it.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value"><div class="value-num">01</div><h3>Own The Outcome</h3><p>No subcontracted labor. Our crews. Our standards. If something isn't right, you don't chase three companies — you call us, and we fix it.</p></div>
+      <div class="value"><div class="value-num">02</div><h3>Show Up When It Matters</h3><p>A broken backstop the night of homecoming isn't a ticket — it's a phone call we take. Schools who've worked with us know what that means.</p></div>
+      <div class="value"><div class="value-num">03</div><h3>Safety Is Non-Negotiable</h3><p>Every install, every inspection, every repair meets or exceeds manufacturer and state safety codes. Kids use this equipment. That's the only standard.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <span class="section-eyebrow">Let's Build Something</span>
+    <h2>Talk To Ben Directly.</h2>
+    <p>Pick a 30-minute slot on Ben's calendar. No sales pitch — just a working conversation about what your facility needs.</p>
+    <div class="cta-row">
+      <a href="index.html#quote" class="btn">Book A Meeting With Ben</a>
+      <a href="index.html#quote" class="btn btn-outline-dark">Request A Quote</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="CandM_Logo.png" alt="C&amp;M Associates"></div>
+        <p class="foot-tag">Michigan's gymnasium equipment authority since 1983. Sales · Installation · Service. Family-owned in Brighton, MI.</p>
+      </div>
+      <div><h5>Company</h5><ul><li><a href="index.html#services">What We Do</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="inspections.html">Inspections</a></li></ul></div>
+      <div><h5>Brands</h5><ul><li><a href="https://www.perfsports.com" target="_blank" rel="noopener">Performance Sports</a></li><li><a href="https://www.daktronics.com" target="_blank" rel="noopener">Daktronics</a></li><li><a href="https://aaesports.com" target="_blank" rel="noopener">AAE</a> · <a href="https://www.scheldesports.com" target="_blank" rel="noopener">Schelde</a></li><li><a href="https://www.clarinseating.com" target="_blank" rel="noopener">Clarin</a> · <a href="https://www.resilite.com" target="_blank" rel="noopener">Resilite</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="tel:+18102205335">(810) 220-5335</a></li><li><a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></li><li><a href="https://maps.google.com/?q=3637+S+Old+US+Hwy+23,+Brighton,+MI+48114" target="_blank" rel="noopener">Brighton, MI 48114</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 C&amp;M Associates, Inc. All rights reserved.</div>
+      <div>Established 1983 · Brighton, MI</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

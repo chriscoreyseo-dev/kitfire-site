@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>C&M — Our Work Across Michigan (Map Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2A4D;--navy-deep:#081B33;--orange:#FF6B1A;--ink:#0F1923;--line:#E4E7EC}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--navy-deep);color:#fff}
+.map-sec{padding:70px 0 80px;background:radial-gradient(1100px 620px at 50% 12%,#0d2745 0%,var(--navy-deep) 62%)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;text-align:center}
+.eyebrow{display:block;letter-spacing:.2em;text-transform:uppercase;font-weight:800;font-size:.74rem;color:var(--orange);margin-bottom:14px}
+h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1.05;margin-bottom:14px}
+h2 .or{color:var(--orange)}
+.sub{color:#9fb3cc;font-size:1.05rem;max-width:640px;margin:0 auto 40px}
+.map-wrap{position:relative;display:flex;justify-content:center}
+.mi-map{width:100%;max-width:680px;height:auto;overflow:visible}
+.up{fill:#0d2138;stroke:#24405e;stroke-width:1.4;opacity:.6}
+.lp{fill:url(#lpGrad);stroke:#3f77a8;stroke-width:1.75;filter:drop-shadow(0 10px 24px rgba(0,0,0,.45))}
+.lake-label{font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;fill:#5b7495;opacity:.55}
+.city-label{font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:.06em;fill:#9fb3cc}
+.se-box{fill:rgba(255,107,26,.05);stroke:var(--orange);stroke-width:1.1;stroke-dasharray:4 4;opacity:.75}
+.inset-bg{fill:#0d2947;stroke:var(--orange);stroke-width:1.1;stroke-dasharray:4 4;opacity:.97}
+.inset-title{font-family:'Inter',sans-serif;font-size:8.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;fill:var(--orange)}
+.mini-dot{fill:var(--orange);opacity:.8;pointer-events:none}
+.mini-star{fill:var(--orange);opacity:.9;pointer-events:none}
+.pin circle.dot{fill:var(--orange);stroke:#fff;stroke-width:1.5;cursor:pointer;transition:r .15s ease,filter .15s ease;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.pin:hover circle.dot,.pin:focus circle.dot,.pin.active circle.dot{r:8;filter:drop-shadow(0 0 10px rgba(255,107,26,.9))}
+.pin{outline:none;cursor:pointer}
+.pin .halo{fill:var(--orange);opacity:.28;transform-origin:center;transform-box:fill-box;animation:pulse 2.6s ease-out infinite;pointer-events:none}
+@keyframes pulse{0%{transform:scale(1);opacity:.35}70%{transform:scale(2.6);opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.pin .halo{animation:none;opacity:0}}
+.hq .star{fill:var(--orange);stroke:#fff;stroke-width:.8;filter:drop-shadow(0 2px 5px rgba(0,0,0,.6));transition:filter .15s ease}
+.hq:hover .star,.hq:focus .star,.hq.active .star{filter:drop-shadow(0 0 10px rgba(255,107,26,.9))}
+.tip{position:absolute;pointer-events:none;z-index:5;width:232px;background:#fff;color:var(--ink);border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.45);overflow:hidden;transform:translate(-50%,-100%);opacity:0;transition:opacity .12s ease}
+.tip.below{transform:translate(-50%,0)}
+.tip.on{opacity:1}
+.tip img{width:100%;height:116px;object-fit:cover;display:block;background:#dde3ea}
+.tip .body{padding:12px 14px;text-align:left}
+.tip .name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.12rem;line-height:1.05;color:var(--navy);text-transform:uppercase}
+.tip .city{font-size:.78rem;color:var(--orange);font-weight:700;letter-spacing:.04em;margin:2px 0 8px}
+.tip .install{font-size:.84rem;color:#3d4855;line-height:1.35}
+.tip .brand{font-size:.72rem;color:#8791a0;margin-top:8px;border-top:1px solid var(--line);padding-top:7px}
+.legend{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:center;align-items:center;margin-top:34px;color:#9fb3cc;font-size:.88rem;font-weight:600}
+.legend .k{display:inline-flex;align-items:center;gap:8px}
+.legend .kd{width:12px;height:12px;border-radius:50%;background:var(--orange);border:1.5px solid #fff;flex:none}
+.legend .ks{color:var(--orange);font-size:1.1rem;line-height:1}
+.legend .kb{width:16px;height:12px;border:1.5px dashed var(--orange);border-radius:3px;opacity:.8;flex:none}
+.stat{margin-top:8px;color:#7f93ad;font-size:.82rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+<section class="map-sec">
+  <div class="wrap">
+    <span class="eyebrow">Our Work Across Michigan</span>
+    <h2>We don't just serve Michigan.<br><span class="or">We're all over it.</span></h2>
+    <p class="sub">A dozen recent gymnasium and athletic installs — from Ann Arbor to Kalamazoo to the shores of Saginaw Bay. Hover or tap any pin to see the project.</p>
+    <div class="map-wrap">
+      <svg class="mi-map" viewBox="0 0 500 490" role="img" aria-label="Map of Michigan showing completed C&M Associates projects, with a zoomed inset of Southeast Michigan">
+        <defs>
+          <linearGradient id="lpGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#17395c"/>
+            <stop offset="1" stop-color="#0f2b48"/>
+          </linearGradient>
+          <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="1" fill="#1b3a5e" opacity=".35"/>
+          </pattern>
+        </defs>
+
+        <rect x="0" y="0" width="500" height="490" fill="url(#dots)" opacity=".5"/>
+
+        <!-- Upper Peninsula (decorative, real outline: Menominee → Escanaba → Manistique → St. Ignace → DeTour → Sault → Whitefish Pt → Grand Marais → Munising → Marquette → Keweenaw → Ontonagon → Ironwood) -->
+        <path class="up" d="M165,199 L179,172 L196,148 L201,134 L208,140 L242,132 L288,120 L308,132 L330,138 L352,131 L376,128 L369,110 L351,88 L316,66 L258,74 L220,94 L177,84 L158,63 L136,64 L117,67 L134,30 L150,10 L126,15 L111,38 L68,58 L26,80 L74,104 L139,142 Z"/>
+
+        <!-- Lower Peninsula (real outline, equirectangular projection: SW corner → Lake Michigan coast → Leelanau → Grand Traverse Bay → Straits → Lake Huron coast → Thumb → Saginaw Bay → Port Huron → Detroit → Monroe → Ohio line) -->
+        <path class="lp" d="M210,467 L229,440 L241,416 L245,386 L237,350 L237,336 L231,292 L237,268 L242,233 L255,216 L270,206 L278,192 L278,227 L290,216 L299,182 L316,178 L318,157 L329,146 L344,156 L381,174 L400,184 L403,203 L411,235 L409,254 L403,268 L398,266 L388,286 L375,300 L377,320 L402,310 L412,293 L428,285 L440,283 L448,300 L454,334 L461,370 L457,382 L455,398 L434,416 L427,424 L418,437 L408,456 L403,470 Z"/>
+
+        <!-- Lake labels -->
+        <text class="lake-label" transform="translate(207,352) rotate(-73)">Lake Michigan</text>
+        <text class="lake-label" x="428" y="232">Lake Huron</text>
+        <text class="lake-label" x="437" y="459">Lake Erie</text>
+
+        <!-- SE Michigan region marker on the statewide map (true positions, decorative) -->
+        <g aria-hidden="true">
+          <rect class="se-box" x="366" y="370" width="66" height="106" rx="7"/>
+          <circle class="mini-dot" cx="383" cy="405" r="2.2"/>
+          <circle class="mini-dot" cx="386" cy="408" r="2.2"/>
+          <circle class="mini-dot" cx="383" cy="383" r="2.2"/>
+          <circle class="mini-dot" cx="387" cy="425" r="2.2"/>
+          <circle class="mini-dot" cx="415" cy="406" r="2.2"/>
+          <circle class="mini-dot" cx="413" cy="426" r="2.2"/>
+          <circle class="mini-dot" cx="418" cy="422" r="2.2"/>
+          <circle class="mini-dot" cx="414" cy="437" r="2.2"/>
+          <circle class="mini-dot" cx="387" cy="465" r="2.2"/>
+        </g>
+
+        <!-- Statewide pins (true positions) -->
+        <g class="pin" tabindex="0" role="button" aria-label="Saginaw Valley State University, University Center" data-name="Saginaw Valley State University" data-city="University Center, MI" data-install="Full indoor practice facility — goal posts, sewn safety netting, and column padding around turf and track." data-brand="Performance Sports / Sportsfield" data-img="photos/hero-svsu.jpg"><circle class="dot" cx="371" cy="323" r="5.5"/></g>
+        <text class="city-label" x="371" y="309" text-anchor="middle">University Center</text>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Kalamazoo College, Kalamazoo" data-name="Kalamazoo College — Hornets" data-city="Kalamazoo, MI" data-install="Custom 'Hornets' divider curtain paired with a Schelde portable competition backstop." data-brand="Schelde / Performance Sports" data-img="photos/hero-kalamazoo.jpg"><circle class="dot" cx="277" cy="420" r="5.5"/></g>
+        <text class="city-label" x="268" y="410" text-anchor="middle">Kalamazoo</text>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Portage North Middle School, Portage" data-name="Portage North Middle School" data-city="Portage, MI" data-install="Complete gym package — ceiling backstop, Daktronics scoreboard, and full custom wall padding." data-brand="Daktronics / Performance Sports" data-img="photos/proj-portage.jpg"><circle class="dot" cx="284" cy="432" r="5.5"/></g>
+        <text class="city-label" x="288" y="447" text-anchor="middle">Portage</text>
+
+        <!-- Southeast Michigan inset (zoomed) -->
+        <rect class="inset-bg" x="20" y="195" width="150" height="255" rx="10"/>
+        <text class="inset-title" x="95" y="211" text-anchor="middle">SE Michigan · Zoomed</text>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Linden High School, Linden" data-name="Linden High School — Eagles" data-city="Linden, MI" data-install="Ceiling-suspended backstop, wall-mounted scoreboard, and retractable batting-cage netting." data-brand="Gared / Daktronics" data-img="photos/proj-linden.jpg"><circle class="dot" cx="56" cy="237" r="5.5"/></g>
+
+        <g class="pin hq" tabindex="0" role="button" aria-label="C&M Associates headquarters, Brighton" data-name="C&M Associates — Headquarters" data-city="Brighton, MI · Est. 1983" data-install="Family-owned home base since 1983. Our own crews dispatch from here across Michigan." data-brand="Sales · Install · Service · Inspection" data-img="">
+          <circle class="halo" cx="56" cy="287" r="6"/>
+          <path class="star" d="M56,279 l2.7,5.6 6.1,.9 -4.4,4.3 1,6.1 -5.4,-2.9 -5.4,2.9 1,-6.1 -4.4,-4.3 6.1,-.9 Z"/>
+        </g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Shepherd of the Lakes Lutheran, Brighton" data-name="Shepherd of the Lakes Lutheran" data-city="Brighton, MI" data-install="Custom-branded padded scorer's table with possession and bonus indicators for the Storm." data-brand="Performance Sports" data-img="photos/proj-shepherd.jpg"><circle class="dot" cx="43" cy="300" r="5.5"/></g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Brighton Indoor Practice Facility, Brighton" data-name="Brighton Indoor Practice Facility" data-city="Brighton, MI" data-install="Indoor practice facility with sewn goal posts, soccer goals, and full-height divider netting over turf." data-brand="Sportsfield / Performance Sports" data-img="photos/proj-brighton.jpg"><circle class="dot" cx="69" cy="275" r="5.5"/></g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="University of Michigan North Campus Rec, Ann Arbor" data-name="University of Michigan — North Campus Rec" data-city="Ann Arbor, MI" data-install="Mesh gym divider curtain and wall-mounted glass backstops over the block-M court." data-brand="Performance Sports Systems" data-img="photos/hero-uofm.jpg"><circle class="dot" cx="64" cy="329" r="5.5"/></g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Wylie E. Groves High School, Beverly Hills" data-name="Wylie E. Groves High School" data-city="Beverly Hills, MI" data-install="Multi-court ceiling-suspended basketball backstops with motorized lift in the competition fieldhouse." data-brand="Performance Sports Systems" data-img="photos/hero-groves.jpg"><circle class="dot" cx="129" cy="288" r="5.5"/></g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Wayne County Community College District" data-name="Wayne County Community College District" data-city="Wayne County, MI" data-install="Gared portable competition backstop with tempered-glass backboard and integrated Daktronics shot clock." data-brand="Gared / Daktronics" data-img="photos/proj-wcccd.jpg"><circle class="dot" cx="124" cy="331" r="5.5"/></g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Edsel Ford High School, Dearborn" data-name="Edsel Ford High School" data-city="Dearborn, MI" data-install="Custom-printed 'Welcome to Edsel Ford' wall padding with a wall-mounted glass backstop." data-brand="Performance Sports Systems" data-img="photos/proj-edselford.jpg"><circle class="dot" cx="137" cy="322" r="5.5"/></g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Woodhaven High School, Woodhaven" data-name="Woodhaven High School — Warriors" data-city="Woodhaven, MI" data-install="Custom dugout rail padding and field protection for the baseball complex." data-brand="Performance Sports" data-img="photos/proj-woodhaven.jpg"><circle class="dot" cx="127" cy="356" r="5.5"/></g>
+
+        <g class="pin" tabindex="0" role="button" aria-label="Whiteford High School, Ottawa Lake" data-name="Whiteford High School — Bobcats" data-city="Ottawa Lake, MI" data-install="Pair of ceiling-suspended glass backstops over a freshly finished navy-and-gold court." data-brand="Performance Sports Systems" data-img="photos/proj-whiteford.jpg"><circle class="dot" cx="64" cy="427" r="5.5"/></g>
+      </svg>
+
+      <div class="tip" id="tip" aria-hidden="true">
+        <img id="tip-img" alt="" src="">
+        <div class="body">
+          <div class="name" id="tip-name"></div>
+          <div class="city" id="tip-city"></div>
+          <div class="install" id="tip-install"></div>
+          <div class="brand" id="tip-brand"></div>
+        </div>
+      </div>
+    </div>
+    <div class="legend">
+      <span class="k"><span class="kd"></span> Completed project</span>
+      <span class="k"><span class="ks">★</span> C&amp;M HQ — Brighton</span>
+      <span class="k"><span class="kb"></span> Southeast Michigan, zoomed</span>
+    </div>
+    <div class="stat">12 recent projects · 10 Michigan communities · real installs, real photos</div>
+    <ul class="sr-only">
+      <li>University of Michigan — North Campus Rec, Ann Arbor</li>
+      <li>Saginaw Valley State University, University Center</li>
+      <li>Wylie E. Groves High School, Beverly Hills</li>
+      <li>Kalamazoo College, Kalamazoo</li>
+      <li>Wayne County Community College District</li>
+      <li>Portage North Middle School, Portage</li>
+      <li>Linden High School, Linden</li>
+      <li>Edsel Ford High School, Dearborn</li>
+      <li>Whiteford High School, Ottawa Lake</li>
+      <li>Shepherd of the Lakes Lutheran, Brighton</li>
+      <li>Brighton Indoor Practice Facility, Brighton</li>
+      <li>Woodhaven High School, Woodhaven</li>
+    </ul>
+  </div>
+</section>
+<script>
+const tip = document.getElementById('tip');
+const el = { img:document.getElementById('tip-img'), name:document.getElementById('tip-name'), city:document.getElementById('tip-city'), install:document.getElementById('tip-install'), brand:document.getElementById('tip-brand') };
+const wrap = document.querySelector('.map-wrap');
+let active = null;
+
+el.img.addEventListener('error', ()=>{ el.img.style.display='none'; });
+
+function show(g){
+  active = g;
+  document.querySelectorAll('.pin.active').forEach(p=>p.classList.remove('active'));
+  g.classList.add('active');
+  el.name.textContent = g.dataset.name;
+  el.city.textContent = g.dataset.city;
+  el.install.textContent = g.dataset.install;
+  el.brand.textContent = g.dataset.brand;
+  const img = g.dataset.img;
+  if(img){ el.img.src = img; el.img.style.display='block'; } else { el.img.style.display='none'; }
+
+  const r = g.getBoundingClientRect();
+  const w = wrap.getBoundingClientRect();
+  const half = tip.offsetWidth/2 + 6 || 122;
+  let x = r.left + r.width/2 - w.left;
+  x = Math.max(half, Math.min(w.width - half, x));
+  tip.style.left = x + 'px';
+  tip.classList.remove('below');
+  tip.style.top = (r.top - w.top - 10) + 'px';
+  tip.classList.add('on');
+  // flip below the pin if the card would poke off the top
+  requestAnimationFrame(()=>{
+    const th = tip.offsetHeight;
+    if (r.top - w.top - th - 12 < 0){
+      tip.classList.add('below');
+      tip.style.top = (r.bottom - w.top + 10) + 'px';
+    }
+  });
+}
+function hide(){
+  tip.classList.remove('on');
+  if(active){ active.classList.remove('active'); active = null; }
+}
+document.querySelectorAll('.pin').forEach(g=>{
+  g.addEventListener('mouseenter',()=>show(g));
+  g.addEventListener('mouseleave',hide);
+  g.addEventListener('focus',()=>show(g));
+  g.addEventListener('blur',hide);
+  g.addEventListener('click',e=>{ e.stopPropagation(); active===g ? hide() : show(g); });
+});
+document.addEventListener('click',hide);
+</script>
+</body>
+</html>

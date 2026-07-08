@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — C&amp;M Associates · Gymnasium Equipment &amp; Scoreboards Across Michigan</title>
+<meta name="description" content="Browse C&amp;M Associates' portfolio of completed gymnasium equipment installations — basketball backstops, scoreboards, divider curtains, wall padding, and field equipment across Michigan since 1983.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2A4D;
+    --navy-deep:#081B33;
+    --orange:#FF6B1A;
+    --orange-hover:#E05A12;
+    --bg:#FFFFFF;
+    --surface:#F5F6F8;
+    --ink:#0F1923;
+    --ink-muted:#5A6573;
+    --line:#E4E7EC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;color:var(--navy)}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1440px;margin:0 auto;padding:0 32px}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px;max-width:1440px;margin:0 auto;padding:0 32px}
+  .logo{display:inline-block}
+  .logo img{height:54px;width:auto;display:block}
+  .nav-links{display:flex;gap:36px;align-items:center}
+  .nav-links a{font-size:14px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;transition:color .15s}
+  .nav-links a:hover{color:var(--orange)}
+  .btn{display:inline-block;padding:14px 28px;background:var(--orange);color:#fff;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.08em;border-radius:2px;border:none;cursor:pointer;transition:background .15s;text-align:center}
+  .btn:hover{background:var(--orange-hover)}
+  .btn-navy{background:var(--navy)}
+  .btn-navy:hover{background:var(--navy-deep)}
+
+  /* PAGE HERO */
+  .page-hero{background:var(--navy);color:#fff;padding:90px 0 50px;position:relative;overflow:hidden}
+  .page-hero::before{content:'';position:absolute;inset:0;background:url('photos/hero-uofm.jpg') center/cover no-repeat;opacity:.22}
+  .page-hero-inner{position:relative;z-index:2}
+  .crumb{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);font-weight:700;margin-bottom:16px}
+  .page-hero h1{font-size:clamp(48px,7vw,84px);color:#fff;margin-bottom:18px;max-width:900px}
+  .page-hero p{font-size:18px;color:rgba(255,255,255,.8);max-width:680px}
+
+  /* FILTER BAR */
+  .filter-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:78px;z-index:40;padding:24px 0}
+  .filter-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .filter-chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{padding:9px 18px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-muted);cursor:pointer;transition:all .15s;border-radius:2px}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .filter-count{font-size:14px;color:var(--ink-muted)}
+  .filter-count strong{color:var(--ink);font-weight:700}
+
+  /* GRID */
+  .grid-section{padding:48px 0 100px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:#fff;border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(15,42,77,.13);border-color:transparent}
+  .card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0A1F3D}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .card:hover .card-img img{transform:scale(1.06)}
+  .card-tag{position:absolute;top:14px;left:14px;background:var(--orange);color:#fff;padding:6px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border-radius:2px}
+  .card-body{padding:22px 24px 26px}
+  .card-meta{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-muted);font-weight:600;margin-bottom:8px}
+  .card h3{font-size:22px;line-height:1.15;margin-bottom:10px;color:var(--navy)}
+  .card p{font-size:14px;color:var(--ink-muted);line-height:1.55}
+  .card-scope{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .scope-tag{font-size:11px;padding:4px 10px;background:var(--surface);color:var(--ink);border-radius:2px;font-weight:600}
+
+  /* CTA BANNER */
+  .cta-banner{background:var(--navy-deep);color:#fff;padding:80px 0;text-align:center;margin-top:80px}
+  .cta-banner h2{font-size:clamp(36px,5vw,56px);color:#fff;margin-bottom:18px}
+  .cta-banner p{font-size:18px;color:rgba(255,255,255,.75);max-width:600px;margin:0 auto 32px}
+
+  /* LIGHTBOX */
+  .lightbox{position:fixed;inset:0;background:rgba(8,15,29,.95);z-index:100;display:none;align-items:center;justify-content:center;padding:40px;backdrop-filter:blur(6px)}
+  .lightbox.active{display:flex}
+  .lightbox-inner{max-width:1100px;width:100%;background:#0E1A2D;color:#fff;display:grid;grid-template-columns:1.5fr 1fr;max-height:90vh;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+  .lightbox-img{background:#000;display:flex;align-items:center;justify-content:center}
+  .lightbox-img img{max-width:100%;max-height:90vh;object-fit:contain}
+  .lightbox-info{padding:48px 40px;overflow-y:auto}
+  .lightbox-info .crumb{margin-bottom:12px}
+  .lightbox-info h3{font-size:36px;color:#fff;margin-bottom:14px}
+  .lightbox-info p{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:24px;line-height:1.65}
+  .spec-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px}
+  .spec-row span:first-child{color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:600}
+  .spec-row span:last-child{color:#fff;font-weight:600}
+  .lightbox-close{position:absolute;top:24px;right:24px;background:transparent;color:#fff;border:none;font-size:32px;cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;line-height:1}
+  .lightbox-close:hover{color:var(--orange)}
+
+  /* FOOTER */
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:60px 0 32px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+  .foot-logo{margin-bottom:16px}
+  .foot-logo img{height:60px;width:auto;display:block;filter:brightness(0) invert(1) opacity(.95)}
+  .foot-tag{font-size:14px;line-height:1.7;color:rgba(255,255,255,.6);max-width:340px}
+  footer h5{font-family:'Barlow Condensed',sans-serif;font-size:16px;text-transform:uppercase;letter-spacing:.1em;color:#fff;margin-bottom:20px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:10px;font-size:14px}
+  footer a:hover{color:var(--orange)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.45)}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr}
+    .filter-bar{position:static}
+    .filter-inner{flex-direction:column;align-items:flex-start}
+    .lightbox-inner{grid-template-columns:1fr;max-height:95vh;overflow-y:auto}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .nav-links a:not(.btn){display:none}
+  }
+  /* ===== WIDGETS ===== */
+  .fab-stack{position:fixed;bottom:24px;right:24px;z-index:60;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+  .fab{background:var(--orange);color:#fff;border:none;padding:14px 22px;border-radius:48px;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 8px 24px rgba(255,107,26,.4);display:flex;align-items:center;gap:10px;transition:transform .15s,background .15s;font-family:inherit}
+  .fab:hover{background:var(--orange-hover);transform:translateY(-2px)}
+  .fab.navy{background:var(--navy);box-shadow:0 8px 24px rgba(15,42,77,.4)}
+  .fab.navy:hover{background:var(--navy-deep)}
+  .fab-icon{font-size:18px}
+  .wmodal{position:fixed;inset:0;background:rgba(8,15,29,.85);z-index:110;display:none;align-items:center;justify-content:center;padding:32px;backdrop-filter:blur(8px)}
+  .wmodal.active{display:flex}
+  .wmodal-card{background:#fff;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;position:relative;border-top:6px solid var(--orange)}
+  .wmodal-close{position:absolute;top:14px;right:14px;background:transparent;border:none;font-size:28px;cursor:pointer;color:var(--ink-muted);width:36px;height:36px;display:flex;align-items:center;justify-content:center;line-height:1}
+  .wmodal-close:hover{color:var(--ink)}
+  .wmodal-body{padding:48px 44px 44px}
+  .wmodal-eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--orange);font-weight:700;margin-bottom:14px}
+  .wmodal-body h3{font-size:32px;line-height:1.1;margin-bottom:14px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;color:var(--navy);font-weight:700}
+  .wmodal-body .lead{font-size:16px;color:var(--ink-muted);margin-bottom:28px}
+  .oauth-stack{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+  .oauth-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s;width:100%;font-family:inherit}
+  .oauth-btn:hover{border-color:var(--navy);background:var(--surface)}
+  .oauth-btn svg{width:20px;height:20px;flex-shrink:0}
+  .oauth-divider{display:flex;align-items:center;gap:12px;margin:18px 0;color:var(--ink-muted);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+  .oauth-divider::before,.oauth-divider::after{content:'';flex:1;height:1px;background:var(--line)}
+  .oauth-fine{font-size:12px;color:var(--ink-muted);text-align:center;margin-top:14px}
+  .chat-panel{position:fixed;bottom:24px;right:24px;width:400px;height:600px;max-height:80vh;background:#fff;z-index:90;display:none;flex-direction:column;border:1px solid var(--line);box-shadow:0 24px 60px rgba(15,42,77,.25);border-radius:6px;overflow:hidden}
+  .chat-panel.active{display:flex}
+  .chat-header{background:var(--navy);color:#fff;padding:18px 22px;display:flex;align-items:center;justify-content:space-between}
+  .chat-header h4{color:#fff;font-size:18px;margin:0;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
+  .chat-header .status{font-size:12px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:6px}
+  .chat-header .dot{width:8px;height:8px;background:#22C55E;border-radius:50%}
+  .chat-close{background:transparent;border:none;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+  .chat-msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;background:var(--surface)}
+  .msg{padding:12px 16px;border-radius:14px;font-size:14px;max-width:85%;line-height:1.5}
+  .msg.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+  .msg.user{background:var(--navy);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+  .chat-suggestions{padding:0 20px 12px;display:flex;flex-wrap:wrap;gap:6px;background:var(--surface)}
+  .chat-suggest{padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:14px;font-size:12px;cursor:pointer;color:var(--navy);font-weight:500;font-family:inherit}
+  .chat-suggest:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chat-input{padding:14px 16px;border-top:1px solid var(--line);background:#fff;display:flex;gap:8px}
+  .chat-input input{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit;outline:none}
+  .chat-input input:focus{border-color:var(--orange)}
+  .chat-input button{padding:12px 18px;background:var(--orange);color:#fff;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-family:inherit}
+  .cal-modal-card{max-width:780px}
+  .cal-body{padding:44px 44px 40px}
+  .cal-body h3{font-size:32px;margin-bottom:14px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;color:var(--navy);font-weight:700}
+  .cal-body .lead{font-size:15px;color:var(--ink-muted);margin-bottom:32px}
+  .cal-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:32px}
+  .cal-meet-info{padding:24px;background:var(--surface);border-left:4px solid var(--orange)}
+  .cal-meet-info .meta{display:flex;gap:10px;margin-bottom:14px;font-size:14px;color:var(--ink-muted);align-items:center}
+  .cal-meet-info .meta strong{color:var(--ink);font-weight:600}
+  .cal-meet-info h4{font-size:20px;margin-bottom:14px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;color:var(--navy)}
+  .cal-days{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+  .cal-day{padding:10px;background:#fff;border:1px solid var(--line);text-align:center;font-size:13px;cursor:pointer;font-weight:600}
+  .cal-day:hover{border-color:var(--navy)}
+  .cal-day.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .cal-day .dow{display:block;font-size:10px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+  .cal-day.active .dow{color:rgba(255,255,255,.7)}
+  .cal-slots{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;max-height:200px;overflow-y:auto}
+  .cal-slot{padding:10px;background:#fff;border:1px solid var(--line);text-align:center;font-size:13px;cursor:pointer;font-weight:600}
+  .cal-slot:hover{border-color:var(--orange);color:var(--orange)}
+  .cal-slot.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+  .cal-form{margin-top:18px}
+  .cal-form label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);margin-bottom:6px}
+  .cal-form input,.cal-form select,.cal-form textarea{width:100%;padding:12px 14px;border:1px solid var(--line);font-size:14px;font-family:inherit;margin-bottom:12px;outline:none}
+  .cal-form input:focus,.cal-form select:focus,.cal-form textarea:focus{border-color:var(--orange)}
+  @media (max-width:900px){.chat-panel{width:calc(100vw - 24px);right:12px;bottom:12px;height:75vh}.fab-stack{bottom:12px;right:12px}.cal-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="CandM_Logo.png" alt="C&amp;M Associates"></a>
+    <div class="nav-links">
+      <a href="index.html#services">What We Do</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="index.html#brands">Vendors</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#quote">Contact</a>
+      <a href="index.html#quote" class="btn">Request a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="crumb">Home · Projects</div>
+    <h1>Built In Michigan. Installed Across The State.</h1>
+    <p>Forty-three years of installations. Thousands of completed projects — from University of Michigan and Saginaw Valley State to your local middle school. Browse a selection of our work: backstops, scoreboards, divider curtains, wall padding, and field equipment across Michigan.</p>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <div class="container filter-inner">
+    <div class="filter-chips" id="chips">
+      <button class="chip active" data-filter="all">All Projects</button>
+      <button class="chip" data-filter="backstop">Backstops</button>
+      <button class="chip" data-filter="score">Scoreboards</button>
+      <button class="chip" data-filter="divider">Divider Curtains</button>
+      <button class="chip" data-filter="padding">Wall Padding</button>
+      <button class="chip" data-filter="field">Outdoor &amp; Field</button>
+    </div>
+    <div class="filter-count">Showing <strong id="count">17</strong> projects</div>
+  </div>
+</div>
+
+<section class="grid-section">
+  <div class="container">
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>Want Your Project On This Wall?</h2>
+    <p>Tell us what you're building, replacing, or repairing. We'll send you a real plan — not a brochure.</p>
+    <a href="index.html#quote" class="btn">Request a Quote</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo"><img src="CandM_Logo.png" alt="C&amp;M Associates"></div>
+        <p class="foot-tag">Michigan's gymnasium equipment authority since 1983. Sales · Installation · Service. Family-owned in Brighton, MI.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html#services">What We Do</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#brands">Vendors</a></li>
+          <li><a href="index.html#quote">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Brands</h5>
+        <ul>
+          <li><a href="https://www.perfsports.com" target="_blank" rel="noopener">Gared / Performance Sports</a></li>
+          <li><a href="https://www.daktronics.com" target="_blank" rel="noopener">Daktronics</a></li>
+          <li><a href="https://www.dollamur.com" target="_blank" rel="noopener">Dollamur</a></li>
+          <li><a href="https://www.sportsfield.com" target="_blank" rel="noopener">Sportsfield Specialties</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+18102205335">(810) 220-5335</a></li>
+          <li><a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></li>
+          <li><a href="https://maps.google.com/?q=3637+S+Old+US+Hwy+23,+Brighton,+MI+48114" target="_blank" rel="noopener">Brighton, MI 48114</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 C&amp;M Associates, Inc. All rights reserved.</div>
+      <div>Established 1983 · Brighton, MI</div>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-img"><img id="lbImg" src="" alt=""></div>
+    <div class="lightbox-info">
+      <div class="crumb" id="lbCrumb"></div>
+      <h3 id="lbTitle"></h3>
+      <p id="lbDesc"></p>
+      <div class="spec-row"><span>Facility</span><span id="lbFac">—</span></div>
+      <div class="spec-row"><span>Location</span><span id="lbLoc">—</span></div>
+      <div class="spec-row"><span>Category</span><span id="lbCat">—</span></div>
+      <div class="spec-row"><span>Brand</span><span id="lbBrand">—</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// PROJECT DATA — real C&M installs (photos from Tyler, S139).
+// WIRE (Ben/Chris pre-launch): verify locations marked (verify) + add install years; confirm Spartan Gymnasium attribution.
+const projects = [
+  {img:'photos/hero-uofm.jpg', cat:'divider', tags:['backstop'], title:'Divider Curtain & Wall-Mount Backstops', meta:'Divider Curtains · Backstops', desc:'Mesh gym divider curtain and wall-mounted glass backstop over the block-M court at Michigan’s North Campus Recreation Building.', facility:'University of Michigan — North Campus Rec', location:'Ann Arbor, MI', brand:'Performance Sports Systems'},
+  {img:'photos/hero-svsu.jpg', cat:'field', tags:['padding'], title:'Indoor Football & Track Facility', meta:'Outdoor & Field · Indoor Turf', desc:'Full indoor practice facility — goal posts, sewn safety netting, and column padding surrounding the turf and competition track.', facility:'Saginaw Valley State University', location:'University Center, MI', brand:'Performance Sports / Sportsfield'},
+  {img:'photos/hero-groves.jpg', cat:'backstop', tags:['divider'], title:'Ceiling-Suspended Backstops', meta:'Backstops · Fieldhouse', desc:'Multi-court ceiling-suspended basketball backstops with motorized lift across the Falcons competition fieldhouse.', facility:'Wylie E. Groves High School', location:'Beverly Hills, MI', brand:'Performance Sports Systems'},
+  {img:'photos/hero-kalamazoo.jpg', cat:'divider', tags:['backstop'], title:'Branded Divider Curtain & Portable Backstop', meta:'Divider Curtains · Backstops', desc:'Custom "Hornets" divider curtain paired with a Schelde portable competition backstop for the college gymnasium.', facility:'Kalamazoo College — Hornets', location:'Kalamazoo, MI', brand:'Schelde / Performance Sports'},
+  {img:'photos/proj-wcccd.jpg', cat:'backstop', tags:['score'], title:'Portable Backstop & Shot Clock', meta:'Backstops · Scoreboards', desc:'Gared portable competition backstop with tempered-glass backboard and integrated Daktronics shot clock and scoreboard.', facility:'Wayne County Community College District', location:'Wayne County, MI', brand:'Gared / Daktronics'},
+  {img:'photos/proj-portage.jpg', cat:'score', tags:['backstop','padding'], title:'Scoreboard, Backstop & Wall Padding', meta:'Scoreboards · Padding', desc:'Complete gym package — ceiling backstop, Daktronics scoreboard, and full custom wall padding in Husky orange.', facility:'Portage North Middle School', location:'Portage, MI', brand:'Daktronics / Performance Sports'},
+  {img:'photos/proj-linden.jpg', cat:'backstop', tags:['score'], title:'Backstop, Scoreboard & Batting Cage', meta:'Backstops · Scoreboards', desc:'Ceiling-suspended backstop, wall-mounted scoreboard, and retractable batting-cage netting for the Eagles gym.', facility:'Linden High School', location:'Linden, MI', brand:'Gared / Daktronics'},
+  {img:'photos/proj-linden-pads.jpg', cat:'padding', tags:[], title:'Full-Perimeter Wall Padding', meta:'Wall Padding', desc:'Wall-to-wall safety padding install wrapping a new multipurpose competition space.', facility:'Linden High School', location:'Linden, MI', brand:'Performance Sports Systems'},
+  {img:'photos/proj-edselford.jpg', cat:'padding', tags:['backstop'], title:'Custom Wall Padding & Backstop', meta:'Wall Padding · Backstops', desc:'Custom-printed "Welcome to Edsel Ford" wall padding with a wall-mounted glass backstop.', facility:'Edsel Ford High School', location:'Dearborn, MI', brand:'Performance Sports Systems'},
+  {img:'photos/proj-whiteford.jpg', cat:'backstop', tags:[], title:'Ceiling-Suspended Backstops', meta:'Backstops · Gymnasium', desc:'Pair of ceiling-suspended glass backstops over a freshly finished navy-and-gold Bobcats court.', facility:'Whiteford High School', location:'Ottawa Lake, MI (verify)', brand:'Performance Sports Systems'},
+  {img:'photos/proj-hollingworth.jpg', cat:'backstop', tags:[], title:'Portable Competition Backstop', meta:'Backstops · Gymnasium', desc:'Gared portable backstop with school-branded base padding for the Patriots gymnasium.', facility:'Hollingworth School — Patriots', location:'Michigan (verify)', brand:'Gared'},
+  {img:'photos/proj-spartan.jpg', cat:'backstop', tags:[], title:'Ceiling-Suspended Backstop', meta:'Backstops · Gymnasium', desc:'Ceiling-suspended glass backstop over a Spartan center-court logo.', facility:'Spartan Gymnasium (verify)', location:'Michigan (verify)', brand:'Gared'},
+  {img:'photos/proj-shepherd.jpg', cat:'score', tags:['padding'], title:'Custom Padded Scorer’s Table', meta:'Scoreboards · Scorer’s Table', desc:'Custom-branded padded scorer’s table with possession and bonus indicators for the Storm.', facility:'Shepherd of the Lakes Lutheran', location:'Brighton, MI', brand:'Performance Sports'},
+  {img:'photos/proj-brighton.jpg', cat:'field', tags:[], title:'Indoor Goal Posts & Sewn Netting', meta:'Outdoor & Field · Indoor Turf', desc:'Indoor practice facility with sewn goal posts, soccer goals, and full-height divider netting over the turf.', facility:'Brighton Indoor Practice Facility', location:'Brighton, MI', brand:'Sportsfield / Performance Sports'},
+  {img:'photos/proj-fairbanks.jpg', cat:'field', tags:['backstop'], title:'Outdoor In-Ground Backstop', meta:'Outdoor & Field · Backstops', desc:'Gared in-ground basketball system with adjustable glass backboard on a lakeside residential court.', facility:'Private Residence', location:'Michigan', brand:'Gared'},
+  {img:'photos/proj-woodhaven.jpg', cat:'field', tags:['padding'], title:'Baseball Dugout Rail Padding', meta:'Outdoor & Field · Padding', desc:'Custom dugout rail padding and field protection for the Warriors baseball complex.', facility:'Woodhaven High School', location:'Woodhaven, MI', brand:'Performance Sports'},
+  {img:'photos/proj-svsu-track.jpg', cat:'padding', tags:['field'], title:'Indoor Track Column Padding', meta:'Wall Padding · Indoor Track', desc:'Structural column padding lining the banked competition track at the university’s indoor athletic complex.', facility:'Saginaw Valley State University', location:'University Center, MI', brand:'Performance Sports'},
+];
+
+const grid = document.getElementById('grid');
+const countEl = document.getElementById('count');
+
+const CAT_LABEL = {backstop:'Backstops', score:'Scoreboards', divider:'Divider Curtains', padding:'Wall Padding', field:'Outdoor & Field'};
+function render(filter='all'){
+  const items = projects.filter(p => filter==='all' || p.cat===filter || (p.tags||[]).includes(filter));
+  countEl.textContent = items.length;
+  grid.innerHTML = items.map((p,i) => `
+    <div class="card" data-i="${projects.indexOf(p)}">
+      <div class="card-img">
+        <span class="card-tag">${CAT_LABEL[p.cat]||'Project'}</span>
+        <img src="${p.img}" alt="${p.title} — ${p.facility}" loading="lazy">
+      </div>
+      <div class="card-body">
+        <div class="card-meta">${p.meta}</div>
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="card-scope">
+          <span class="scope-tag">${p.facility}</span>
+          <span class="scope-tag">${p.brand}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('click', e => openLightbox(+c.dataset.i)));
+}
+
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', e => {
+  document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+  c.classList.add('active');
+  render(c.dataset.filter);
+}));
+
+const lb = document.getElementById('lightbox');
+function openLightbox(i){
+  const p = projects[i];
+  document.getElementById('lbImg').src = p.img;
+  document.getElementById('lbCrumb').textContent = p.meta;
+  document.getElementById('lbTitle').textContent = p.title;
+  document.getElementById('lbDesc').textContent = p.desc;
+  document.getElementById('lbFac').textContent = p.facility;
+  document.getElementById('lbLoc').textContent = p.location;
+  document.getElementById('lbCat').textContent = CAT_LABEL[p.cat] || 'Project';
+  document.getElementById('lbBrand').textContent = p.brand;
+  lb.classList.add('active');
+}
+function closeLightbox(){ lb.classList.remove('active'); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+
+render();
+</script>
+
+<!-- ===== SHARED WIDGETS ===== -->
+<div class="fab-stack">
+  <button class="fab navy" onclick="openCalendar()"><span class="fab-icon">📅</span> Book Ben</button>
+  <button class="fab" onclick="openChat()"><span class="fab-icon">💬</span> Ask Our AI</button>
+</div>
+
+<div class="wmodal" id="exitModal" onclick="if(event.target===this)closeExit()">
+  <div class="wmodal-card">
+    <button class="wmodal-close" onclick="closeExit()">×</button>
+    <div class="wmodal-body">
+      <div class="wmodal-eyebrow">Free · For Athletic Directors &amp; Facility Managers</div>
+      <h3>Is Your Backstop Safe? Get The 12-Point Safety Checklist Ben's Crews Use On Every Inspection.</h3>
+      <p class="lead">A liability-grade PDF you can run before your next home game. No spam. One email.</p>
+      <div class="oauth-stack">
+        <button class="oauth-btn" onclick="captureLead('google')"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.5-5.9 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.4 0-10-3.5-11.6-8.4l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.6l6.2 5.2C41.4 35.4 44 30.1 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Continue with Google</button>
+        <button class="oauth-btn" onclick="captureLead('microsoft')"><svg viewBox="0 0 23 23"><path fill="#F25022" d="M1 1h10v10H1z"/><path fill="#7FBA00" d="M12 1h10v10H12z"/><path fill="#00A4EF" d="M1 12h10v10H1z"/><path fill="#FFB900" d="M12 12h10v10H12z"/></svg>Continue with Microsoft</button>
+      </div>
+      <div class="oauth-divider">or</div>
+      <button class="btn btn-navy" style="width:100%" onclick="captureLead('email')">Email Me The Checklist</button>
+      <p class="oauth-fine">We respect your inbox. Unsubscribe anytime. C&amp;M Associates · Brighton, MI</p>
+    </div>
+  </div>
+</div>
+
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <div><h4>C&amp;M Equipment AI</h4><div class="status"><span class="dot"></span> Trained on every product we sell</div></div>
+    <button class="chat-close" onclick="closeChat()">×</button>
+  </div>
+  <div class="chat-msgs" id="chatMsgs">
+    <div class="msg bot">Hi — I'm the C&amp;M Equipment AI. Ask me anything about Daktronics scoreboards, Gared / Performance Sports backstops and divider curtains, Sportsfield field equipment, or Dollamur wrestling mats. I can also book you a meeting with Ben directly.</div>
+  </div>
+  <div class="chat-suggestions">
+    <button class="chat-suggest" onclick="askAI('Daktronics scoreboard options?')">Daktronics options</button>
+    <button class="chat-suggest" onclick="askAI('How long does a backstop install take?')">Install timelines</button>
+    <button class="chat-suggest" onclick="askAI('Do you do safety inspections?')">Safety inspections</button>
+    <button class="chat-suggest" onclick="openCalendar()">Book Ben</button>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask about any product or service…" onkeydown="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()">Send</button>
+  </div>
+</div>
+
+<div class="wmodal" id="calModal" onclick="if(event.target===this)closeCalendar()">
+  <div class="wmodal-card cal-modal-card">
+    <button class="wmodal-close" onclick="closeCalendar()">×</button>
+    <div class="cal-body">
+      <div class="wmodal-eyebrow">30-Minute Working Conversation</div>
+      <h3>Book Ben Hurst</h3>
+      <p class="lead">No sales pitch. Bring your facility specs, timeline, or just questions. Ben's a real person and shows up on time.</p>
+      <div class="cal-grid">
+        <div class="cal-meet-info">
+          <h4>What To Expect</h4>
+          <div class="meta">⏱ <strong>30 minutes</strong></div>
+          <div class="meta">📍 <strong>Video or phone</strong></div>
+          <div class="meta">👤 <strong>Ben Hurst, Owner</strong></div>
+          <div class="meta">📅 <strong>Calendar invite sent immediately</strong></div>
+          <p style="margin-top:16px;font-size:14px;color:var(--ink-muted)">Ben gets an email notification with your details, your selected time, and a meeting link the moment you confirm.</p>
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);margin-bottom:8px">Pick A Day</label>
+          <div class="cal-days" id="calDays"></div>
+          <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);margin:14px 0 8px">Available Times</label>
+          <div class="cal-slots" id="calSlots"></div>
+          <form class="cal-form" onsubmit="event.preventDefault();bookMeeting()">
+            <label>Your Name</label><input type="text" required>
+            <label>Email</label><input type="email" required>
+            <label>Phone (optional)</label><input type="tel">
+            <label>What's the project about?</label><textarea rows="2" placeholder="New gym build, scoreboard replacement, safety inspection…"></textarea>
+            <button class="btn" type="submit" style="width:100%">Confirm Booking</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let exitShown = sessionStorage.getItem('cm_exit_shown') === '1';
+document.addEventListener('mouseout', e => {
+  if (exitShown) return;
+  if (!e.relatedTarget && e.clientY <= 0) {
+    document.getElementById('exitModal').classList.add('active');
+    sessionStorage.setItem('cm_exit_shown', '1');
+    exitShown = true;
+  }
+});
+function closeExit(){ document.getElementById('exitModal').classList.remove('active'); }
+function captureLead(method){
+  alert('[Demo] OAuth handoff → ' + method + '\n\nReal build: redirect to Google/Microsoft OAuth → return with verified email → log to CRM → send Backstop Safety Checklist PDF + Ben gets new-lead notification.');
+  closeExit();
+}
+function openChat(){ document.getElementById('chatPanel').classList.add('active'); }
+function closeChat(){ document.getElementById('chatPanel').classList.remove('active'); }
+const aiAnswers = {
+  daktronics: "Daktronics indoor scoreboards (BB-2102, BB-2152) handle basketball, volleyball, wrestling — full LED, multi-sport configurable. Exterior models (FB-1422, FB-1624) are weather-rated for football, baseball, soccer with full message centers and animation. We're an authorized dealer and install both. Want me to book a time with Ben to talk specs?",
+  install: "Install timelines depend on the system. A ceiling-suspended or wall-mounted backstop pair is typically 1–2 days. A gym divider curtain runs 1–2 days. Full multi-system packages (backstops + curtain + scoreboard + padding) run about a week. Our own crews handle it start to finish, and we schedule around your school calendar — most jobs land in summer break.",
+  inspection: "Yes — we run annual safety inspections on backstops, gym divider curtains, and scoreboards to the ICC 300-2017 standard. Includes winch, cable, brake, and weld checks per manufacturer specs. Most schools schedule pre-season. Want me to put you on Ben's calendar to scope yours?",
+  default: "I can answer detailed questions about every product we sell — Daktronics scoreboards, Gared / Performance Sports backstops, divider curtains and wall padding, Sportsfield field equipment and goal posts, and Dollamur wrestling mats. Or I can connect you directly with Ben for a working conversation. What would help most?"
+};
+function askAI(q){
+  const msgs = document.getElementById('chatMsgs');
+  msgs.innerHTML += '<div class="msg user">' + q + '</div>';
+  setTimeout(() => {
+    let key = 'default';
+    const low = q.toLowerCase();
+    if (low.includes('daktronics') || low.includes('scoreboard')) key = 'daktronics';
+    else if (low.includes('install') || low.includes('timeline') || low.includes('backstop') || low.includes('curtain') || low.includes('how long')) key = 'install';
+    else if (low.includes('inspect') || low.includes('safety') || low.includes('repair') || low.includes('maintenance')) key = 'inspection';
+    msgs.innerHTML += '<div class="msg bot">' + aiAnswers[key] + '</div>';
+    msgs.scrollTop = msgs.scrollHeight;
+  }, 600);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function sendChat(){
+  const input = document.getElementById('chatInput');
+  if (!input.value.trim()) return;
+  askAI(input.value);
+  input.value = '';
+}
+function openCalendar(){ document.getElementById('calModal').classList.add('active'); renderCal(); }
+function closeCalendar(){ document.getElementById('calModal').classList.remove('active'); }
+function renderCal(){
+  const days = document.getElementById('calDays');
+  const slots = document.getElementById('calSlots');
+  const dows = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let html = '';
+  const today = new Date();
+  for (let i = 1; i <= 6; i++) {
+    const d = new Date(today); d.setDate(today.getDate() + i);
+    if (d.getDay() === 0 || d.getDay() === 6) continue;
+    html += `<div class="cal-day ${i===1?'active':''}" onclick="pickDay(this)"><span class="dow">${dows[d.getDay()]}</span>${d.getMonth()+1}/${d.getDate()}</div>`;
+  }
+  days.innerHTML = html;
+  const times = ['9:00 AM','9:30 AM','10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'];
+  slots.innerHTML = times.map((t,i) => `<div class="cal-slot ${i===2?'active':''}" onclick="pickSlot(this)">${t}</div>`).join('');
+}
+function pickDay(el){ document.querySelectorAll('.cal-day').forEach(d => d.classList.remove('active')); el.classList.add('active'); }
+function pickSlot(el){ document.querySelectorAll('.cal-slot').forEach(s => s.classList.remove('active')); el.classList.add('active'); }
+function bookMeeting(){
+  alert('[Demo] Booking confirmed.\n\nReal build:\n→ Create event on Ben\'s Google/Outlook calendar\n→ Send calendar invite + Zoom/Teams link to customer\n→ Send Ben an immediate email: "New meeting booked — [name, org, project, time]"\n→ CRM record created');
+  closeCalendar();
+}
+</script>
+
+</body>
+</html>

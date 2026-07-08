@@ -5,12 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="robots" content="noindex,nofollow"/>
 <title>Athletic & Gymnasium Equipment Installation in Michigan | C&M Associates — Since 1983</title>
-<meta name="description" content="C&M Associates sells, installs, and services gymnasium equipment across Michigan — backstops, divider curtains, scoreboards, volleyball. Our own crews, no subcontractors, since 1983."/>
-<!-- STATUS: AWAITING-APPROVAL · v3 KitFire rework (S113) · route: gate → Ben -->
-<!-- ASSET GATES (Tyler): hero install photo · 6 project photos · brand logos · catalog data -->
+<meta name="description" content="C&M Associates sells, installs, and services gymnasium equipment across Michigan — backstops, divider curtains, scoreboards, volleyball, wrestling mats. Our own crews, no subcontractors, since 1983."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="C&M Associates — Gymnasium Equipment Sales, Install & Service in Michigan"/>
+<meta property="og:description" content="Family-owned since 1983. Backstops, divider curtains, scoreboards, wrestling mats — sold, installed, and serviced by our own crews across Michigan."/>
+<!-- STATUS: KITFIRE-INTERNAL PROPOSAL · v4 knockout rework (S139, TecHive) · built from LIVE kitfire.ai/preview/cm/ baseline · route: KitFire review (Chris) → Ben -->
+<!-- v4 DELTA vs live: (1) PHONE BUG FIXED → (810) 220-5335 everywhere  (2) trust bar  (3) Why C&M compare block  (4) real quote form (mailto-wired, ready for cart backend)  (5) a11y: skip-link + focus rings  (6) sticky mobile call/quote bar  (7) labeled project gallery ready for Tyler's photos -->
+<!-- ASSET GATES (Tyler): hero install photo · 6 real project photos w/ school+city captions · insurance cert (for "Insured" claim) · any association memberships Ben confirms -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"C & M Associates, Inc.",
 "description":"Sales, installation, and service of gymnasium and athletic equipment for Michigan schools, colleges, churches, and community centers. Serving Michigan since 1983.",
+"telephone":"+1-810-220-5335",
 "address":{"@type":"PostalAddress","streetAddress":"3637 S Old US Hwy 23, Ste 300","addressLocality":"Brighton","addressRegion":"MI","postalCode":"48114"},
 "areaServed":"Michigan","foundingDate":"1983",
 "knowsAbout":["basketball backstops","gym divider curtains","scoreboards","volleyball equipment","gym safety padding","wrestling mats"]}
@@ -24,11 +29,14 @@ img{max-width:100%;display:block}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 h1,h2,h3{line-height:1.15;font-weight:800}
 .eyebrow{letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-size:.78rem;color:var(--orange);display:block;margin-bottom:12px}
+/* ===== A11Y: skip link + visible focus (beats GCS's bolt-on toolbar with native correctness) ===== */
+.skip{position:absolute;left:-999px;top:0;background:var(--orange);color:#fff;padding:12px 20px;border-radius:0 0 8px 0;z-index:200;font-weight:700;text-decoration:none}
+.skip:focus{left:0}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:4px}
 .btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:15px 30px;border-radius:999px;text-decoration:none;border:none;font-size:1rem;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
 .btn:hover{background:var(--orange-hover);transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,107,26,.35)}
 .btn.ghost{background:transparent;border:2px solid #fff;color:#fff}
 .btn.ghost:hover{background:rgba(255,255,255,.12);box-shadow:none}
-/* ===== TALLER BANNER (Ben Round-0 #1): TWO ROWS — brand row + nav row (~138px), shrinks on scroll ===== */
 header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy-deep);transition:all .35s ease;box-shadow:0 2px 18px rgba(8,27,51,.35)}
 header .top{display:flex;align-items:center;justify-content:space-between;height:88px;transition:height .35s ease;gap:24px}
 header.shrunk .top{height:60px}
@@ -44,11 +52,13 @@ nav a{color:#dbe4f0;text-decoration:none;font-weight:600;font-size:.95rem;transi
 nav a:hover{color:var(--orange)}
 .hd-phone{color:#fff;font-weight:800;text-decoration:none;font-size:1.02rem;white-space:nowrap}
 .hd-phone span{color:var(--orange)}
-/* ===== HERO — full-bleed install photo (GCS pattern, C&M skin) ===== */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--navy-deep)}
-/* LIVE CAMERA DRIFT — the hero photo is always moving: slow drone-style push-in with a gentle pan, breathing back and forth forever. SWAP MARKER: replace hero-gym.jpg with Tyler's best REAL install photo before launch. */
-.hero-bg{position:absolute;inset:-7%;background:center 62%/cover no-repeat;transform:scale(1.06);will-change:transform,opacity;opacity:0;transition:opacity 1.4s ease}
+.hero-bg{position:absolute;inset:-9%;background:center 62%/cover no-repeat;transform:scale(1.07);will-change:transform,opacity;opacity:0;transition:opacity 1.7s cubic-bezier(.4,0,.2,1)}
 .hero-bg.on{opacity:1}
+/* cinematic color-grade — unifies mixed photos into one reel */
+.hero-grade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(120deg,rgba(255,107,26,.12) 0%,rgba(255,107,26,0) 40%),linear-gradient(0deg,rgba(8,27,51,.35) 0%,rgba(8,27,51,0) 55%);mix-blend-mode:soft-light}
+/* film grain */
+.hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:130px}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,27,51,.62) 0%,rgba(8,27,51,.34) 42%,rgba(8,27,51,.94) 100%)}
 .hero .wrap{position:relative;z-index:2}
 .hero .wrap{padding-top:170px;padding-bottom:120px;max-width:980px;text-align:center}
@@ -58,20 +68,99 @@ nav a:hover{color:var(--orange)}
 .hero .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center}
 .hero .call{color:#fff;font-weight:800;font-size:1.05rem;text-decoration:none}
 .hero .call span{color:var(--orange)}
-/* ===== STATS STRIP (navy → the GCS red-banner slot) ===== */
+/* ===== HERO ENHANCEMENTS (v4 — beat-GCS pass) ===== */
+.hero-vignette{position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(125% 95% at 50% 28%,transparent 52%,rgba(8,27,51,.6) 100%)}
+.hero h1 .or{position:relative;display:inline-block}
+.hero h1 .or::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.09em;background:var(--orange);border-radius:4px;transform:scaleX(0);transform-origin:left;animation:drawline .95s cubic-bezier(.2,.7,.2,1) 1.1s forwards}
+@keyframes drawline{to{transform:scaleX(1)}}
+.hero-seal{position:absolute;top:118px;right:30px;z-index:3;width:98px;height:98px;border-radius:50%;border:2px solid rgba(255,255,255,.34);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;background:rgba(8,27,51,.34);backdrop-filter:blur(3px)}
+.hero-seal b{font-size:1.5rem;font-weight:800;line-height:1;color:var(--orange)}
+.hero-seal small{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;margin-top:5px;color:#dbe4f0}
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px 12px;justify-content:center;margin-top:30px}
+.hero-trust span{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:#eaf1fb;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.17);padding:7px 15px;border-radius:999px;backdrop-filter:blur(2px)}
+.hero-trust span b{color:var(--orange);font-weight:800}
+.hero-dots{position:absolute;bottom:78px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:9px}
+.hero-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.32);transition:width .45s ease,background .45s ease}
+.hero-dots i.on{width:26px;border-radius:6px;background:var(--orange)}
+.hero-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;color:#cdd8e8;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:7px;text-decoration:none}
+.hero-cue svg{width:22px;height:22px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.hero h1 .or::after{animation:none;transform:scaleX(1)}.hero-cue svg{animation:none}}
+@media (max-width:600px){.hero-seal{width:72px;height:72px;top:94px;right:14px}.hero-seal b{font-size:1.1rem}.hero-seal small{font-size:.5rem}.hero-dots{bottom:62px}.hero-trust span{font-size:.72rem;padding:6px 12px}}
+/* ===== BRAND-AUTHORITY STRIP (Dollamur "ask for us by name" move) ===== */
+.brandstrip{background:var(--navy-deep);border-top:1px solid rgba(255,255,255,.06);padding:18px 0}
+.brandstrip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 26px}
+.brandstrip .lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#7f93ad;font-weight:800}
+.brandstrip a{color:#cdd8e8;font-weight:800;font-size:1.02rem;letter-spacing:.03em;text-decoration:none;transition:color .2s;white-space:nowrap}
+.brandstrip a:hover{color:var(--orange)}
+.brandstrip .sep{color:#33465f;font-weight:400}
+/* ===== TRUSTED-BY MARQUEE (auto-scrolling completed-project schools) ===== */
+.trustedby{background:var(--navy-deep);padding:30px 0 34px;overflow:hidden;border-top:1px solid rgba(255,255,255,.06)}
+.trustedby .tb-lbl{text-align:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:800;margin-bottom:20px}
+.tb-marquee{display:flex;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.tb-track{display:flex;flex-shrink:0;animation:tb-scroll 48s linear infinite;will-change:transform}
+.tb-marquee:hover .tb-track{animation-play-state:paused}
+.tb-seq{display:flex;align-items:center;flex-shrink:0}
+.tb-item{color:#cdd8e8;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:.02em;text-transform:uppercase;padding:0 32px;white-space:nowrap}
+.tb-dot{color:var(--orange);font-size:.62rem}
+@keyframes tb-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tb-track{animation:none;flex-wrap:wrap;justify-content:center}.tb-seq{flex-wrap:wrap;justify-content:center}.tb-seq:nth-child(2){display:none}.tb-marquee{-webkit-mask-image:none;mask-image:none}}
+/* ===== TRUST BAR (defensible claims only — steals GCS's credential move, factual) ===== */
+.trust{background:var(--navy-deep);border-top:1px solid rgba(255,255,255,.08);color:#c3d2e4;padding:16px 0}
+.trust .wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 30px;text-align:center}
+.trust span{font-size:.82rem;font-weight:600;letter-spacing:.04em;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.trust span b{color:var(--orange);font-weight:800}
 .stats{background:var(--navy);color:#fff;padding:34px 0}
 .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
 .stats .n{font-size:clamp(1.7rem,2.6vw,2.3rem);font-weight:800;color:var(--orange);white-space:nowrap}
 .stats .l{font-size:.85rem;color:#c3d2e4;letter-spacing:.06em;text-transform:uppercase}
-/* ===== angled divider (GCS device, navy) ===== */
 .slant{height:70px;background:linear-gradient(to bottom right,var(--navy) 49.6%,var(--bg) 50.2%)}
 .slant.rev{background:linear-gradient(to bottom left,var(--bg) 49.6%,var(--surface) 50.2%)}
-/* ===== SEO GEOGRAPHY BLOCK ===== */
 .geo{padding:84px 0 60px;text-align:center}
 .geo h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:10px}
 .geo .sub{font-size:1.15rem;color:var(--ink-muted);font-weight:600;margin-bottom:22px}
 .geo p{max-width:840px;margin:0 auto 12px;color:var(--ink-muted)}
-/* ===== SERVICE CARDS ===== */
+/* ===== MICHIGAN PROJECT MAP (S144 — LOCKED: anchors the SEO geography block; marquee stays up top. Real-geo pins + SE-MI zoom inset) ===== */
+.mimap{position:relative;margin:46px auto 0;max-width:1000px;background:radial-gradient(900px 540px at 50% 10%,#0d2745 0%,var(--navy-deep) 65%);border-radius:24px;padding:52px 26px 44px;color:#fff;box-shadow:0 30px 70px rgba(8,27,51,.35);overflow:hidden;text-align:center}
+.mimap .mm-eyebrow{display:block;letter-spacing:.2em;text-transform:uppercase;font-weight:800;font-size:.72rem;color:var(--orange);margin-bottom:12px}
+.mimap h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.05;margin-bottom:12px;text-transform:none}
+.mimap h3 .or{color:var(--orange)}
+.mimap .mm-sub{color:#9fb3cc;font-size:1rem;max-width:600px;margin:0 auto 34px}
+.mimap .map-wrap{position:relative;display:flex;justify-content:center}
+.mimap .mi-map{width:100%;max-width:640px;height:auto;overflow:visible}
+.mimap .up{fill:#0d2138;stroke:#24405e;stroke-width:1.4;opacity:.6}
+.mimap .lp{fill:url(#mmLpGrad);stroke:#3f77a8;stroke-width:1.75;filter:drop-shadow(0 10px 24px rgba(0,0,0,.45))}
+.mimap .lake-label{font-size:9.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;fill:#5b7495;opacity:.55}
+.mimap .city-label{font-size:9px;font-weight:600;letter-spacing:.06em;fill:#9fb3cc}
+.mimap .se-box{fill:rgba(255,107,26,.05);stroke:var(--orange);stroke-width:1.1;stroke-dasharray:4 4;opacity:.75}
+.mimap .inset-bg{fill:#0d2947;stroke:var(--orange);stroke-width:1.1;stroke-dasharray:4 4;opacity:.97}
+.mimap .inset-title{font-size:8.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;fill:var(--orange)}
+.mimap .mini-dot{fill:var(--orange);opacity:.8;pointer-events:none}
+.mimap .pin circle.dot{fill:var(--orange);stroke:#fff;stroke-width:1.5;cursor:pointer;transition:r .15s ease,filter .15s ease;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.mimap .pin:hover circle.dot,.mimap .pin:focus circle.dot,.mimap .pin.active circle.dot{r:8;filter:drop-shadow(0 0 10px rgba(255,107,26,.9))}
+.mimap .pin{outline:none;cursor:pointer}
+.mimap .pin .halo{fill:var(--orange);opacity:.28;transform-origin:center;transform-box:fill-box;animation:mm-pulse 2.6s ease-out infinite;pointer-events:none}
+@keyframes mm-pulse{0%{transform:scale(1);opacity:.35}70%{transform:scale(2.6);opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.mimap .pin .halo{animation:none;opacity:0}}
+.mimap .hq .star{fill:var(--orange);stroke:#fff;stroke-width:.8;filter:drop-shadow(0 2px 5px rgba(0,0,0,.6));transition:filter .15s ease}
+.mimap .hq:hover .star,.mimap .hq:focus .star,.mimap .hq.active .star{filter:drop-shadow(0 0 10px rgba(255,107,26,.9))}
+.mimap .tip{position:absolute;pointer-events:none;z-index:5;width:232px;background:#fff;color:var(--ink);border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,.45);overflow:hidden;transform:translate(-50%,-100%);opacity:0;transition:opacity .12s ease}
+.mimap .tip.below{transform:translate(-50%,0)}
+.mimap .tip.on{opacity:1}
+.mimap .tip img{width:100%;height:116px;object-fit:cover;display:block;background:#dde3ea}
+.mimap .tip .body{padding:12px 14px;text-align:left}
+.mimap .tip .name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.12rem;line-height:1.05;color:var(--navy);text-transform:uppercase}
+.mimap .tip .city{font-size:.78rem;color:var(--orange);font-weight:700;letter-spacing:.04em;margin:2px 0 8px}
+.mimap .tip .install{font-size:.84rem;color:#3d4855;line-height:1.35}
+.mimap .tip .brand{font-size:.72rem;color:#8791a0;margin-top:8px;border-top:1px solid var(--line);padding-top:7px}
+.mimap .mm-legend{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:center;align-items:center;margin-top:32px;color:#9fb3cc;font-size:.86rem;font-weight:600}
+.mimap .mm-legend .k{display:inline-flex;align-items:center;gap:8px}
+.mimap .mm-legend .kd{width:12px;height:12px;border-radius:50%;background:var(--orange);border:1.5px solid #fff;flex:none}
+.mimap .mm-legend .ks{color:var(--orange);font-size:1.1rem;line-height:1}
+.mimap .mm-legend .kb{width:16px;height:12px;border:1.5px dashed var(--orange);border-radius:3px;opacity:.8;flex:none}
+.mimap .mm-stat{margin-top:8px;color:#7f93ad;font-size:.8rem}
+.mimap .mm-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (max-width:600px){.mimap{padding:40px 14px 34px;border-radius:18px}}
 .services{background:var(--surface);padding:80px 0 90px}
 .services .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 28px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
@@ -83,7 +172,21 @@ nav a:hover{color:var(--orange)}
 .card li{padding:5px 0 5px 26px;position:relative;color:var(--ink);font-size:.95rem}
 .card li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800}
 .card .btn{margin-top:auto;align-self:flex-start;padding:11px 24px;font-size:.9rem}
-/* ===== CATALOG (Ben Round-0 #3 — inquiry cart) ===== */
+/* ===== WHY C&M — comparison block (frames the buy on C&M's terms; the edge GCS can't match) ===== */
+.why{padding:88px 0}
+.why h2{text-align:center;font-size:clamp(1.7rem,3.4vw,2.5rem)}
+.why .sub{text-align:center;max-width:720px;margin:14px auto 0;color:var(--ink-muted)}
+.compare{max-width:900px;margin:44px auto 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 18px 44px rgba(15,42,77,.08)}
+.crow{display:grid;grid-template-columns:1.3fr 1fr 1fr}
+.crow>div{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;font-size:.95rem}
+.crow.head>div{background:var(--navy-deep);color:#fff;font-weight:800;border-bottom:none;font-size:.9rem;letter-spacing:.02em}
+.crow.head .cm{background:var(--orange)}
+.crow .feat{font-weight:700;color:var(--navy)}
+.crow .cm{background:rgba(255,107,26,.06);color:var(--ink);font-weight:600}
+.crow .cm::before{content:"✓";color:var(--orange);font-weight:900;margin-right:10px;font-size:1.05rem}
+.crow .other{color:var(--ink-muted)}
+.crow .other::before{content:"✕";color:#b9c2ce;font-weight:900;margin-right:10px}
+.crow:last-child>div{border-bottom:none}
 .catalog{padding:84px 0}
 .catalog .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
 .cat{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;padding:120px 22px 22px;text-decoration:none;transition:transform .3s,box-shadow .3s}
@@ -91,16 +194,16 @@ nav a:hover{color:var(--orange)}
 .cat h3{font-size:1.15rem}
 .cat .tag{position:absolute;top:16px;left:16px;background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.12em;padding:5px 11px;border-radius:999px;text-transform:uppercase}
 .cat p{font-size:.85rem;color:#c3d2e4;margin-top:4px}
-/* ===== PROJECTS ===== */
 .projects{background:var(--surface);padding:84px 0}
 .projects .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
-.proj{border-radius:12px;overflow:hidden;background:linear-gradient(150deg,#294f7d,#0F2A4D);aspect-ratio:4/3;position:relative;transition:transform .3s}
-.proj:hover{transform:scale(1.025)}
-/* Motion photos — each tile animated by the JS motion engine (data-motion: zoom | pan | drone) */
-.proj .ph{position:absolute;inset:-8%;background-size:cover;background-position:center;transform:scale(1.06);will-change:transform}
+.proj{border-radius:12px;overflow:hidden;background:linear-gradient(150deg,#294f7d,#0F2A4D);aspect-ratio:4/3;position:relative;transition:box-shadow .3s}
+.proj:hover{box-shadow:0 18px 44px rgba(15,42,77,.22)}
+.proj .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
+.proj:hover .ph{transform:scale(1.05)}
 .proj .cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(8,27,51,.94));padding:34px 16px 14px;color:#fff}
 .proj .cap small{color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;display:block}
-/* ===== TESTIMONIALS ===== */
+.proj .cap b{font-weight:700;display:block}
+.proj .cap i{font-style:normal;color:#c3d2e4;font-size:.8rem;font-weight:500}
 .quotes{padding:84px 0}
 .quotes .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
 .q{background:#fff;border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:12px;padding:28px;transition:transform .3s,box-shadow .3s}
@@ -108,21 +211,6 @@ nav a:hover{color:var(--orange)}
 .q p{font-style:italic;color:var(--ink);margin-bottom:16px}
 .q footer{font-size:.85rem;color:var(--ink-muted)}
 .q footer b{color:var(--navy)}
-/* ===== BRANDS ===== */
-.brands{background:var(--navy-deep);color:#fff;padding:70px 0}
-.brands .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:36px}
-.brand{display:block;text-decoration:none;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:24px;transition:border-color .3s,transform .3s,background .3s}
-.brand:hover{border-color:var(--orange);transform:translateY(-4px);background:rgba(255,107,26,.06)}
-.brand h3{font-size:1.02rem;color:#fff;margin-bottom:8px}
-.brand p{font-size:.85rem;color:#9fb3cc}
-.brand .visit{display:inline-block;margin-top:10px;color:var(--orange);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-/* ===== CTA BAND ===== */
-.cta-band{background:linear-gradient(120deg,var(--orange) 0%,var(--orange-hover) 100%);color:#fff;text-align:center;padding:70px 0}
-.cta-band h2{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:12px}
-.cta-band p{margin-bottom:26px;font-size:1.05rem}
-.cta-band .btn{background:var(--navy-deep)}
-.cta-band .btn:hover{background:#000;box-shadow:0 10px 24px rgba(0,0,0,.3)}
-/* ===== TEAM ===== */
 .team{background:var(--surface);padding:84px 0}
 .team .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
 .tm{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;transition:transform .3s,box-shadow .3s}
@@ -131,18 +219,80 @@ nav a:hover{color:var(--orange)}
 .tm h3{font-size:1.15rem;color:var(--navy);margin-bottom:6px}
 .tm a{color:var(--navy);text-decoration:none;font-size:.9rem;word-break:break-all}
 .tm a:hover{color:var(--orange)}
-footer.site{background:var(--navy-deep);color:#9fb3cc;padding:44px 0;font-size:.9rem}
+.brands{background:var(--navy-deep);color:#fff;padding:70px 0}
+.brands .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:36px}
+.brand{display:block;text-decoration:none;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:24px;transition:border-color .3s,transform .3s,background .3s}
+.brand:hover{border-color:var(--orange);transform:translateY(-4px);background:rgba(255,107,26,.06)}
+.brand h3{font-size:1.02rem;color:#fff;margin-bottom:8px}
+.brand p{font-size:.85rem;color:#9fb3cc}
+.brand .visit{display:inline-block;margin-top:10px;color:var(--orange);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+/* ===== QUOTE — real 2-column form (replaces bare mailto; beats GCS "Inquiries" button) ===== */
+.quote{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;padding:84px 0}
+.quote .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
+.quote h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:14px}
+.quote .lead{color:#c3d2e4;margin-bottom:26px}
+.qinfo dt{color:var(--orange);font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-top:20px}
+.qinfo dd{font-size:1.05rem;font-weight:600;margin-top:2px}
+.qinfo dd a{color:#fff;text-decoration:none}
+.qinfo dd a:hover{color:var(--orange)}
+.qinfo dd small{display:block;font-size:.82rem;font-weight:500;color:#9fb3cc}
+.qform{background:#fff;border-radius:16px;padding:30px;box-shadow:0 24px 60px rgba(8,27,51,.35)}
+.qform label{display:block;font-size:.8rem;font-weight:700;color:var(--navy);margin:14px 0 5px;letter-spacing:.02em}
+.qform input,.qform select,.qform textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:9px;font:inherit;color:var(--ink);background:#fff;transition:border-color .2s}
+.qform input:focus,.qform select:focus,.qform textarea:focus{border-color:var(--orange);outline:none}
+.qform textarea{min-height:96px;resize:vertical}
+.qform .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qform .btn{width:100%;margin-top:22px;text-align:center}
+.qform .fine{font-size:.76rem;color:var(--ink-muted);margin-top:12px;text-align:center}
+.cta-band{background:linear-gradient(120deg,var(--orange) 0%,var(--orange-hover) 100%);color:#fff;text-align:center;padding:70px 0}
+.cta-band h2{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:12px}
+.cta-band p{margin-bottom:26px;font-size:1.05rem}
+.cta-band .btn{background:var(--navy-deep)}
+.cta-band .btn:hover{background:#000;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+footer.site{background:var(--navy-deep);color:#9fb3cc;padding:44px 0 84px;font-size:.9rem}
 footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 footer.site a{color:#dbe4f0;text-decoration:none}
-/* ===== MOTION (Ben Round-0 #2): scroll reveal ===== */
+/* ===== STICKY MOBILE CALL/QUOTE BAR (half the buyers are on phones) ===== */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:none;grid-template-columns:1fr 1fr;gap:1px;background:rgba(8,27,51,.2);box-shadow:0 -4px 20px rgba(8,27,51,.25)}
+.mbar a{padding:15px 8px;text-align:center;font-weight:800;text-decoration:none;font-size:.98rem;letter-spacing:.02em}
+.mbar .mcall{background:var(--navy-deep);color:#fff}
+.mbar .mquote{background:var(--orange);color:#fff}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.card:hover,.cat:hover,.proj:hover,.q:hover{transform:none}}
-@media (max-width:900px){.stats .wrap,.services .grid,.catalog .grid,.projects .grid,.quotes .grid,.brands .grid,.team .grid{grid-template-columns:1fr 1fr}header .top{height:72px}.logo .lt small{display:none}nav{display:none}}
-@media (max-width:600px){.stats .wrap,.services .grid,.catalog .grid,.projects .grid,.quotes .grid,.brands .grid,.team .grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.card:hover,.cat:hover,.proj:hover,.q:hover,.tm:hover{transform:none}}
+@media (max-width:900px){.stats .wrap,.services .grid,.catalog .grid,.projects .grid,.quotes .grid,.brands .grid,.team .grid{grid-template-columns:1fr 1fr}.quote .grid{grid-template-columns:1fr;gap:32px}header .top{height:72px}.logo .lt small{display:none}nav{display:none}.mbar{display:grid}body{padding-bottom:54px}.crow{grid-template-columns:1.2fr 1fr 1fr}.crow.head>div,.crow>div{padding:14px 12px;font-size:.82rem}}
+@media (max-width:600px){.stats .wrap,.services .grid,.catalog .grid,.projects .grid,.quotes .grid,.brands .grid,.team .grid{grid-template-columns:1fr}.qform .row{grid-template-columns:1fr}}
+/* ===== S144 WOW PASS: scroll progress · gallery lightbox · map pin pop-in · small-screen header fix ===== */
+.sprog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;z-index:201;pointer-events:none;box-shadow:0 0 8px rgba(255,107,26,.55)}
+.proj{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:10002;background:rgba(8,27,51,.93);display:none;align-items:center;justify-content:center;padding:34px}
+.lb.open{display:flex}
+.lb figure{max-width:min(1100px,94vw);margin:0;text-align:center}
+.lb img{max-width:94vw;max-height:78vh;width:auto;height:auto;margin:0 auto;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#0d2947}
+.lb figcaption{color:#fff;margin-top:14px}
+.lb figcaption small{display:block;color:var(--orange);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;margin-bottom:2px}
+.lb figcaption b{font-size:1.06rem}
+.lb figcaption i{font-style:normal;color:#c3d2e4;font-size:.88rem;display:block}
+.lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
+.lb button:hover{background:var(--orange);border-color:var(--orange)}
+.lb .lb-x{top:20px;right:20px}
+.lb .lb-prev{left:16px;top:50%;transform:translateY(-50%)}
+.lb .lb-next{right:16px;top:50%;transform:translateY(-50%)}
+.lb .lb-count{position:absolute;top:32px;left:26px;color:#9fb3cc;font-size:.85rem;font-weight:600}
+@media (max-width:600px){.lb{padding:16px}.lb .lb-prev{left:6px}.lb .lb-next{right:6px}.lb img{max-height:64vh}}
+/* map pins pop in when the panel scrolls into view (JS adds .pins-in) */
+.mimap .pin{opacity:0;transform:scale(0);transform-origin:center;transform-box:fill-box;transition:opacity .4s ease,transform .5s cubic-bezier(.34,1.56,.64,1)}
+.mimap.pins-in .pin{opacity:1;transform:scale(1)}
+@media (prefers-reduced-motion:reduce){.mimap .pin{opacity:1;transform:none;transition:none}}
+/* small-screen header — stop logo/phone collision down to 320px (closes S143 carry-forward #9) */
+@media (max-width:480px){header .top{gap:10px}.logo{gap:8px}.logo img{height:44px}header.shrunk .logo img{height:36px}.logo .lt{display:none}.hd-phone{font-size:.92rem}}
+@media (max-width:374px){.logo img{height:38px}.hd-phone{font-size:.84rem}}
 </style>
 </head>
 <body>
+
+<div class="sprog" id="sprog" aria-hidden="true"></div>
+<a class="skip" href="#services">Skip to content</a>
 
 <header id="hd">
   <div class="wrap top">
@@ -154,35 +304,113 @@ footer.site a{color:#dbe4f0;text-decoration:none}
       <a class="hd-phone" href="tel:+18102205335"><span>☎</span> (810) 220-5335</a>
     </div>
   </div>
-  <nav class="wrap">
+  <nav class="wrap" aria-label="Primary">
     <a href="#services">What We Do</a>
-    <a href="#catalog">Catalog</a>
+    <a href="#why">Why C&amp;M</a>
+    <a href="#products">Catalog</a>
+    <a href="shop.html">Shop</a>
     <a href="#projects">Projects</a>
-    <a href="#about">About</a>
     <a href="#team">Team</a>
-    <a href="#vendors">Vendors</a>
-    <a href="#contact">Contact</a>
+    <a href="#brands">Vendors</a>
+    <a href="#quote">Get a Quote</a>
   </nav>
 </header>
 
-<!-- HERO — full-bleed best-install photo (Tyler asset gate; gradient placeholder until then) -->
+<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-bg" id="bgA" aria-hidden="true"></div>
   <div class="hero-bg" id="bgB" aria-hidden="true"></div>
+  <div class="hero-grade" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="hero-seal" aria-hidden="true"><b>43</b><small>Years<br/>Est. 1983</small></div>
   <div class="wrap">
-    <span class="eyebrow rv">Michigan · Family-Owned · Since 1983</span>
-    <h1 class="rv">Gymnasium Equipment.<br/><span class="or">Done Right.</span></h1>
+    <span class="eyebrow rv">Serving Schools &amp; Facilities Across Michigan · Family-Owned Since 1983</span>
+    <h1 class="rv">When the Gym Has to Be Ready,<br/><span class="or">Michigan Calls C&M.</span></h1>
     <p class="lead rv">For 43 years, Michigan schools, colleges, churches and community centers have trusted C&M Associates to sell, install, and service the equipment that keeps their gyms running. Our own crews. No subcontractors. No shortcuts.</p>
     <div class="ctas rv">
-      <a class="btn" href="#contact">Request a Quote</a>
+      <a class="btn" href="#quote">Request a Quote</a>
       <a class="btn ghost" href="#projects">See Our Projects</a>
       <a class="call" href="tel:+18102205335"><span>☎</span> (810) 220-5335</a>
+    </div>
+    <div class="hero-trust rv">
+      <span><b>★</b> Family-Owned Since 1983</span>
+      <span><b>✓</b> In-House Crews</span>
+      <span><b>✓</b> Licensed &amp; Insured<!-- GATE: insurance cert (Tyler) --></span>
+      <span><b>✓</b> ICC 300-2017 Compliant</span>
+    </div>
+  </div>
+  <div class="hero-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+  <a class="hero-cue" href="#services" aria-label="Scroll to what we do">
+    <span>Explore</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- TRUSTED-BY MARQUEE (completed-project schools) -->
+<section class="trustedby" aria-label="Completed projects across Michigan">
+  <div class="tb-lbl">Trusted by schools &amp; facilities across Michigan</div>
+  <div class="tb-marquee">
+    <div class="tb-track">
+      <div class="tb-seq">
+        <span class="tb-item">University of Michigan</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Saginaw Valley State University</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Kalamazoo College</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Wayne County Community College District</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Wylie E. Groves High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Edsel Ford High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Portage North Middle School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Linden High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Woodhaven High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Whiteford High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Hollingworth School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Shepherd of the Lakes Lutheran</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Brighton Indoor Practice Facility</span><span class="tb-dot">◆</span>
+      </div>
+      <div class="tb-seq" aria-hidden="true">
+        <span class="tb-item">University of Michigan</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Saginaw Valley State University</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Kalamazoo College</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Wayne County Community College District</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Wylie E. Groves High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Edsel Ford High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Portage North Middle School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Linden High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Woodhaven High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Whiteford High School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Hollingworth School</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Shepherd of the Lakes Lutheran</span><span class="tb-dot">◆</span>
+        <span class="tb-item">Brighton Indoor Practice Facility</span><span class="tb-dot">◆</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STATS STRIP (count-up motion) -->
+<!-- BRAND-AUTHORITY STRIP -->
+<section class="brandstrip" aria-label="Authorized brands">
+  <div class="wrap">
+    <span class="lbl">Authorized Michigan Dealer</span>
+    <a href="https://www.perfsports.com" target="_blank" rel="noopener">Gared / Performance Sports</a><span class="sep">·</span>
+    <a href="https://www.daktronics.com" target="_blank" rel="noopener">Daktronics</a><span class="sep">·</span>
+    <a href="https://www.dollamur.com" target="_blank" rel="noopener">Dollamur</a><span class="sep">·</span>
+    <a href="https://www.sportsfield.com" target="_blank" rel="noopener">Sportsfield Specialties</a>
+  </div>
+</section>
+
+<!-- TRUST BAR — defensible facts only (association badges gated on Ben's confirmation) -->
+<section class="trust" aria-label="Credentials">
+  <div class="wrap">
+    <span><b>★</b> Family-Owned Since 1983</span>
+    <span><b>✓</b> In-House Crews — Never Subcontracted</span>
+    <span><b>✓</b> Licensed &amp; Insured<!-- GATE: confirm w/ Tyler's insurance cert --></span>
+    <span><b>✓</b> ICC 300-2017 Compliant Inspections</span>
+    <span><b>✓</b> Authorized Factory Dealer</span>
+    <!-- GATE (Ben): add MIAAA / MHSAA / state assoc. badges ONLY if C&M actually holds them -->
+  </div>
+</section>
+
+<!-- STATS STRIP -->
 <section class="stats">
   <div class="wrap">
     <div class="rv"><div class="n" data-count="43">0</div><div class="l">Years In Business</div></div>
@@ -199,6 +427,119 @@ footer.site a{color:#dbe4f0;text-decoration:none}
     <h2 class="rv">Athletic & Gymnasium Equipment Installation in Michigan</h2>
     <p class="sub rv">Basketball Backstops, Divider Curtains, Scoreboards & Volleyball Systems for Schools, Colleges & Community Centers</p>
     <p class="rv">C&M Associates sells, installs, and services gymnasium equipment across Michigan — backstop systems, divider curtains, scoreboards, volleyball systems, wrestling mats, and safety padding. Every project is planned around your facility and your schedule, installed by our own crews, and backed by annual inspection and repair support that keeps equipment safe and code-compliant for decades.</p>
+
+    <!-- MICHIGAN PROJECT MAP (S144 — LOCKED: map anchors this SEO block; marquee stays up top. True-coordinate pins, SE-MI zoom inset, photo tooltips) -->
+    <div class="mimap rv" id="service-area">
+      <span class="mm-eyebrow">Our Work Across Michigan</span>
+      <h3>We don't just serve Michigan. <span class="or">We're all over it.</span></h3>
+      <p class="mm-sub">A dozen recent gymnasium and athletic installs — from Ann Arbor to Kalamazoo to the shores of Saginaw Bay. Hover or tap any pin to see the project.</p>
+      <div class="map-wrap">
+        <svg class="mi-map" viewBox="0 0 500 490" role="img" aria-label="Map of Michigan showing completed C&M Associates projects, with a zoomed inset of Southeast Michigan">
+          <defs>
+            <linearGradient id="mmLpGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#17395c"/>
+              <stop offset="1" stop-color="#0f2b48"/>
+            </linearGradient>
+            <pattern id="mmDots" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" fill="#1b3a5e" opacity=".35"/>
+            </pattern>
+          </defs>
+
+          <rect x="0" y="0" width="500" height="490" fill="url(#mmDots)" opacity=".5"/>
+
+          <!-- Upper Peninsula (decorative) -->
+          <path class="up" d="M165,199 L179,172 L196,148 L201,134 L208,140 L242,132 L288,120 L308,132 L330,138 L352,131 L376,128 L369,110 L351,88 L316,66 L258,74 L220,94 L177,84 L158,63 L136,64 L117,67 L134,30 L150,10 L126,15 L111,38 L68,58 L26,80 L74,104 L139,142 Z"/>
+
+          <!-- Lower Peninsula (real outline, equirectangular projection) -->
+          <path class="lp" d="M210,467 L229,440 L241,416 L245,386 L237,350 L237,336 L231,292 L237,268 L242,233 L255,216 L270,206 L278,192 L278,227 L290,216 L299,182 L316,178 L318,157 L329,146 L344,156 L381,174 L400,184 L403,203 L411,235 L409,254 L403,268 L398,266 L388,286 L375,300 L377,320 L402,310 L412,293 L428,285 L440,283 L448,300 L454,334 L461,370 L457,382 L455,398 L434,416 L427,424 L418,437 L408,456 L403,470 Z"/>
+
+          <text class="lake-label" transform="translate(207,352) rotate(-73)">Lake Michigan</text>
+          <text class="lake-label" x="428" y="232">Lake Huron</text>
+          <text class="lake-label" x="437" y="459">Lake Erie</text>
+
+          <!-- SE Michigan region marker (true positions, decorative) -->
+          <g aria-hidden="true">
+            <rect class="se-box" x="366" y="370" width="66" height="106" rx="7"/>
+            <circle class="mini-dot" cx="383" cy="405" r="2.2"/>
+            <circle class="mini-dot" cx="386" cy="408" r="2.2"/>
+            <circle class="mini-dot" cx="383" cy="383" r="2.2"/>
+            <circle class="mini-dot" cx="387" cy="425" r="2.2"/>
+            <circle class="mini-dot" cx="415" cy="406" r="2.2"/>
+            <circle class="mini-dot" cx="413" cy="426" r="2.2"/>
+            <circle class="mini-dot" cx="418" cy="422" r="2.2"/>
+            <circle class="mini-dot" cx="414" cy="437" r="2.2"/>
+            <circle class="mini-dot" cx="387" cy="465" r="2.2"/>
+          </g>
+
+          <!-- Statewide pins (true positions) -->
+          <g class="pin" tabindex="0" role="button" aria-label="Saginaw Valley State University, University Center" data-name="Saginaw Valley State University" data-city="University Center, MI" data-install="Full indoor practice facility — goal posts, sewn safety netting, and column padding around turf and track." data-brand="Performance Sports / Sportsfield" data-img="photos/hero-svsu.jpg"><circle class="dot" cx="371" cy="323" r="5.5"/></g>
+          <text class="city-label" x="371" y="309" text-anchor="middle">University Center</text>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Kalamazoo College, Kalamazoo" data-name="Kalamazoo College — Hornets" data-city="Kalamazoo, MI" data-install="Custom 'Hornets' divider curtain paired with a Schelde portable competition backstop." data-brand="Schelde / Performance Sports" data-img="photos/hero-kalamazoo.jpg"><circle class="dot" cx="277" cy="420" r="5.5"/></g>
+          <text class="city-label" x="268" y="410" text-anchor="middle">Kalamazoo</text>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Portage North Middle School, Portage" data-name="Portage North Middle School" data-city="Portage, MI" data-install="Complete gym package — ceiling backstop, Daktronics scoreboard, and full custom wall padding." data-brand="Daktronics / Performance Sports" data-img="photos/proj-portage.jpg"><circle class="dot" cx="284" cy="432" r="5.5"/></g>
+          <text class="city-label" x="288" y="447" text-anchor="middle">Portage</text>
+
+          <!-- Southeast Michigan inset (zoomed) -->
+          <rect class="inset-bg" x="20" y="195" width="150" height="255" rx="10"/>
+          <text class="inset-title" x="95" y="211" text-anchor="middle">SE Michigan · Zoomed</text>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Linden High School, Linden" data-name="Linden High School — Eagles" data-city="Linden, MI" data-install="Ceiling-suspended backstop, wall-mounted scoreboard, and retractable batting-cage netting." data-brand="Gared / Daktronics" data-img="photos/proj-linden.jpg"><circle class="dot" cx="56" cy="237" r="5.5"/></g>
+
+          <g class="pin hq" tabindex="0" role="button" aria-label="C&M Associates headquarters, Brighton" data-name="C&M Associates — Headquarters" data-city="Brighton, MI · Est. 1983" data-install="Family-owned home base since 1983. Our own crews dispatch from here across Michigan." data-brand="Sales · Install · Service · Inspection" data-img="">
+            <circle class="halo" cx="56" cy="287" r="6"/>
+            <path class="star" d="M56,279 l2.7,5.6 6.1,.9 -4.4,4.3 1,6.1 -5.4,-2.9 -5.4,2.9 1,-6.1 -4.4,-4.3 6.1,-.9 Z"/>
+          </g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Shepherd of the Lakes Lutheran, Brighton" data-name="Shepherd of the Lakes Lutheran" data-city="Brighton, MI" data-install="Custom-branded padded scorer's table with possession and bonus indicators for the Storm." data-brand="Performance Sports" data-img="photos/proj-shepherd.jpg"><circle class="dot" cx="43" cy="300" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Brighton Indoor Practice Facility, Brighton" data-name="Brighton Indoor Practice Facility" data-city="Brighton, MI" data-install="Indoor practice facility with sewn goal posts, soccer goals, and full-height divider netting over turf." data-brand="Sportsfield / Performance Sports" data-img="photos/proj-brighton.jpg"><circle class="dot" cx="69" cy="275" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="University of Michigan North Campus Rec, Ann Arbor" data-name="University of Michigan — North Campus Rec" data-city="Ann Arbor, MI" data-install="Mesh gym divider curtain and wall-mounted glass backstops over the block-M court." data-brand="Performance Sports Systems" data-img="photos/hero-uofm.jpg"><circle class="dot" cx="64" cy="329" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Wylie E. Groves High School, Beverly Hills" data-name="Wylie E. Groves High School" data-city="Beverly Hills, MI" data-install="Multi-court ceiling-suspended basketball backstops with motorized lift in the competition fieldhouse." data-brand="Performance Sports Systems" data-img="photos/hero-groves.jpg"><circle class="dot" cx="129" cy="288" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Wayne County Community College District" data-name="Wayne County Community College District" data-city="Wayne County, MI" data-install="Gared portable competition backstop with tempered-glass backboard and integrated Daktronics shot clock." data-brand="Gared / Daktronics" data-img="photos/proj-wcccd.jpg"><circle class="dot" cx="124" cy="331" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Edsel Ford High School, Dearborn" data-name="Edsel Ford High School" data-city="Dearborn, MI" data-install="Custom-printed 'Welcome to Edsel Ford' wall padding with a wall-mounted glass backstop." data-brand="Performance Sports Systems" data-img="photos/proj-edselford.jpg"><circle class="dot" cx="137" cy="322" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Woodhaven High School, Woodhaven" data-name="Woodhaven High School — Warriors" data-city="Woodhaven, MI" data-install="Custom dugout rail padding and field protection for the baseball complex." data-brand="Performance Sports" data-img="photos/proj-woodhaven.jpg"><circle class="dot" cx="127" cy="356" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Whiteford High School, Ottawa Lake" data-name="Whiteford High School — Bobcats" data-city="Ottawa Lake, MI" data-install="Pair of ceiling-suspended glass backstops over a freshly finished navy-and-gold court." data-brand="Performance Sports Systems" data-img="photos/proj-whiteford.jpg"><circle class="dot" cx="64" cy="427" r="5.5"/></g>
+        </svg>
+
+        <div class="tip" id="mi-tip" aria-hidden="true">
+          <img id="mi-tip-img" alt="" src="">
+          <div class="body">
+            <div class="name" id="mi-tip-name"></div>
+            <div class="city" id="mi-tip-city"></div>
+            <div class="install" id="mi-tip-install"></div>
+            <div class="brand" id="mi-tip-brand"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mm-legend">
+        <span class="k"><span class="kd"></span> Completed project</span>
+        <span class="k"><span class="ks">★</span> C&amp;M HQ — Brighton</span>
+        <span class="k"><span class="kb"></span> Southeast Michigan, zoomed</span>
+      </div>
+      <div class="mm-stat">12 recent projects · 10 Michigan communities · real installs, real photos</div>
+      <ul class="mm-sr">
+        <li>University of Michigan — North Campus Rec, Ann Arbor</li>
+        <li>Saginaw Valley State University, University Center</li>
+        <li>Wylie E. Groves High School, Beverly Hills</li>
+        <li>Kalamazoo College, Kalamazoo</li>
+        <li>Wayne County Community College District</li>
+        <li>Portage North Middle School, Portage</li>
+        <li>Linden High School, Linden</li>
+        <li>Edsel Ford High School, Dearborn</li>
+        <li>Whiteford High School, Ottawa Lake</li>
+        <li>Shepherd of the Lakes Lutheran, Brighton</li>
+        <li>Brighton Indoor Practice Facility, Brighton</li>
+        <li>Woodhaven High School, Woodhaven</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -212,7 +553,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
       <div class="card rv"><div class="num">01</div><h3>Sales</h3>
         <p>The most knowledgeable gym equipment staff in the state. Bring us your idea — we'll engineer the right solution.</p>
         <ul><li>Specifications & bid support</li><li>Budget & firm pricing</li><li>Logo design integration</li><li>Value engineering</li></ul>
-        <a class="btn" href="#catalog">Learn More</a></div>
+        <a class="btn" href="#products">Learn More</a></div>
       <div class="card rv"><div class="num">02</div><h3>Installation</h3>
         <p>Our own crews — the best in the industry. We hit the timeline, we flex when the project changes, and we own the result start to finish.</p>
         <ul><li>In-house, never subcontracted</li><li>Flexible scheduling</li><li>Project management</li><li>Final inspection & sign-off</li></ul>
@@ -220,43 +561,61 @@ footer.site a{color:#dbe4f0;text-decoration:none}
       <div class="card rv"><div class="num">03</div><h3>Inspections, Repairs & Maintenance</h3>
         <p>Skilled, trained mechanics keep your equipment safe, code-compliant, and operating for decades — not years.</p>
         <ul><li>Annual safety inspections</li><li>Backstop & scoreboard service</li><li>Emergency repairs</li><li>Preventive maintenance plans</li></ul>
-        <a class="btn" href="CandM_Inspections_v2.html">Learn More</a></div>
+        <a class="btn" href="inspections.html">Learn More</a></div>
     </div>
   </div>
 </section>
 <div class="slant rev" style="background:linear-gradient(to bottom left,var(--surface) 49.6%,var(--bg) 50.2%)"></div>
 
-<!-- CATALOG (inquiry cart — 6 categories) -->
-<section class="catalog" id="catalog">
+<!-- WHY C&M — comparison (owner-operator edge a corporate competitor can't fake) -->
+<section class="why" id="why">
   <div class="wrap">
-    <span class="eyebrow rv">Product Catalog</span>
-    <h2 class="rv" style="font-size:clamp(1.7rem,3.4vw,2.5rem)">Browse. Build Your List. We Handle the Rest.</h2>
-    <p class="rv" style="max-width:780px;margin:14px 0 0;color:var(--ink-muted)">Pick the equipment you're interested in and send us your list — no online checkout, no card required. Our office prices it for your facility and calls you back with firm numbers. <!-- WIRE: cart-to-office inquiry flow ($2,400 scope) --></p>
-    <div class="grid">
-      <a class="cat rv" href="CandM_Service_Backstops_v2.html"><span class="tag">Category</span><h3>Basketball Backstops</h3><p>Ceiling-suspended, wall-mounted & portable systems</p></a>
-      <a class="cat rv" href="CandM_Service_DividerCurtains_v2.html"><span class="tag">Category</span><h3>Divider Curtains</h3><p>Fold-up, roll-up & top-roll gym dividers</p></a>
-      <a class="cat rv" href="CandM_Service_Scoreboards_v2.html"><span class="tag">Category</span><h3>Scoreboards & Displays</h3><p>Indoor, outdoor & center-hung — Daktronics dealer</p></a>
-      <a class="cat rv" href="CandM_Service_MatsVolleyball_v2.html"><span class="tag">Category</span><h3>Volleyball & Padding</h3><p>Net systems, wall padding & safety pads</p></a>
-      <a class="cat rv" href="CandM_Service_MatsVolleyball_v2.html"><span class="tag">Category</span><h3>Wrestling Mats</h3><p>Dollamur mat sales, hoists & storage systems</p></a>
-      <a class="cat rv" href="#contact"><span class="tag">Category</span><h3>Outdoor & Field</h3><p>Goal posts, track equipment & exterior scoreboards</p></a>
+    <span class="eyebrow rv" style="text-align:center;display:block">Why C&amp;M</span>
+    <h2 class="rv">The Difference Is Who Shows Up</h2>
+    <p class="sub rv">Anyone can order equipment from a catalog. What you're really hiring is the crew that installs it and the company that stands behind it for the next 40 years.</p>
+    <div class="compare rv">
+      <div class="crow head"><div>&nbsp;</div><div class="cm">C&amp;M Associates</div><div>Typical Contractor</div></div>
+      <div class="crow"><div class="feat">Who does the install</div><div class="cm">Our own in-house crews</div><div class="other">Subcontracted out</div></div>
+      <div class="crow"><div class="feat">Track record</div><div class="cm">Family-owned since 1983</div><div class="other">Varies / unproven</div></div>
+      <div class="crow"><div class="feat">When you call</div><div class="cm">You talk to the owner</div><div class="other">A call center or voicemail</div></div>
+      <div class="crow"><div class="feat">Sales, install &amp; service</div><div class="cm">All under one roof</div><div class="other">Different vendors to chase</div></div>
+      <div class="crow"><div class="feat">After the sale</div><div class="cm">Annual inspection &amp; repair for decades</div><div class="other">Gone after the invoice</div></div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- CATALOG -->
+<section class="catalog" id="products">
+  <div class="wrap">
+    <span class="eyebrow rv">Product Catalog</span>
+    <h2 class="rv" style="font-size:clamp(1.7rem,3.4vw,2.5rem)">Browse. Build Your List. We Handle the Rest.</h2>
+    <p class="rv" style="max-width:780px;margin:14px 0 0;color:var(--ink-muted)">Pick the equipment you're interested in and send us your list — no online checkout, no card required. Our office prices it for your facility and calls you back with firm numbers. <!-- WIRE: cart-to-office inquiry flow ($2,400 scope, launches after site tuning per kickoff email) --></p>
+    <div class="grid">
+      <a class="cat rv" href="backstops.html"><span class="tag">Category</span><h3>Basketball Backstops</h3><p>Ceiling-suspended, wall-mounted & portable systems</p></a>
+      <a class="cat rv" href="divider-curtains.html"><span class="tag">Category</span><h3>Divider Curtains</h3><p>Fold-up, roll-up & top-roll gym dividers</p></a>
+      <a class="cat rv" href="scoreboards.html"><span class="tag">Category</span><h3>Scoreboards & Displays</h3><p>Indoor, outdoor & center-hung — Daktronics dealer</p></a>
+      <a class="cat rv" href="mats-volleyball.html"><span class="tag">Category</span><h3>Volleyball & Padding</h3><p>Net systems, wall padding & safety pads</p></a>
+      <a class="cat rv" href="mats-volleyball.html"><span class="tag">Category</span><h3>Wrestling Mats</h3><p>Dollamur mat sales, hoists & storage systems</p></a>
+      <a class="cat rv" href="#quote"><span class="tag">Category</span><h3>Outdoor & Field</h3><p>Goal posts, track equipment & exterior scoreboards</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS (captions ready for real school + city + scope from Tyler's photos) -->
 <section class="projects" id="projects">
   <div class="wrap">
     <span class="eyebrow rv">Featured Work</span>
     <h2 class="rv" style="font-size:clamp(1.7rem,3.4vw,2.5rem)">Recent Projects</h2>
-    <p class="rv" style="max-width:760px;margin:14px 0 0;color:var(--ink-muted)">A snapshot of installations across Michigan. From competition gyms to community centers — same crews, same standards. <!-- ASSET GATE: 6 real project photos (Tyler) --></p>
+    <p class="rv" style="max-width:760px;margin:14px 0 0;color:var(--ink-muted)">A snapshot of installations across Michigan — from competition gyms and college fieldhouses to community centers. Same crews, same standards.</p>
     <div class="grid">
-      <div class="proj rv"><div class="ph" data-motion="zoom" style="background-image:url('hero-gym.jpg')"></div><div class="cap"><small>Gymnasium</small>Basketball Backstop System</div></div>
-      <div class="proj rv"><div class="ph" data-motion="drone" style="background-image:url('proj-scoreboard.jpg')"></div><div class="cap"><small>Scoreboard</small>LED Scoreboard Install</div></div>
-      <div class="proj rv"><div class="ph" data-motion="zoom" style="background-image:url('proj-divider.jpg')"></div><div class="cap"><small>Gymnasium</small>Divider Curtain System</div></div>
-      <div class="proj rv"><div class="cap"><small>Gymnasium</small>Volleyball & Safety Padding</div></div>
-      <div class="proj rv"><div class="cap"><small>Wrestling</small>Dollamur Mat Installation</div></div>
-      <div class="proj rv"><div class="ph" data-motion="drone" style="background-image:url('proj-exterior.jpg')"></div><div class="cap"><small>Scoreboard</small>Exterior Football Scoreboard</div></div>
+      <div class="proj rv"><div class="ph" data-motion="drift" style="background-image:url('photos/hero-uofm.jpg')"></div><div class="cap"><small>Divider Curtains</small><b>Curtain &amp; Backstops</b><i>University of Michigan — Ann Arbor</i></div></div>
+      <div class="proj rv"><div class="ph" data-motion="pan" style="background-image:url('photos/proj-wcccd.jpg')"></div><div class="cap"><small>Basketball Backstops</small><b>Portable Backstop System</b><i>Wayne County Community College District</i></div></div>
+      <div class="proj rv"><div class="ph" data-motion="zoom" style="background-image:url('photos/proj-portage.jpg')"></div><div class="cap"><small>Scoreboards &amp; Padding</small><b>Scoreboard &amp; Wall Padding</b><i>Portage North Middle School — Portage, MI</i></div></div>
+      <div class="proj rv"><div class="ph" data-motion="drift" style="background-image:url('photos/hero-kalamazoo.jpg')"></div><div class="cap"><small>Divider Curtains</small><b>Gym Divider Curtain</b><i>Kalamazoo College — Kalamazoo, MI</i></div></div>
+      <div class="proj rv"><div class="ph" data-motion="zoom" style="background-image:url('photos/proj-edselford.jpg')"></div><div class="cap"><small>Wall Padding</small><b>Wall Padding &amp; Backstop</b><i>Edsel Ford High School — Dearborn, MI</i></div></div>
+      <div class="proj rv"><div class="ph" data-motion="pan" style="background-image:url('photos/proj-brighton.jpg')"></div><div class="cap"><small>Outdoor &amp; Field</small><b>Indoor Goal Posts &amp; Netting</b><i>Brighton Indoor Practice Facility</i></div></div>
     </div>
+    <div class="rv" style="text-align:center;margin-top:40px"><a class="btn" href="projects.html">See All 17 Projects →</a></div>
   </div>
 </section>
 
@@ -279,7 +638,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
   <div class="wrap">
     <span class="eyebrow rv">Our Team</span>
     <h2 class="rv" style="font-size:clamp(1.7rem,3.4vw,2.5rem)">The People Behind Every Install</h2>
-    <p class="rv" style="max-width:760px;margin:14px 0 0;color:var(--ink-muted)">Family-owned, Michigan-based. When you call, you talk to one of us — not a call center.</p>
+    <p class="rv" style="max-width:760px;margin:14px 0 0;color:var(--ink-muted)">Family-owned, Michigan-based. When you call, you talk to one of us — not a call center. <!-- ASSET GATE: head-shot + 2-3 sentence bio per person (Chris requested from Ben/Tyler) --></p>
     <div class="grid">
       <div class="tm rv"><div class="role">Owner</div><h3>Ben Hurst</h3><a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></div>
       <div class="tm rv"><div class="role">Estimating / Sales</div><h3>Tyler Emmert</h3><a href="mailto:temmert@candmassoc.com">temmert@candmassoc.com</a></div>
@@ -292,7 +651,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
 </section>
 
 <!-- BRANDS -->
-<section class="brands" id="vendors">
+<section class="brands" id="brands">
   <div class="wrap">
     <span class="eyebrow rv">Authorized Dealer</span>
     <h2 class="rv" style="font-size:clamp(1.6rem,3vw,2.2rem);color:#fff">The Brands Behind Every Install</h2>
@@ -305,56 +664,127 @@ footer.site a{color:#dbe4f0;text-decoration:none}
   </div>
 </section>
 
-<!-- CTA BAND -->
-<section class="cta-band" id="contact">
+<!-- QUOTE — real form + real contact details (replaces bare mailto) -->
+<section class="quote" id="quote">
   <div class="wrap">
-    <h2 class="rv">Tell us about your gym. We'll take it from there.</h2>
-    <p class="rv">Firm pricing, our own crews, and a 43-year track record across Michigan.</p>
-    <a class="btn rv" href="mailto:bhurst@candmassoc.com?subject=Quote%20Request">Request a Quote</a>
-    <!-- WIRE: replace mailto with capture form → Ben's inbox -->
+    <div class="grid">
+      <div>
+        <span class="eyebrow rv">Get a Quote</span>
+        <h2 class="rv">Tell us about your gym.<br/>We'll take it from there.</h2>
+        <p class="lead rv">Firm pricing, our own crews, and a 43-year track record across Michigan. Send us the details and a real person calls you back — usually same day.</p>
+        <dl class="qinfo rv">
+          <dt>Call</dt><dd><a href="tel:+18102205335">(810) 220-5335</a><small>Fax (810) 220-8288</small></dd>
+          <dt>Email</dt><dd><a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></dd>
+          <dt>Visit</dt><dd>3637 S Old US Hwy 23, Ste 300<br/>Brighton, MI 48114</dd>
+          <dt>Hours</dt><dd>Monday–Friday<small><!-- WIRE: confirm exact hours w/ Ben -->Business hours — call anytime</small></dd>
+        </dl>
+      </div>
+      <form class="qform rv" id="quoteForm" novalidate>
+        <label for="qName">Name</label>
+        <input id="qName" name="name" type="text" autocomplete="name" required/>
+        <div class="row">
+          <div><label for="qOrg">Organization</label><input id="qOrg" name="org" type="text" autocomplete="organization"/></div>
+          <div><label for="qPhone">Phone</label><input id="qPhone" name="phone" type="tel" autocomplete="tel"/></div>
+        </div>
+        <label for="qEmail">Email</label>
+        <input id="qEmail" name="email" type="email" autocomplete="email" required/>
+        <label for="qType">Project Type</label>
+        <select id="qType" name="type">
+          <option>Basketball Backstops</option>
+          <option>Divider Curtains</option>
+          <option>Scoreboards & Displays</option>
+          <option>Volleyball & Padding</option>
+          <option>Wrestling Mats</option>
+          <option>Outdoor & Field</option>
+          <option>Inspection / Repair / Service</option>
+          <option>Not sure yet — need guidance</option>
+        </select>
+        <label for="qMsg">Tell us about the project</label>
+        <textarea id="qMsg" name="message" placeholder="Facility, timeline, what you need installed or serviced…"></textarea>
+        <button class="btn" type="submit">Send My Request</button>
+        <p class="fine">No card required. We price it for your facility and call you back.<br/><!-- WIRE: replace mailto handler with cart/inquiry backend → Ben's inbox --></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="rv">Forty years of Michigan gyms. Let's do yours next.</h2>
+    <p class="rv">One call reaches the people who sell it, install it, and stand behind it.</p>
+    <a class="btn rv" href="tel:+18102205335">☎ (810) 220-5335</a>
   </div>
 </section>
 
 <footer class="site">
   <div class="wrap">
     <div><b style="color:#fff">C & M Associates, Inc.</b><br/>3637 S Old US Hwy 23, Ste 300, Brighton, MI 48114<br/>Serving Michigan since 1983 · Under current ownership since 2013</div>
-    <div><a href="#services">What We Do</a> · <a href="#catalog">Catalog</a> · <a href="#projects">Projects</a> · <a href="#contact">Contact</a><br/><a href="tel:+18102205335">(810) 220-5335</a> · <a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></div>
+    <div><a href="#services">What We Do</a> · <a href="#why">Why C&amp;M</a> · <a href="#products">Catalog</a> · <a href="shop.html">Shop</a> · <a href="#projects">Projects</a> · <a href="#quote">Get a Quote</a><br/><a href="tel:+18102205335">(810) 220-5335</a> · <a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></div>
   </div>
 </footer>
 
+<!-- PROJECT PHOTO LIGHTBOX (S144) -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project photo viewer">
+  <span class="lb-count" id="lb-count"></span>
+  <button class="lb-x" aria-label="Close photo viewer">×</button>
+  <button class="lb-prev" aria-label="Previous project">‹</button>
+  <button class="lb-next" aria-label="Next project">›</button>
+  <figure><img id="lb-img" alt="Completed project photo"/><figcaption id="lb-cap"></figcaption></figure>
+</div>
+
+<!-- STICKY MOBILE CALL/QUOTE BAR -->
+<div class="mbar" aria-label="Quick actions">
+  <a class="mcall" href="tel:+18102205335">☎ Call</a>
+  <a class="mquote" href="#quote">Get a Quote</a>
+</div>
+
 <script>
-// Header shrink (taller banner that gets out of the way)
-const hd=document.getElementById('hd');
-addEventListener('scroll',()=>hd.classList.toggle('shrunk',scrollY>60),{passive:true});
-// HERO CINEMA — rotating picture reel: each shot plays ~8s with its own camera
-// move, then crossfades to the next. JS-driven, immune to OS animation settings.
-const SLIDES=['hero-gym.jpg','proj-divider.jpg','proj-scoreboard.jpg','proj-exterior.jpg'];
-const SLIDE_MS=8000, bgL=[document.getElementById('bgA'),document.getElementById('bgB')];
+// Header shrink + scroll progress (S144)
+const hd=document.getElementById('hd'), sprog=document.getElementById('sprog');
+const onScroll=()=>{hd.classList.toggle('shrunk',scrollY>60);
+  const m=document.documentElement.scrollHeight-innerHeight;
+  if(sprog)sprog.style.transform='scaleX('+(m>0?Math.min(scrollY/m,1):0).toFixed(4)+')';};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+// HERO CINEMA — rotating reel
+const SLIDES=['photos/hero-uofm.jpg','photos/hero-svsu.jpg','photos/hero-groves.jpg','photos/hero-kalamazoo.jpg'];
+const SLIDE_MS=8000, FADE=1700, bgL=[document.getElementById('bgA'),document.getElementById('bgB')];
+// eased cursor parallax (gated on reduced-motion for a11y)
+let tpx=0,tpy=0,mpx=0,mpy=0;
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  addEventListener('pointermove',e=>{tpx=(e.clientX/innerWidth-.5); tpy=(e.clientY/innerHeight-.5);},{passive:true});}
 if(bgL[0]&&bgL[1]){let idx=0,act=0;
+  const ease=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2; // easeInOutCubic — camera accelerates, then settles
   const arm=(l,src)=>{l.style.backgroundImage=`url('${src}')`;l._t0=performance.now();
-    l._dx=(Math.random()<.5?-1:1)*(1.6+Math.random()*1.6); l._dy=(Math.random()<.5?-1:1)*(1.0+Math.random()*1.2);
+    l._dx=(Math.random()<.5?-1:1)*(2.0+Math.random()*1.8); l._dy=(Math.random()<.5?-1:1)*(1.2+Math.random()*1.3);
     l._zin=Math.random()<.5;};
+  const dots=[...document.querySelectorAll('.hero-dots i')];
+  const setDot=k=>dots.forEach((d,i)=>d.classList.toggle('on',i===k%dots.length));
   const swap=()=>{act^=1; arm(bgL[act],SLIDES[idx=(idx+1)%SLIDES.length]);
-    bgL[act].classList.add('on'); bgL[act^1].classList.remove('on');};
-  arm(bgL[0],SLIDES[0]); bgL[0].classList.add('on'); setInterval(swap,SLIDE_MS);
-  const roll=t=>{bgL.forEach(l=>{if(!l._t0)return; const p=Math.min((t-l._t0)/(SLIDE_MS+1600),1);
-    const s=l._zin?(1.06+0.15*p):(1.21-0.15*p);
-    l.style.transform=`scale(${s.toFixed(4)}) translate(${(l._dx*p).toFixed(3)}%,${(l._dy*p).toFixed(3)}%)`;});
+    bgL[act].classList.add('on'); bgL[act^1].classList.remove('on'); setDot(idx);};
+  arm(bgL[0],SLIDES[0]); bgL[0].classList.add('on'); setDot(0); setInterval(swap,SLIDE_MS);
+  const roll=t=>{ mpx+=(tpx-mpx)*.05; mpy+=(tpy-mpy)*.05; // smooth-follow the cursor
+    bgL.forEach(l=>{if(!l._t0)return; const p=ease(Math.min((t-l._t0)/(SLIDE_MS+FADE),1));
+      const s=l._zin?(1.07+0.16*p):(1.23-0.16*p);
+      const x=l._dx*p + mpx*2.4, y=l._dy*p + mpy*2.0;
+      l.style.transform=`scale(${s.toFixed(4)}) translate(${x.toFixed(3)}%,${y.toFixed(3)}%)`;});
     requestAnimationFrame(roll)};
   requestAnimationFrame(roll);}
-// MOTION ENGINE — every project photo moves with its own personality (JS-driven,
-// immune to OS animation settings). zoom = breathes in and out · pan = side-to-side,
-// faster · drone = slow floating figure-eight.
+// MOTION ENGINE — per-tile drift (S144: now driving the project gallery; reduced-motion gate + offscreen pause)
 const phase=Math.random()*9999;
-document.querySelectorAll('.ph[data-motion]').forEach((el,i)=>{
-  const kind=el.dataset.motion, off=phase+i*1370;
-  const tick=t=>{const s=(t+off)/1000;let tr='';
-    if(kind==='zoom'){const e=(Math.sin(s/5)+1)/2; tr=`scale(${(1.06+0.12*e).toFixed(4)})`;}
-    else if(kind==='pan'){const x=Math.sin(s/3.2)*2.6; tr=`scale(1.14) translateX(${x.toFixed(3)}%)`;}
-    else {const x=Math.sin(s/6)*1.8, y=Math.cos(s/4.3)*1.4, z=1.10+0.05*((Math.sin(s/7.7)+1)/2); tr=`scale(${z.toFixed(4)}) translate(${x.toFixed(3)}%,${y.toFixed(3)}%)`;}
-    el.style.transform=tr; requestAnimationFrame(tick)};
-  requestAnimationFrame(tick);});
-// Scroll reveal + stat count-up (Ben loves motion)
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  const mio=new IntersectionObserver(es=>es.forEach(en=>{en.target._vis=en.isIntersecting;}));
+  document.querySelectorAll('.ph[data-motion]').forEach((el,i)=>{
+    mio.observe(el);
+    const kind=el.dataset.motion, off=phase+i*1370;
+    const tick=t=>{if(el._vis){const s=(t+off)/1000;let tr='';
+      if(kind==='zoom'){const e=(Math.sin(s/5)+1)/2; tr=`scale(${(1.06+0.12*e).toFixed(4)})`;}
+      else if(kind==='pan'){const x=Math.sin(s/3.2)*2.6; tr=`scale(1.14) translateX(${x.toFixed(3)}%)`;}
+      else {const x=Math.sin(s/6)*1.8, y=Math.cos(s/4.3)*1.4, z=1.10+0.05*((Math.sin(s/7.7)+1)/2); tr=`scale(${z.toFixed(4)}) translate(${x.toFixed(3)}%,${y.toFixed(3)}%)`;}
+      el.style.transform=tr;} requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);});
+}
+// Scroll reveal + stat count-up
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
   e.target.querySelectorAll?.('[data-count]')&&e.target.querySelectorAll('[data-count]').forEach(n=>{
     const end=+n.dataset.count,suf=n.dataset.suffix||'',t0=performance.now();
@@ -362,6 +792,317 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
     requestAnimationFrame(step);});
 }}),{threshold:.18});
 document.querySelectorAll('.rv,.stats .wrap > div').forEach(el=>io.observe(el));
+// QUOTE FORM — works today via formatted mailto; swap for cart/inquiry backend at launch
+document.getElementById('quoteForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const f=e.target, g=id=>encodeURIComponent((f.querySelector('#'+id)?.value||'').trim());
+  if(!f.querySelector('#qName').value.trim()||!f.querySelector('#qEmail').value.trim()){
+    alert('Please add your name and email so we can reach you.');return;}
+  const body=`Name: ${decodeURIComponent(g('qName'))}%0D%0AOrganization: ${decodeURIComponent(g('qOrg'))}%0D%0APhone: ${decodeURIComponent(g('qPhone'))}%0D%0AEmail: ${decodeURIComponent(g('qEmail'))}%0D%0AProject Type: ${decodeURIComponent(g('qType'))}%0D%0A%0D%0A${decodeURIComponent(g('qMsg'))}`;
+  window.location.href=`mailto:bhurst@candmassoc.com?subject=${encodeURIComponent('Quote Request — '+(f.querySelector('#qType').value||'C&M'))}&body=${body}`;
+});
+// PROJECT LIGHTBOX (S144) — click any gallery tile for the full photo
+const lb=document.getElementById('lb');
+if(lb){
+  const lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),lbCount=document.getElementById('lb-count');
+  const projs=[...document.querySelectorAll('.proj')];
+  let cur=0,lastFocus=null;
+  const openLb=i=>{cur=(i+projs.length)%projs.length;const p=projs[cur];
+    const m=(p.querySelector('.ph').style.backgroundImage||'').match(/url\(["']?(.*?)["']?\)/);
+    lbImg.src=m?m[1]:'';
+    lbCap.innerHTML=p.querySelector('.cap').innerHTML;
+    lbCount.textContent=(cur+1)+' / '+projs.length;
+    if(!lb.classList.contains('open')){lastFocus=document.activeElement;lb.classList.add('open');document.body.style.overflow='hidden';}
+    lb.querySelector('.lb-x').focus();};
+  const closeLb=()=>{lb.classList.remove('open');document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus();};
+  projs.forEach((p,i)=>{p.setAttribute('tabindex','0');p.setAttribute('role','button');
+    const cap=p.querySelector('.cap i');p.setAttribute('aria-label','View photo — '+(cap?cap.textContent:'project'));
+    p.addEventListener('click',()=>openLb(i));
+    p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(i);}});});
+  lb.querySelector('.lb-x').addEventListener('click',closeLb);
+  lb.querySelector('.lb-prev').addEventListener('click',()=>openLb(cur-1));
+  lb.querySelector('.lb-next').addEventListener('click',()=>openLb(cur+1));
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')closeLb();else if(e.key==='ArrowLeft')openLb(cur-1);else if(e.key==='ArrowRight')openLb(cur+1);});
+}
 </script>
+
+<!-- ===================== C&M AI ASSISTANT (Phase-1 demo · scripted) ===================== -->
+<div id="cmai">
+  <button class="cmai-launch" id="cmaiLaunch" aria-label="Open assistant">
+    <span class="cmai-pulse"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </button>
+  <div class="cmai-teaser" id="cmaiTeaser">👋 Need gym equipment? Ask me — I can point you to the right person in 30 seconds.</div>
+
+  <div class="cmai-panel" id="cmaiPanel" role="dialog" aria-label="C&amp;M virtual assistant">
+    <div class="cmai-head">
+      <div class="cmai-ava">M</div>
+      <div class="cmai-id">
+        <b>Marcus</b>
+        <span><i class="cmai-dot"></i> C&amp;M Virtual Assistant · replies instantly</span>
+      </div>
+      <button class="cmai-x" id="cmaiClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cmai-body" id="cmaiBody"></div>
+    <div class="cmai-foot">
+      <div class="cmai-chips" id="cmaiChips"></div>
+      <form class="cmai-input" id="cmaiForm" autocomplete="off">
+        <input id="cmaiText" placeholder="Type a message…" aria-label="Message">
+        <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+      </form>
+      <div class="cmai-badge">⚡ Demo assistant · powered by KitFire AI</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #cmai{--ai-navy:#0F2A4D;--ai-navy-deep:#081B33;--ai-orange:#FF6B1A;--ai-surface:#F1F3F6;--ai-line:#E4E7EC;--ai-ink:#0F1923;--ai-mut:#5A6573;font-family:'Inter',sans-serif}
+  .cmai-launch{position:fixed;bottom:26px;right:26px;width:62px;height:62px;border-radius:50%;background:var(--ai-orange);border:none;cursor:pointer;box-shadow:0 12px 30px rgba(255,107,26,.42);z-index:9999;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+  .cmai-launch:hover{transform:scale(1.06)}
+  .cmai-launch svg{width:28px;height:28px;position:relative;z-index:2}
+  .cmai-pulse{position:absolute;inset:0;border-radius:50%;background:var(--ai-orange);opacity:.55;animation:cmaiPulse 2.2s ease-out infinite}
+  @keyframes cmaiPulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.9);opacity:0}100%{opacity:0}}
+  .cmai-teaser{position:fixed;bottom:34px;right:100px;max-width:250px;background:#fff;color:var(--ai-ink);font-size:13.5px;line-height:1.5;padding:12px 15px;border-radius:14px 14px 2px 14px;box-shadow:0 14px 40px rgba(15,42,77,.18);border:1px solid var(--ai-line);z-index:9998;opacity:0;transform:translateY(10px);pointer-events:none;transition:.35s}
+  .cmai-teaser.show{opacity:1;transform:translateY(0)}
+  .cmai-panel{position:fixed;bottom:26px;right:26px;width:380px;max-width:calc(100vw - 32px);height:600px;max-height:calc(100vh - 52px);background:#fff;border-radius:16px;box-shadow:0 30px 80px rgba(8,27,51,.34);z-index:10000;display:flex;flex-direction:column;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(24px) scale(.97);transform-origin:bottom right;transition:.26s cubic-bezier(.34,1.4,.64,1)}
+  .cmai-panel.open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+  .cmai-head{background:linear-gradient(135deg,var(--ai-navy),var(--ai-navy-deep));color:#fff;padding:16px 16px;display:flex;align-items:center;gap:12px}
+  .cmai-ava{width:42px;height:42px;border-radius:50%;background:var(--ai-orange);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+  .cmai-id b{font-family:'Barlow Condensed',sans-serif;font-size:19px;letter-spacing:.02em;display:block;line-height:1.1}
+  .cmai-id span{font-size:11.5px;color:rgba(255,255,255,.72);display:flex;align-items:center;gap:6px}
+  .cmai-dot{width:7px;height:7px;border-radius:50%;background:#37d67a;display:inline-block;box-shadow:0 0 0 0 rgba(55,214,122,.6);animation:cmaiLive 2s infinite}
+  @keyframes cmaiLive{0%{box-shadow:0 0 0 0 rgba(55,214,122,.5)}70%{box-shadow:0 0 0 6px rgba(55,214,122,0)}}
+  .cmai-x{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.8);font-size:26px;line-height:1;cursor:pointer}
+  .cmai-x:hover{color:#fff}
+  .cmai-body{flex:1;overflow-y:auto;padding:20px 16px 8px;background:var(--ai-surface);display:flex;flex-direction:column;gap:10px}
+  .cmai-body::-webkit-scrollbar{width:6px}.cmai-body::-webkit-scrollbar-thumb{background:#cfd5dd;border-radius:3px}
+  .cmai-row{display:flex;gap:8px;align-items:flex-end;max-width:88%}
+  .cmai-row.bot{align-self:flex-start}
+  .cmai-row.user{align-self:flex-end;flex-direction:row-reverse}
+  .cmai-mini{width:26px;height:26px;border-radius:50%;background:var(--ai-navy);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;margin-bottom:2px}
+  .cmai-msg{padding:11px 14px;border-radius:14px;font-size:14px;line-height:1.5;box-shadow:0 2px 8px rgba(15,42,77,.06)}
+  .cmai-row.bot .cmai-msg{background:#fff;color:var(--ai-ink);border-bottom-left-radius:4px}
+  .cmai-row.user .cmai-msg{background:var(--ai-navy);color:#fff;border-bottom-right-radius:4px}
+  .cmai-msg b{color:var(--ai-orange)}.cmai-row.user .cmai-msg b{color:#fff}
+  .cmai-typing{display:flex;gap:4px;padding:14px}
+  .cmai-typing i{width:7px;height:7px;border-radius:50%;background:#b6bec8;animation:cmaiBounce 1.2s infinite}
+  .cmai-typing i:nth-child(2){animation-delay:.15s}.cmai-typing i:nth-child(3){animation-delay:.3s}
+  @keyframes cmaiBounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+  .cmai-foot{border-top:1px solid var(--ai-line);background:#fff;padding:10px 12px 8px}
+  .cmai-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:9px}
+  .cmai-chip{font-size:12.5px;font-weight:600;color:var(--ai-navy);background:#fff;border:1.5px solid var(--ai-line);border-radius:100px;padding:8px 13px;cursor:pointer;transition:.14s;line-height:1.2}
+  .cmai-chip:hover{border-color:var(--ai-orange);color:var(--ai-orange);background:#fff7f2}
+  .cmai-chip.primary{background:var(--ai-orange);border-color:var(--ai-orange);color:#fff}
+  .cmai-chip.primary:hover{background:var(--ai-orange);color:#fff;filter:brightness(1.05)}
+  .cmai-input{display:flex;gap:8px;align-items:center}
+  .cmai-input input{flex:1;border:1px solid var(--ai-line);border-radius:100px;padding:11px 15px;font:inherit;font-size:14px;outline:none}
+  .cmai-input input:focus{border-color:var(--ai-navy)}
+  .cmai-input button{width:40px;height:40px;flex:none;border-radius:50%;background:var(--ai-navy);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .cmai-input button svg{width:18px;height:18px}
+  .cmai-input button:hover{background:var(--ai-navy-deep)}
+  .cmai-badge{text-align:center;font-size:10.5px;color:var(--ai-mut);margin-top:7px;letter-spacing:.02em}
+  .cmai-formrow{max-width:100%!important;width:100%}
+  .cmai-form-card{background:#fff;border:1px solid var(--ai-line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:9px;box-shadow:0 2px 8px rgba(15,42,77,.06);flex:1}
+  .cmai-form-card input{border:1px solid var(--ai-line);border-radius:8px;padding:10px 12px;font:inherit;font-size:13.5px;outline:none}
+  .cmai-form-card input:focus{border-color:var(--ai-navy)}
+  .cmai-form-card button{background:var(--ai-orange);color:#fff;border:none;border-radius:8px;padding:12px;font:inherit;font-weight:700;font-size:14px;cursor:pointer}
+  .cmai-note{background:#fff;border:1px solid var(--ai-line);border-left:3px solid var(--ai-orange);border-radius:10px;padding:12px 14px;font-size:13px;box-shadow:0 2px 8px rgba(15,42,77,.06);max-width:100%}
+  .cmai-note-h{font-weight:700;color:var(--ai-navy);margin-bottom:6px;font-size:12.5px}
+  .cmai-note-l{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-top:1px dashed var(--ai-line)}
+  .cmai-note-l span{color:var(--ai-mut);flex:none}
+  .cmai-note-l b{color:var(--ai-ink);text-align:right}
+  @media (max-width:480px){.cmai-panel{bottom:0;right:0;width:100vw;height:100vh;max-height:100vh;border-radius:0}.cmai-teaser{display:none}}
+</style>
+
+<script>
+(function(){
+  var launch=document.getElementById('cmaiLaunch'),panel=document.getElementById('cmaiPanel'),
+      body=document.getElementById('cmaiBody'),chips=document.getElementById('cmaiChips'),
+      teaser=document.getElementById('cmaiTeaser'),form=document.getElementById('cmaiForm'),
+      text=document.getElementById('cmaiText'),opened=false;
+  var ctx={area:'',deadline:''};
+
+  // --- conversation graph ---
+  var NODES={
+    start:{msg:["Hey — I'm <b>Marcus</b>, C&M's virtual assistant. 43 years, our own crews, 400+ Michigan gyms. 👋","What brings you in today?"],
+      chips:[{t:"I need equipment installed",go:"area"},{t:"Repair or safety inspection",go:"service"},{t:"I want to buy supplies",go:"supplies"},{t:"Just researching",go:"browse"}]},
+    area:{msg:["Good — that's our bread and butter. What are we working on?"],
+      chips:[{t:"Basketball backstops",go:"p_back",set:{area:"basketball backstops"}},{t:"Scoreboards",go:"p_score",set:{area:"scoreboards"}},{t:"Divider curtains",go:"p_curt",set:{area:"divider curtains"}},{t:"Mats & volleyball",go:"p_mats",set:{area:"mats & volleyball"}},{t:"Not sure yet",go:"p_unsure"}]},
+    p_back:{msg:["Backstops are a safety item first. We install wall-mounted, ceiling-suspended and portable systems — mostly <b>Gared / Performance Sports</b> and <b>Schelde/AAE</b> — with the height indicators and safety straps inspectors look for.","Is this a new build, a replacement, or a repair?"],
+      chips:[{t:"New build",go:"timing"},{t:"Replacement",go:"timing"},{t:"Repair",go:"timing"}]},
+    p_score:{msg:["We're a <b>Daktronics</b> dealer — indoor LED scoreboards, message centers, shot clocks and full timing/control systems, wired and programmed.","Replacing an old board, or building new?"],
+      chips:[{t:"Replacing",go:"timing"},{t:"New build",go:"timing"},{t:"Adding a shot clock",go:"timing"}]},
+    p_curt:{msg:["Divider curtains turn one gym into two or three usable courts. We do roll-up and fold-up, manual or motorized — sized to your ceiling and beam layout.","New build, or replacing an existing curtain?"],
+      chips:[{t:"New build",go:"timing"},{t:"Replacement",go:"timing"},{t:"Not sure",go:"timing"}]},
+    p_mats:{msg:["That covers wrestling & gym mats plus full wall-padding and volleyball systems — <b>Resilite</b>, <b>Dollamur</b> and more.","Fresh install, or replacing worn padding?"],
+      chips:[{t:"New install",go:"timing"},{t:"Replacing worn padding",go:"timing"},{t:"Volleyball setup",go:"timing"}]},
+    p_unsure:{msg:["No problem — that's exactly what Ben's for. Roughly, is it a single item or a whole-gym project?"],
+      chips:[{t:"Single item",go:"timing"},{t:"Whole-gym project",go:"timing",set:{area:"a whole-gym project"}},{t:"Show me what you do",go:"browse"}]},
+    timing:{msg:["Helpful. Last quick one and I'll get you to the right person — when does it need to be done?"],
+      chips:[{t:"Before the season",go:"pitch",set:{deadline:"before the season starts"}},{t:"Over the summer / off-season",go:"pitch",set:{deadline:"during the summer / off-season"}},{t:"Within this budget year",go:"pitch",set:{deadline:"within this budget year"}},{t:"Still figuring that out",go:"pitch",set:{deadline:"to be determined with Ben"}}]},
+    pitch:{msg:["You've probably been burned by a contractor who subbed the whole job out and vanished after install. We don't — <b>our own crews, start to finish</b>, and we service what we sell.","The fastest way to real numbers is 15 minutes with <b>Ben</b>, who runs these projects. Would it be a bad idea to grab a time this week?"],
+      chips:[{t:"Book 15 min with Ben",go:"book",cls:"primary"},{t:"Just email me info",go:"email"}]},
+    service:{msg:["Smart to stay ahead of it. We do safety inspections and repairs on backstops, bleachers, curtains and rims — and we document everything for your records.","Want to get on the schedule?"],
+      chips:[{t:"Book an inspection",go:"book",cls:"primary",set:{area:"a safety inspection / repair"}},{t:"Ask a question first",go:"browse"}]},
+    supplies:{msg:["We stock nets, padding, replacement parts and gym-day supplies in our Brighton warehouse — ready to ship.","You can browse the shop, or if it's a bigger order I can connect you with a person."],
+      chips:[{t:"Open the Shop",go:"shop",cls:"primary"},{t:"Talk to someone",go:"book",set:{area:"a supply / parts order"}}]},
+    browse:{msg:["Happy to help you look. We cover basketball, volleyball, scoreboards, divider curtains, mats & padding — sales, install and service, all in-house.","Want me to line up a quick call for whenever you're ready, or keep answering questions?"],
+      chips:[{t:"Pick a product area",go:"area"},{t:"Set up a call",go:"book"}]},
+    email:{msg:["No pressure at all. Drop your email and Ben's team will send details on {area} — no spam, just what you asked for."],form:"email"},
+    book:{msg:["Great call. Quick details and Ben confirms a time that works — he'll walk in already knowing what you need."],form:"book"},
+    fallback:{msg:["Good question — Ben can give you exact specs and pricing on that so nothing's guessed. Want me to set up a quick call so you're not playing phone tag?"],
+      chips:[{t:"Book 15 min with Ben",go:"book",cls:"primary"},{t:"Back to the menu",go:"area"}]}
+  };
+
+  function fill(s){return s.replace('{area}', ctx.area||'your project').replace('{deadline}', ctx.deadline||'your timeline');}
+  function scroll(){body.scrollTop=body.scrollHeight;}
+  function addUser(t){var r=document.createElement('div');r.className='cmai-row user';r.innerHTML='<div class="cmai-msg">'+t+'</div>';body.appendChild(r);scroll();}
+  function typing(){var r=document.createElement('div');r.className='cmai-row bot';r.id='cmaiTyping';r.innerHTML='<div class="cmai-mini">M</div><div class="cmai-msg cmai-typing"><i></i><i></i><i></i></div>';body.appendChild(r);scroll();}
+  function unTyping(){var t=document.getElementById('cmaiTyping');if(t)t.remove();}
+  function addBot(t){var r=document.createElement('div');r.className='cmai-row bot';r.innerHTML='<div class="cmai-mini">M</div><div class="cmai-msg">'+fill(t)+'</div>';body.appendChild(r);scroll();}
+
+  function renderChips(list){
+    chips.innerHTML='';
+    (list||[]).forEach(function(c){
+      var b=document.createElement('button');b.className='cmai-chip'+(c.cls?' '+c.cls:'');b.textContent=c.t;
+      b.onclick=function(){addUser(c.t);if(c.set)Object.assign(ctx,c.set);if(c.go==='shop'){setTimeout(function(){window.location.href='shop.html';},400);return;}chips.innerHTML='';go(c.go);};
+      chips.appendChild(b);
+    });
+  }
+
+  function noteCard(kind){
+    var c=document.createElement('div');c.className='cmai-row bot';
+    c.innerHTML='<div class="cmai-mini">M</div><div class="cmai-note">'
+      +'<div class="cmai-note-h">📋 '+(kind==='book'?"Added to Ben's calendar invite":"Noted for Ben's follow-up")+'</div>'
+      +'<div class="cmai-note-l"><span>Project</span><b>'+(ctx.area||'—')+'</b></div>'
+      +'<div class="cmai-note-l"><span>Project deadline</span><b>'+(ctx.deadline||'to be determined')+'</b></div></div>';
+    body.appendChild(c);scroll();
+  }
+  function showForm(kind){
+    var needP=!ctx.area, needD=!ctx.deadline;
+    var f='<input placeholder="Your name" data-k="name" type="text" name="name" autocomplete="name" required>'
+         +'<input placeholder="School / organization" data-k="org" name="organization" autocomplete="organization" required>'
+         +'<input placeholder="Email address" data-k="contact" type="email" name="email" autocomplete="email" inputmode="email" required>'
+         +'<input placeholder="Phone (optional)" data-k="phone" type="tel" name="tel" autocomplete="tel">';
+    if(needP) f+='<input placeholder="What\'s the project?" data-k="project" required>';
+    if(needD) f+='<input placeholder="Project deadline" data-k="date" required>';
+    f+='<button type="submit">'+(kind==='book'?'Book the call':'Send it over')+'</button>';
+    var card=document.createElement('div');card.className='cmai-row bot cmai-formrow';
+    card.innerHTML='<div class="cmai-mini">M</div><form class="cmai-form-card">'+f+'</form>';
+    body.appendChild(card);scroll();
+    card.querySelector('form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var g=function(k){var el=card.querySelector('[data-k="'+k+'"]');return el?el.value.trim():'';};
+      var name=(g('name')||'there').split(' ')[0];
+      if(needP&&g('project')) ctx.area=g('project');
+      if(needD&&g('date')) ctx.deadline=g('date');
+      card.querySelector('form').innerHTML='<div style="text-align:center;color:#12805c;font-weight:600;font-size:13.5px;padding:6px">✓ Sending to Ben now…</div>';
+      setTimeout(function(){
+        if(kind==='book') addBot("You're set, "+name+". <b>Ben will reach out to confirm a time.</b> Everything you told me is going on the invite, so he walks in already knowing the story. Talk soon. 🤝");
+        else addBot("Done, "+name+" — the info's on the way and Ben will follow up personally with the details. Appreciate you reaching out.");
+        noteCard(kind);
+        renderChips([{t:"Start over",go:"start"}]);
+      },900);
+    });
+  }
+
+  function go(id){
+    var n=NODES[id];if(!n)return;
+    typing();
+    var delay=520;
+    setTimeout(function(){
+      unTyping();
+      n.msg.forEach(function(m,i){setTimeout(function(){addBot(m);},i*430);});
+      var after=n.msg.length*430;
+      setTimeout(function(){
+        if(n.form){showForm(n.form);chips.innerHTML='';}
+        else renderChips(n.chips);
+      },after);
+    },delay);
+  }
+
+  form.addEventListener('submit',function(e){e.preventDefault();var v=text.value.trim();if(!v)return;addUser(v);text.value='';chips.innerHTML='';go('fallback');});
+
+  function open(){opened=true;panel.classList.add('open');teaser.classList.remove('show');if(!body.hasChildNodes())go('start');text.focus();}
+  function close(){panel.classList.remove('open');}
+  launch.onclick=function(){panel.classList.contains('open')?close():open();};
+  document.getElementById('cmaiClose').onclick=close;
+  setTimeout(function(){if(!opened)teaser.classList.add('show');},3200);
+  setTimeout(function(){teaser.classList.remove('show');},11000);
+  teaser.style.pointerEvents='auto';teaser.onclick=open;
+})();
+</script>
+
+<!-- MICHIGAN PROJECT MAP — tooltip interactions (S144) -->
+<script>
+(function(){
+  var tip = document.getElementById('mi-tip');
+  if(!tip) return;
+  var el = { img:document.getElementById('mi-tip-img'), name:document.getElementById('mi-tip-name'), city:document.getElementById('mi-tip-city'), install:document.getElementById('mi-tip-install'), brand:document.getElementById('mi-tip-brand') };
+  var wrap = document.querySelector('.mimap .map-wrap');
+  var active = null;
+
+  el.img.addEventListener('error', function(){ el.img.style.display='none'; });
+
+  function show(g){
+    active = g;
+    document.querySelectorAll('.mimap .pin.active').forEach(function(p){ p.classList.remove('active'); });
+    g.classList.add('active');
+    el.name.textContent = g.dataset.name;
+    el.city.textContent = g.dataset.city;
+    el.install.textContent = g.dataset.install;
+    el.brand.textContent = g.dataset.brand;
+    var img = g.dataset.img;
+    if(img){ el.img.src = img; el.img.style.display='block'; } else { el.img.style.display='none'; }
+
+    var r = g.getBoundingClientRect();
+    var w = wrap.getBoundingClientRect();
+    var half = tip.offsetWidth/2 + 6 || 122;
+    var x = r.left + r.width/2 - w.left;
+    x = Math.max(half, Math.min(w.width - half, x));
+    tip.style.left = x + 'px';
+    tip.classList.remove('below');
+    tip.style.top = (r.top - w.top - 10) + 'px';
+    tip.classList.add('on');
+    requestAnimationFrame(function(){
+      var th = tip.offsetHeight;
+      if (r.top - w.top - th - 12 < 0){
+        tip.classList.add('below');
+        tip.style.top = (r.bottom - w.top + 10) + 'px';
+      }
+    });
+  }
+  function hide(){
+    tip.classList.remove('on');
+    if(active){ active.classList.remove('active'); active = null; }
+  }
+  document.querySelectorAll('.mimap .pin').forEach(function(g){
+    g.addEventListener('mouseenter',function(){ show(g); });
+    g.addEventListener('mouseleave',hide);
+    g.addEventListener('focus',function(){ show(g); });
+    g.addEventListener('blur',hide);
+    g.addEventListener('click',function(e){ e.stopPropagation(); active===g ? hide() : show(g); });
+  });
+  document.addEventListener('click',hide);
+
+  // staggered pin pop-in when the panel scrolls into view (S144)
+  var panel = document.querySelector('.mimap');
+  var pins = document.querySelectorAll('.mimap .pin');
+  pins.forEach(function(p,i){ p.style.transitionDelay = (i*70)+'ms'; });
+  var pio = new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(en.isIntersecting){
+        panel.classList.add('pins-in');
+        pio.disconnect();
+        setTimeout(function(){ pins.forEach(function(p){ p.style.transitionDelay=''; }); }, pins.length*70+700);
+      }
+    });
+  },{threshold:.25});
+  pio.observe(panel);
+})();
+</script>
+
 </body>
 </html>

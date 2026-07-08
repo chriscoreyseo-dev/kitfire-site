@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>C&M Associates — Website Preview (Web · Tablet · Phone)</title>
+<!-- STATUS: KITFIRE-INTERNAL PREVIEW HARNESS (S144) · device-switcher wrapper for Ben's review · route: Chris → Ben -->
+<!-- PACKAGE NOTE: at deploy time filenames lose version suffixes; the script below auto-falls-back to index.html if the _v2 file is absent. -->
+<style>
+:root{--navy:#0F2A4D;--navy-deep:#081B33;--orange:#FF6B1A;--line:#E4E7EC}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:radial-gradient(1200px 700px at 50% -10%,#12314f 0%,var(--navy-deep) 60%);color:#fff;display:flex;flex-direction:column;overflow:hidden}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 20px;background:rgba(8,27,51,.88);border-bottom:1px solid rgba(255,255,255,.1);flex-wrap:wrap}
+.bar .id b{font-size:1.02rem;letter-spacing:.02em}
+.bar .id small{display:block;font-size:.7rem;color:#9fb3cc;letter-spacing:.12em;text-transform:uppercase}
+.views{display:flex;gap:8px}
+.views button{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);color:#dbe4f0;font:inherit;font-weight:700;font-size:.88rem;padding:9px 18px;border-radius:999px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.views button:hover{border-color:var(--orange);color:#fff}
+.views button.on{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(255,107,26,.35)}
+.views button svg{width:16px;height:16px;flex:none}
+.note{font-size:.72rem;color:#9fb3cc}
+.note b{color:var(--orange)}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;padding:18px;min-height:0}
+.device{position:relative;background:#000;transition:width .3s ease,height .3s ease,border-radius .3s ease,padding .3s ease;box-shadow:0 40px 90px rgba(0,0,0,.55);transform-origin:center center}
+.device iframe{width:100%;height:100%;border:0;background:#fff;display:block}
+.device.web{width:100%;height:100%;border-radius:10px;padding:0;border:1px solid rgba(255,255,255,.14);overflow:hidden}
+.device.tablet{width:768px;height:1024px;border-radius:26px;padding:16px;border:1px solid #223c5c}
+.device.tablet iframe{border-radius:12px}
+.device.phone{width:390px;height:844px;border-radius:38px;padding:14px 10px;border:1px solid #223c5c}
+.device.phone iframe{border-radius:26px}
+.device .notch{display:none;position:absolute;top:15px;left:50%;transform:translateX(-50%);width:110px;height:16px;background:#000;border-radius:0 0 12px 12px;z-index:2}
+.device.phone .notch{display:block}
+.dim{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);font-size:.72rem;color:#7f93ad;letter-spacing:.06em;background:rgba(8,27,51,.8);padding:5px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.08)}
+@media (max-width:640px){.bar{justify-content:center;text-align:center}.note{display:none}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="id">
+    <b>C&amp;M Associates — Website Preview</b>
+    <small>Draft for review · not the live site</small>
+  </div>
+  <div class="views" role="tablist" aria-label="Device view">
+    <button id="btn-web" class="on" aria-pressed="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Web
+    </button>
+    <button id="btn-tablet" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2.5"/><path d="M12 18.5h.01"/></svg>
+      Tablet
+    </button>
+    <button id="btn-phone" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M12 18.5h.01"/></svg>
+      Phone
+    </button>
+  </div>
+  <div class="note">Click any view, then browse the site normally inside it. <b>Feedback → Chris</b></div>
+</div>
+
+<div class="stage">
+  <div class="device web" id="device">
+    <span class="notch" aria-hidden="true"></span>
+    <iframe id="frame" title="C&M Associates website preview"></iframe>
+  </div>
+</div>
+
+<div class="dim" id="dim">Full width</div>
+
+<script>
+(function(){
+  var device=document.getElementById('device'), dim=document.getElementById('dim'), stage=document.querySelector('.stage');
+  var frame=document.getElementById('frame');
+  var VIEWS={web:{w:0,h:0,label:'Full width'},tablet:{w:768,h:1024,label:'Tablet · 768 × 1024'},phone:{w:390,h:844,label:'Phone · 390 × 844'}};
+  var btns={web:document.getElementById('btn-web'),tablet:document.getElementById('btn-tablet'),phone:document.getElementById('btn-phone')};
+  var cur='web';
+
+  // canonical draft name now; version suffixes are stripped at package time → fall back to index.html
+  // (GET, not HEAD — some static hosts don't answer HEAD)
+  fetch('index.html').then(function(r){
+    frame.src = r.ok ? 'index.html' : 'index.html';
+  }).catch(function(){ frame.src='index.html'; });
+
+  function fit(){
+    if(cur==='web'){ device.style.transform=''; return; }
+    var v=VIEWS[cur], pad=36;
+    var availW=stage.clientWidth-pad, availH=stage.clientHeight-pad;
+    var outerW=v.w+(cur==='phone'?20:32), outerH=v.h+(cur==='phone'?28:32);
+    var s=Math.min(1, availW/outerW, availH/outerH);
+    device.style.transform='scale('+s.toFixed(3)+')';
+  }
+  function setView(k){
+    cur=k;
+    device.className='device '+k;
+    Object.keys(btns).forEach(function(b){ btns[b].classList.toggle('on',b===k); btns[b].setAttribute('aria-pressed', b===k?'true':'false'); });
+    dim.textContent=VIEWS[k].label;
+    fit();
+  }
+  btns.web.onclick=function(){setView('web')};
+  btns.tablet.onclick=function(){setView('tablet')};
+  btns.phone.onclick=function(){setView('phone')};
+  addEventListener('resize',fit,{passive:true});
+})();
+</script>
+
+</body>
+</html>
