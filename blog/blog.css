@@ -1,0 +1,97 @@
+/* KitFire blog — shared styles (tokens mirror index.html) */
+:root{
+  --bg:#0a0a0c; --bg2:#111116; --card:#15151c; --panel:#1b1b24;
+  --ink:#f4f1ee; --muted:#a7a3ad; --line:rgba(255,255,255,.08);
+  --ember1:#ff8a1e; --ember2:#ff3d2e;
+  --grad:linear-gradient(100deg,var(--ember1),var(--ember2));
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,'Segoe UI',sans-serif;font-size:1.05rem;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:rgba(255,110,30,.35);color:#fff}
+:focus-visible{outline:2px solid var(--ember1);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:'Sora','Inter',sans-serif;letter-spacing:-.03em;line-height:1.14}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.ember{background:linear-gradient(100deg,var(--ember1),var(--ember2),#ffb347,var(--ember1));background-size:280% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:emberflow 7s ease-in-out infinite}
+@keyframes emberflow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--ink)}
+.logo .flame{width:26px;height:26px;border-radius:8px;background:var(--grad);position:relative;box-shadow:0 0 22px rgba(255,110,30,.5)}
+.logo .flame::after{content:"";position:absolute;inset:6px 8px 7px;background:var(--bg);border-radius:3px 8px 3px 8px;transform:rotate(-8deg)}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:.92rem;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.here{color:var(--ink)}
+.btn{display:inline-block;background:var(--grad);color:#fff;font-weight:700;font-size:.98rem;padding:14px 28px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 28px rgba(255,90,30,.35)}
+.btn:hover{transform:translateY(-2px)}
+.btn.sm{padding:10px 20px;font-size:.9rem}
+@media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+/* blog index */
+.bhero{padding:84px 0 40px;text-align:left;position:relative}
+.bhero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 480px at 78% -20%,rgba(255,110,30,.12),transparent 62%)}
+.eyebrow{display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ember1);margin-bottom:16px}
+.bhero h1{font-size:clamp(2rem,5.4vw,3.3rem);max-width:820px}
+.bhero p{color:var(--muted);max-width:640px;margin-top:16px}
+.postgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;padding:34px 0 90px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:transform .2s,border-color .2s}
+.pcard:hover{transform:translateY(-4px);border-color:rgba(255,138,30,.4)}
+.pcard .tag{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ember1)}
+.pcard h2{font-size:1.32rem}
+.pcard p{color:var(--muted);font-size:.97rem;flex:1}
+.pcard .more{color:var(--ember1);font-weight:600;font-size:.92rem}
+
+/* article */
+.article{padding:76px 0 40px;position:relative}
+.article::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 480px at 78% -20%,rgba(255,110,30,.1),transparent 62%)}
+.article .inner{max-width:760px;margin:0 auto;position:relative}
+.crumbs{font-size:.88rem;color:var(--muted);margin-bottom:22px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--ink)}
+.article h1{font-size:clamp(1.9rem,4.8vw,2.9rem);margin-bottom:18px}
+.pmeta{color:var(--muted);font-size:.9rem;margin-bottom:30px}
+.article .lead{font-size:1.18rem;color:var(--ink);margin-bottom:8px}
+.article h2{font-size:1.55rem;margin:44px 0 14px}
+.article h3{font-size:1.18rem;margin:30px 0 10px}
+.article p{color:#cdc9d2;margin:14px 0}
+.article ul,.article ol{color:#cdc9d2;margin:14px 0 14px 24px}
+.article li{margin:8px 0}
+.article strong{color:var(--ink)}
+.article a{color:var(--ember1);text-decoration:none}
+.article a:hover{text-decoration:underline}
+.article blockquote{border-left:3px solid var(--ember1);padding:6px 0 6px 20px;margin:22px 0;color:var(--ink);font-style:italic}
+.article table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.95rem}
+.article th,.article td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);color:#cdc9d2;vertical-align:top}
+.article th{color:var(--ink);font-family:'Sora',sans-serif;font-size:.88rem;letter-spacing:.04em}
+.tablewrap{overflow-x:auto}
+
+/* CTA box */
+.ctabox{background:var(--panel);border:1px solid rgba(255,138,30,.28);border-radius:var(--radius);padding:34px 32px;margin:52px 0 20px;text-align:center}
+.ctabox h2{font-size:1.5rem;margin:0 0 10px}
+.ctabox p{color:var(--muted);max-width:520px;margin:0 auto 22px}
+
+/* related */
+.related{border-top:1px solid var(--line);margin-top:46px;padding:26px 0 60px}
+.related h3{font-size:1.05rem;margin-bottom:14px;color:var(--muted);font-weight:600}
+.related ul{list-style:none}
+.related li{margin:10px 0}
+.related a{color:var(--ember1);text-decoration:none;font-weight:600}
+.related a:hover{text-decoration:underline}
+
+/* footer */
+.footer{border-top:1px solid var(--line);padding:34px 0;background:var(--bg2)}
+.footer .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;color:var(--muted);font-size:.9rem}
+.footer .fl{display:flex;align-items:center;gap:9px;font-family:'Sora',sans-serif;font-weight:800;color:var(--ink)}
+.footer .fl .flame{width:18px;height:18px;border-radius:5px;background:var(--grad)}
+
+@media (prefers-reduced-motion:reduce){
+  .ember{animation:none}
+  .pcard:hover,.btn:hover{transform:none}
+  html{scroll-behavior:auto}
+}
