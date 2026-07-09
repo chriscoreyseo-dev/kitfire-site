@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /preview/
+Disallow: /compare.html
+
+Sitemap: https://kitfire.ai/sitemap.xml

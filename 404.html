@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Page not found — KitFire</title>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --ink:#f4f1ee; --muted:#a7a3ad;
+  --ember1:#ff8a1e; --ember2:#ff3d2e;
+  --grad:linear-gradient(100deg,var(--ember1),var(--ember2));
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,'Segoe UI',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;overflow:hidden}
+.glow{position:fixed;left:50%;top:38%;width:640px;height:640px;transform:translate(-50%,-50%);pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(255,138,30,.13) 0%,rgba(255,61,46,.05) 40%,transparent 68%)}
+.box{position:relative;max-width:560px}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--ink);margin-bottom:34px}
+.logo .flame{width:26px;height:26px;border-radius:8px;background:var(--grad);position:relative;box-shadow:0 0 22px rgba(255,110,30,.5)}
+.logo .flame::after{content:"";position:absolute;inset:6px 8px 7px;background:var(--bg);border-radius:3px 8px 3px 8px;transform:rotate(-8deg)}
+.code{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(5rem,18vw,8.5rem);line-height:1;letter-spacing:-.04em;background:linear-gradient(100deg,var(--ember1),var(--ember2),#ffb347,var(--ember1));background-size:280% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:emberflow 7s ease-in-out infinite}
+@keyframes emberflow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+h1{font-family:'Sora',sans-serif;font-size:clamp(1.4rem,4.5vw,2rem);letter-spacing:-.03em;margin:14px 0 12px}
+p{color:var(--muted);line-height:1.65;margin-bottom:30px}
+.btn{display:inline-block;background:var(--grad);color:#fff;font-weight:700;font-size:.98rem;padding:14px 28px;border-radius:999px;text-decoration:none;box-shadow:0 8px 28px rgba(255,90,30,.35);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.code{animation:none}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div class="box">
+  <a class="logo" href="/"><span class="flame" aria-hidden="true"></span>KitFire</a>
+  <div class="code">404</div>
+  <h1>This page clocked out.</h1>
+  <p>The rest of us never do. The page you're after moved or never existed — but everything worth seeing is one click away.</p>
+  <a class="btn" href="/">Back to KitFire</a>
+</div>
+</body>
+</html>
