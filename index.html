@@ -288,8 +288,12 @@ section{padding:110px 0;position:relative}
 .browser .url{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:8px;font-size:.76rem;color:var(--muted);padding:6px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .browser .live{font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--ember1);display:flex;align-items:center;gap:6px}
 .browser .live b{width:7px;height:7px;border-radius:50%;background:var(--ember1);box-shadow:0 0 0 0 rgba(255,138,30,.55);animation:livepulse 2.2s infinite}
+.browser .ex{display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:8px;border:1px solid var(--line);color:var(--muted);font-size:1rem;line-height:1;text-decoration:none;transition:color .2s,border-color .2s}
+.browser .ex:hover{color:var(--ember1);border-color:rgba(255,138,30,.45)}
 @keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(255,138,30,.55)}70%{box-shadow:0 0 0 9px rgba(255,138,30,0)}100%{box-shadow:0 0 0 0 rgba(255,138,30,0)}}
 .browser .view{position:relative;width:100%;aspect-ratio:16/10.5;background:#081B33}
+.browser .view.on{aspect-ratio:auto;height:clamp(480px,62vh,680px)}
+@media(max-width:900px){.browser .view.on{height:min(80vh,720px)}}
 .browser iframe{display:block;width:100%;height:100%;border:0;background:#fff}
 .browser .poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:30px;cursor:pointer;background:radial-gradient(600px 360px at 50% 20%,#12314f 0%,#081B33 70%)}
 .browser .poster .pm{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(1.2rem,2.2vw,1.7rem);color:#fff;max-width:20ch}
@@ -629,6 +633,7 @@ section{padding:110px 0;position:relative}
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <span class="url">kitfire.ai/preview/cm</span>
           <span class="live"><b aria-hidden="true"></b>LIVE</span>
+          <a class="ex" href="/preview/cm/preview.html" target="_blank" rel="noopener" aria-label="Open the full-screen preview in a new tab" title="Open full screen">⤢</a>
         </div>
         <div class="view" id="cm-view">
           <!-- iframe injected on click — keeps the homepage light until the visitor asks for the demo -->
@@ -747,7 +752,9 @@ if(poster){poster.addEventListener('click',()=>{
   const fr=document.createElement('iframe');
   fr.src='https://kitfire.ai/preview/cm/';
   fr.title='C&M Associates — live site built by KitFire';
-  document.getElementById('cm-view').appendChild(fr);
+  const view=document.getElementById('cm-view');
+  view.classList.add('on');
+  view.appendChild(fr);
   poster.remove();
 });}
 
