@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — C&amp;M Associates · Nets, Parts &amp; Gym Supplies from our Brighton Warehouse</title>
-<meta name="description" content="Order volleyball & basketball nets, wall padding, replacement rims, and gym accessories directly from C&M Associates. Ships from our Brighton, MI warehouse.">
+<meta name="robots" content="noindex,nofollow"/>
+<title>Shop — C&amp;M Associates · Gared, Sportsfield, Daktronics &amp; Dollamur Equipment</title>
+<meta name="description" content="Request quotes on basketball backstops, divider curtains, scoreboards, wrestling mats and more from C&M Associates — Michigan dealer for Gared Performance Sports Systems, Sportsfield Specialties, Daktronics, and Dollamur.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -40,13 +41,13 @@
   .hero .crumb{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--orange);font-weight:700;margin-bottom:14px}
   .hero h1{font-size:clamp(42px,6vw,68px);color:#fff;margin-bottom:16px;max-width:760px}
   .hero h1 em{font-style:normal;color:var(--orange)}
-  .hero-lead{font-size:18px;color:rgba(255,255,255,.86);max-width:600px;margin-bottom:26px}
+  .hero-lead{font-size:18px;color:rgba(255,255,255,.86);max-width:640px;margin-bottom:26px}
   .hero-badges{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:rgba(255,255,255,.8)}
   .hero-badges span{display:inline-flex;align-items:center;gap:8px}
   .hero-badges b{color:var(--orange);font-size:16px}
 
   /* SHOP LAYOUT */
-  .shop{padding:52px 0 90px}
+  .shop{padding:52px 0 60px}
   .shop-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:26px}
   .shop-head h2{font-size:34px}
   .shop-head p{font-size:14px;color:var(--ink-muted)}
@@ -62,17 +63,27 @@
       radial-gradient(120px 120px at 50% 38%,rgba(255,107,26,.10),transparent 70%),var(--surface)}
   .card-media .ph{filter:grayscale(.1);opacity:.92}
   .card-media .tag{position:absolute;top:12px;left:12px;background:#fff;border:1px solid var(--line);color:var(--navy);font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:5px 10px;border-radius:100px}
-  .card-media .stock{position:absolute;top:12px;right:12px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#12805c;background:#e7f6ef;padding:5px 10px;border-radius:100px}
-  .card-media .stock.low{color:#b45309;background:#fdf0dc}
+  .card-media .cat-tag{position:absolute;top:12px;right:12px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#12805c;background:#e7f6ef;padding:5px 10px;border-radius:100px}
   .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
   .card-body h3{font-size:19px;color:var(--navy);margin-bottom:6px;line-height:1.1}
   .card-body .spec{font-size:12.5px;color:var(--ink-muted);margin-bottom:16px;flex:1}
   .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .price{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;color:var(--ink)}
-  .price small{font-size:13px;color:var(--ink-muted);font-weight:600}
+  .quote-lbl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;color:var(--navy);text-transform:uppercase;letter-spacing:.03em}
+  .quote-lbl small{display:block;font-family:'Inter',sans-serif;font-size:11px;color:var(--ink-muted);font-weight:600;text-transform:none;letter-spacing:0}
   .add{background:var(--orange);color:#fff;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;padding:11px 18px;border-radius:3px;transition:background .15s;white-space:nowrap}
   .add:hover{background:var(--orange-hover)}
   .add:active{transform:scale(.95)}
+
+  /* VENDOR STRIP */
+  .vstrip{padding:0 0 84px}
+  .vstrip h2{font-size:30px;margin-bottom:6px}
+  .vstrip .sub{font-size:14px;color:var(--ink-muted);margin-bottom:24px}
+  .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .vcard{border:1px solid var(--line);border-radius:6px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;gap:8px;transition:transform .18s,box-shadow .18s}
+  .vcard:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(15,42,77,.10)}
+  .vcard h3{font-size:19px;line-height:1.15}
+  .vcard p{font-size:13px;color:var(--ink-muted);flex:1}
+  .vcard .visit{color:var(--orange);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
 
   /* TRUST BAND */
   .band{background:var(--navy);color:#fff;padding:44px 0}
@@ -80,7 +91,7 @@
   .band .cell b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
   .band .cell span{font-size:13.5px;color:rgba(255,255,255,.82)}
 
-  /* CART DRAWER */
+  /* QUOTE DRAWER */
   .drawer-scrim{position:fixed;inset:0;background:rgba(8,27,51,.5);opacity:0;visibility:hidden;transition:.25s;z-index:80}
   .drawer-scrim.open{opacity:1;visibility:visible}
   .drawer{position:fixed;top:0;right:0;height:100%;width:390px;max-width:92vw;background:#fff;z-index:90;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(8,27,51,.25)}
@@ -99,7 +110,6 @@
   .qty{display:flex;align-items:center;gap:8px;margin-top:6px}
   .qty button{width:22px;height:22px;border:1px solid var(--line);background:#fff;border-radius:4px;cursor:pointer;font-weight:700;color:var(--navy);line-height:1}
   .qty span{font-size:13px;font-weight:700;min-width:16px;text-align:center}
-  .line .lp{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px}
   .drawer-foot{border-top:1px solid var(--line);padding:20px 24px 24px}
   .subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
   .subtotal .lbl{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);font-weight:700}
@@ -127,12 +137,13 @@
     .nav-links a:not(.btn):not(.active){display:none}
     .band .wrap{grid-template-columns:1fr 1fr;gap:22px}
     .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .vgrid{grid-template-columns:1fr 1fr}
   }
 </style>
 </head>
 <body>
 
-<div class="demo-flag">DESIGN MOCKUP · product imagery is placeholder · cart & checkout are demo-only</div>
+<div class="demo-flag">SITE PREVIEW · product imagery is placeholder · quote requests switch on at launch</div>
 
 <nav class="nav">
   <div class="container nav-inner">
@@ -143,9 +154,9 @@
       <a href="about.html">About</a>
       <a href="inspections.html">Inspections</a>
       <a href="shop.html" class="active">Shop</a>
-      <button class="cart-btn" onclick="openCart()" aria-label="Cart">
+      <button class="cart-btn" onclick="openCart()" aria-label="Quote list">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-        Cart<span class="cart-count" id="cartCount">0</span>
+        Quote<span class="cart-count" id="cartCount">0</span>
       </button>
     </div>
   </div>
@@ -154,12 +165,12 @@
 <header class="hero">
   <div class="container hero-content">
     <div class="crumb">Home · Shop</div>
-    <h1>Order Direct From <em>Our Warehouse.</em></h1>
-    <p class="hero-lead">Nets, padding, replacement parts, and gym-day essentials — in stock in Brighton and ready to ship. The same equipment C&amp;M installs, available to buy today.</p>
+    <h1>Equipment From <em>The Brands We Install.</em></h1>
+    <p class="hero-lead">Backstops, divider curtains, scoreboards, and mats from our four factory partners — Gared Performance Sports Systems, Sportsfield Specialties, Daktronics, and Dollamur. Build your list, request a quote, and the same crew that installs it confirms pricing and options.</p>
     <div class="hero-badges">
-      <span><b>✓</b> Ships from Brighton, MI</span>
+      <span><b>✓</b> Four factory vendor partners</span>
       <span><b>✓</b> School POs welcome</span>
-      <span><b>✓</b> Bulk &amp; team pricing</span>
+      <span><b>✓</b> Sales · Installation · Service</span>
     </div>
   </div>
 </header>
@@ -167,28 +178,41 @@
 <main class="shop">
   <div class="container">
     <div class="shop-head">
-      <div><h2>Shop All Products</h2></div>
-      <p id="resultCount">14 items</p>
+      <div><h2>Shop By Brand</h2></div>
+      <p id="resultCount"></p>
     </div>
 
     <div class="filters" id="filters">
       <button class="chip active" data-filter="all">All Products</button>
-      <button class="chip" data-filter="nets">Nets</button>
-      <button class="chip" data-filter="padding">Padding &amp; Safety</button>
-      <button class="chip" data-filter="parts">Replacement Parts</button>
-      <button class="chip" data-filter="access">Accessories</button>
+      <button class="chip" data-filter="gared">Gared PSS</button>
+      <button class="chip" data-filter="sportsfield">Sportsfield Specialties</button>
+      <button class="chip" data-filter="daktronics">Daktronics</button>
+      <button class="chip" data-filter="dollamur">Dollamur</button>
     </div>
 
     <div class="grid" id="grid"><!-- products injected by JS --></div>
   </div>
 </main>
 
+<section class="vstrip">
+  <div class="container">
+    <h2>Our Vendors</h2>
+    <p class="sub">Every product above comes from one of the four manufacturers C&amp;M sells, installs, and services across Michigan.</p>
+    <div class="vgrid">
+      <a class="vcard" href="https://www.perfsports.com" target="_blank" rel="noopener"><h3>Gared Performance Sports Systems</h3><p>Basketball backstops, divider curtains, volleyball systems, wall padding &amp; mat hoists.</p><span class="visit">Visit perfsports.com →</span></a>
+      <a class="vcard" href="https://www.sportsfield.com" target="_blank" rel="noopener"><h3>Sportsfield Specialties</h3><p>Football goal posts, athletic field goals, netting systems, track &amp; field equipment.</p><span class="visit">Visit sportsfield.com →</span></a>
+      <a class="vcard" href="https://www.daktronics.com" target="_blank" rel="noopener"><h3>Daktronics</h3><p>Indoor &amp; outdoor scoreboards, shot clocks, video displays &amp; message centers.</p><span class="visit">Visit daktronics.com →</span></a>
+      <a class="vcard" href="https://www.dollamur.com" target="_blank" rel="noopener"><h3>Dollamur</h3><p>FLEXI-Roll® wrestling mats, cheer floors, martial arts mats &amp; wall padding.</p><span class="visit">Visit dollamur.com →</span></a>
+    </div>
+  </div>
+</section>
+
 <section class="band">
   <div class="container">
     <div class="wrap">
-      <div class="cell"><b>Fast Local Shipping</b><span>Most orders leave the Brighton warehouse in 1–2 business days.</span></div>
-      <div class="cell"><b>Purchase Orders</b><span>Schools &amp; districts can check out on account with a PO.</span></div>
-      <div class="cell"><b>Bulk Pricing</b><span>Team, league, and case quantities priced on request.</span></div>
+      <div class="cell"><b>Quote-First Ordering</b><span>Add equipment to your list — we confirm pricing, freight, and options before anything is ordered.</span></div>
+      <div class="cell"><b>Purchase Orders</b><span>Schools &amp; districts can order on account with a PO.</span></div>
+      <div class="cell"><b>Factory Vendor Partners</b><span>Sourced direct from the four manufacturers we install every week.</span></div>
       <div class="cell"><b>Real Support</b><span>Not sure what fits? Call the same crew that installs it.</span></div>
     </div>
   </div>
@@ -204,10 +228,10 @@
       <div>
         <h5>Shop</h5>
         <ul>
-          <li><a href="#" onclick="setFilter('nets');return false">Nets</a></li>
-          <li><a href="#" onclick="setFilter('padding');return false">Padding &amp; Safety</a></li>
-          <li><a href="#" onclick="setFilter('parts');return false">Replacement Parts</a></li>
-          <li><a href="#" onclick="setFilter('access');return false">Accessories</a></li>
+          <li><a href="#" onclick="setFilter('gared');return false">Gared PSS</a></li>
+          <li><a href="#" onclick="setFilter('sportsfield');return false">Sportsfield Specialties</a></li>
+          <li><a href="#" onclick="setFilter('daktronics');return false">Daktronics</a></li>
+          <li><a href="#" onclick="setFilter('dollamur');return false">Dollamur</a></li>
         </ul>
       </div>
       <div>
@@ -235,64 +259,82 @@
   </div>
 </footer>
 
-<!-- CART DRAWER -->
+<!-- QUOTE DRAWER -->
 <div class="drawer-scrim" id="scrim" onclick="closeCart()"></div>
-<aside class="drawer" id="drawer" aria-label="Shopping cart">
+<aside class="drawer" id="drawer" aria-label="Quote request list">
   <div class="drawer-head">
-    <h3>Your Cart</h3>
+    <h3>Your Quote List</h3>
     <button class="drawer-close" onclick="closeCart()" aria-label="Close">&times;</button>
   </div>
   <div class="drawer-body" id="drawerBody">
-    <div class="empty" id="emptyMsg">Your cart is empty.<br>Add a few items to see how checkout will feel.</div>
+    <div class="empty" id="emptyMsg">Your quote list is empty.<br>Add equipment to request pricing.</div>
   </div>
   <div class="drawer-foot">
-    <div class="subtotal"><span class="lbl">Subtotal</span><span class="amt" id="subtotal">$0</span></div>
-    <div class="note">Shipping &amp; tax calculated at checkout.</div>
-    <button class="btn" onclick="alert('Demo checkout — real payment + PO checkout wired in the build.')">Checkout</button>
+    <div class="subtotal"><span class="lbl">Items</span><span class="amt" id="subtotal">0</span></div>
+    <div class="note">Submit your list and the C&amp;M team confirms pricing, freight, and install options.</div>
+    <button class="btn" onclick="alert('Preview mode — at launch this sends your list straight to the C&M team.')">Submit Quote Request</button>
     <div class="po-line">Buying for a school? <a href="index.html#quote">Request a PO invoice →</a></div>
   </div>
 </aside>
 
 <script>
+const VENDORS = {
+  gared:       {label:'Gared PSS',               url:'https://www.perfsports.com'},
+  sportsfield: {label:'Sportsfield Specialties', url:'https://www.sportsfield.com'},
+  daktronics:  {label:'Daktronics',              url:'https://www.daktronics.com'},
+  dollamur:    {label:'Dollamur',                url:'https://www.dollamur.com'}
+};
+
 const PRODUCTS = [
-  {id:'vb-net', cat:'nets', ic:'🏐', name:'Competition Volleyball Net', spec:'32′39″ · Kevlar cable · vinyl headband', price:189, stock:'In Stock'},
-  {id:'bb-net', cat:'nets', ic:'🏀', name:'Anti-Whip Basketball Net', spec:'12-loop heavy nylon · white', price:14, stock:'In Stock'},
-  {id:'chain-net', cat:'nets', ic:'⛓️', name:'Steel Chain Net', spec:'Zinc-plated · outdoor-rated', price:39, stock:'In Stock'},
-  {id:'cage-net', cat:'nets', ic:'⚾', name:'Batting Cage Net · 55′', spec:'#36 HDPE twine · sewn borders', price:459, stock:'In Stock'},
-  {id:'soccer-net', cat:'nets', ic:'⚽', name:'Soccer Goal Net · Pair', spec:'8′ × 24′ · 4mm braided', price:79, stock:'In Stock'},
-  {id:'wall-pad', cat:'padding', ic:'🟧', name:'Wall Pad · 2′ × 6′', spec:'1.5″ foam · Z-clip mount · 20 colors', price:119, stock:'In Stock'},
-  {id:'post-pad', cat:'padding', ic:'🛡️', name:'Post Pad · Round', spec:'Fits 4″–6″ posts · hook & loop', price:89, stock:'In Stock'},
-  {id:'board-pad', cat:'padding', ic:'🟦', name:'Backboard Edge Padding', spec:'Wrap-around · fan & rectangular', price:129, stock:'Low Stock'},
-  {id:'rim', cat:'parts', ic:'⭕', name:'Breakaway Competition Rim', spec:'180° positive-lock · orange coat', price:149, stock:'In Stock'},
-  {id:'winch', cat:'parts', ic:'⚙️', name:'Divider Curtain Winch', spec:'Worm-gear · 1,200 lb capacity', price:175, stock:'Low Stock'},
-  {id:'ratchet', cat:'parts', ic:'🔩', name:'Net Ratchet & Clip Kit', spec:'Stainless · volleyball systems', price:22, stock:'In Stock'},
-  {id:'cart', cat:'access', ic:'🛒', name:'Ball Cart · 30-Ball', spec:'Folding frame · locking lid', price:199, stock:'In Stock'},
-  {id:'whistle', cat:'access', ic:'🔔', name:'Ref Whistle · 3-Pack', spec:'Pealess · with lanyards', price:18, stock:'In Stock'},
-  {id:'tape', cat:'access', ic:'🎞️', name:'Court Line Tape', spec:'Gaffer 2″ × 60yd · residue-free', price:24, stock:'In Stock'}
+  // Gared Performance Sports Systems — perfsports.com
+  {id:'gps-ceiling',  cat:'gared', type:'Basketball',  ic:'🏀', name:'Ceiling-Suspended Backstop',    spec:'Fold-up systems engineered to your gym structure · manual or motorized'},
+  {id:'gps-wall',     cat:'gared', type:'Basketball',  ic:'🏀', name:'Wall-Mounted Backstop',         spec:'Fixed & side-fold wall mounts · adjustable extension'},
+  {id:'gps-rim',      cat:'gared', type:'Basketball',  ic:'⭕', name:'Competition Breakaway Rims',    spec:'Positive-lock breakaway goals · nets included'},
+  {id:'gps-divider',  cat:'gared', type:'Gym Divider', ic:'🪟', name:'Gym Divider Curtain',           spec:'Fold-up & roll-up curtains · full-gym separation'},
+  {id:'gps-vb',       cat:'gared', type:'Volleyball',  ic:'🏐', name:'Competition Volleyball System', spec:'Net systems, standards & judge stands'},
+  {id:'gps-padding',  cat:'gared', type:'Safety',      ic:'🟧', name:'Safety Wall Padding',           spec:'Custom-cut panels · school colors & logos'},
+  {id:'gps-hoist',    cat:'gared', type:'Wrestling',   ic:'⚙️', name:'Wrestling Mat Hoist',           spec:'Ceiling & wall-mount mat storage lifts'},
+
+  // Sportsfield Specialties — sportsfield.com
+  {id:'sfs-goalpost', cat:'sportsfield', type:'Football',      ic:'🏈', name:'AdjustRight® Football Goal Posts', spec:'Adjustable goal post systems for stadium & practice fields'},
+  {id:'sfs-goalpak',  cat:'sportsfield', type:'Multi-Sport',   ic:'⚽', name:'GoalPak® Combination Goals',       spec:'Soccer & multi-sport combination goals'},
+  {id:'sfs-netting',  cat:'sportsfield', type:'Netting',       ic:'🥅', name:'Ultra Cross® Knotless Netting',    spec:'Ball containment & backstop netting systems'},
+  {id:'sfs-track',    cat:'sportsfield', type:'Track & Field', ic:'🏃', name:'Track & Field Equipment',          spec:'Pole vault & high jump standards, hurdles & throwing circles'},
+  {id:'sfs-padding',  cat:'sportsfield', type:'Safety',        ic:'🧱', name:'Field Padding & Windscreen',       spec:'Outdoor wall padding & fence windscreen systems'},
+
+  // Daktronics — daktronics.com
+  {id:'dak-indoor',   cat:'daktronics', type:'Scoreboards', ic:'🔢', name:'Indoor Basketball Scoreboard', spec:'LED gym scoreboards with game & shot-clock integration'},
+  {id:'dak-shot',     cat:'daktronics', type:'Timing',      ic:'⏱️', name:'Shot Clock Sets',              spec:'Backboard-mount pairs · wired & wireless control options'},
+  {id:'dak-outdoor',  cat:'daktronics', type:'Scoreboards', ic:'🏟️', name:'Outdoor Football Scoreboard',  spec:'LED outdoor scoring, game clocks & sponsor panels'},
+  {id:'dak-video',    cat:'daktronics', type:'Video',       ic:'📺', name:'LED Video Displays',           spec:'Indoor & outdoor video boards · All Sport® control'},
+
+  // Dollamur — dollamur.com
+  {id:'dol-flexiroll',cat:'dollamur', type:'Wrestling', ic:'🤼', name:'FLEXI-Roll® Wrestling Mat',   spec:'Roll-out competition mats · custom graphics available'},
+  {id:'dol-connect',  cat:'dollamur', type:'Wrestling', ic:'🧩', name:'FLEXI-Connect® Mat System',   spec:'Tapeless mat connection — no mat tape, faster setup'},
+  {id:'dol-cheer',    cat:'dollamur', type:'Cheer',     ic:'🤸', name:'Cheer & Gymnastics Flooring', spec:'Roll-out cheer mats & carpet-bonded foam'},
+  {id:'dol-wallpad',  cat:'dollamur', type:'Safety',    ic:'🛡️', name:'Safety Wall Pads',            spec:'Carpet-bonded foam wall padding for mat rooms'}
 ];
 
 const cart = {}; // id -> qty
-const money = n => '$' + n.toLocaleString();
 
 function render(filter){
   const grid = document.getElementById('grid');
   const items = PRODUCTS.filter(p => !filter || filter==='all' || p.cat===filter);
   document.getElementById('resultCount').textContent = items.length + (items.length===1?' item':' items');
   grid.innerHTML = items.map(p => {
-    const low = p.stock==='Low Stock' ? ' low' : '';
-    const catLabel = {nets:'Net',padding:'Padding',parts:'Part',access:'Accessory'}[p.cat];
+    const v = VENDORS[p.cat];
     return `<article class="card">
       <div class="card-media">
-        <span class="tag">${catLabel}</span>
-        <span class="stock${low}">${p.stock}</span>
+        <span class="tag">${v.label}</span>
+        <span class="cat-tag">${p.type}</span>
         <span class="ph">${p.ic}</span>
       </div>
       <div class="card-body">
         <h3>${p.name}</h3>
         <p class="spec">${p.spec}</p>
         <div class="card-foot">
-          <span class="price">${money(p.price)}<small> ea</small></span>
-          <button class="add" onclick="add('${p.id}')">Add</button>
+          <span class="quote-lbl">Quote<small>pricing confirmed by our team</small></span>
+          <button class="add" onclick="add('${p.id}')">Add to Quote</button>
         </div>
       </div>
     </article>`;
@@ -321,33 +363,30 @@ function updateCart(){
   const badge = document.getElementById('cartCount');
   badge.textContent = count;
   badge.classList.toggle('show', count>0);
-  let subtotal = 0;
   const ids = Object.keys(cart);
   const body = document.getElementById('drawerBody');
   if(!ids.length){
-    body.innerHTML = '<div class="empty">Your cart is empty.<br>Add a few items to see how checkout will feel.</div>';
+    body.innerHTML = '<div class="empty">Your quote list is empty.<br>Add equipment to request pricing.</div>';
   } else {
     body.innerHTML = ids.map(id => {
-      const p = PRODUCTS.find(x=>x.id===id), q = cart[id]; subtotal += p.price*q;
+      const p = PRODUCTS.find(x=>x.id===id), q = cart[id];
       return `<div class="line">
         <div class="ic">${p.ic}</div>
         <div class="info">
           <h4>${p.name}</h4>
-          <div class="u">${money(p.price)} each</div>
+          <div class="u">${VENDORS[p.cat].label} · ${p.type}</div>
           <div class="qty">
             <button onclick="dec('${id}')">−</button><span>${q}</span><button onclick="inc('${id}')">+</button>
           </div>
         </div>
-        <div class="lp">${money(p.price*q)}</div>
       </div>`;
     }).join('');
   }
-  document.getElementById('subtotal').textContent = money(subtotal);
+  document.getElementById('subtotal').textContent = count;
 }
 
 function openCart(){ document.getElementById('drawer').classList.add('open'); document.getElementById('scrim').classList.add('open'); }
 function closeCart(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('scrim').classList.remove('open'); }
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeCart(); });
 
 render('all');
 </script>
