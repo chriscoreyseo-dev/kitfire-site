@@ -828,7 +828,7 @@ if(lb){
 }
 </script>
 
-<!-- ===================== C&M AI ASSISTANT (Phase-1 demo · scripted) ===================== -->
+<!-- ===================== C&M AI ASSISTANT (Phase-2 hybrid · scripted chips + live AI free-text, S159) ===================== -->
 <div id="cmai">
   <button class="cmai-launch" id="cmaiLaunch" aria-label="Open assistant">
     <span class="cmai-pulse"></span>
@@ -852,7 +852,7 @@ if(lb){
         <input id="cmaiText" placeholder="Type a message…" aria-label="Message">
         <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
       </form>
-      <div class="cmai-badge">⚡ Demo assistant · powered by KitFire AI</div>
+      <div class="cmai-badge">⚡ AI assistant · powered by KitFire AI</div>
     </div>
   </div>
 </div>
@@ -1023,7 +1023,31 @@ if(lb){
     },delay);
   }
 
-  form.addEventListener('submit',function(e){e.preventDefault();var v=text.value.trim();if(!v)return;addUser(v);text.value='';chips.innerHTML='';go('fallback');});
+  /* ---- Marcus v2: smart free-text lane (S159) — scripted chips stay; typed messages go to the live assistant; scripted fallback if the endpoint is down ---- */
+  var MARCUS_URL='https://obwjlqrzshdglrccsbtl.supabase.co/functions/v1/marcus-chat';
+  var hist=[];
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function smartReply(v){
+    hist.push({role:'user',content:v});
+    typing();
+    var ctrl=('AbortController' in window)?new AbortController():null;
+    var timer=ctrl?setTimeout(function(){ctrl.abort();},20000):null;
+    fetch(MARCUS_URL,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages:hist.slice(-12)}),signal:ctrl?ctrl.signal:undefined})
+      .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+      .then(function(d){
+        if(timer)clearTimeout(timer);
+        var t=document.getElementById('cmaiTyping');if(t)t.remove();
+        if(!d.reply)throw new Error('empty');
+        hist.push({role:'assistant',content:d.reply});
+        addBot(esc(d.reply).replace(/\n/g,'<br>'));
+      })
+      .catch(function(){
+        if(timer)clearTimeout(timer);
+        var t=document.getElementById('cmaiTyping');if(t)t.remove();
+        go('fallback');
+      });
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();var v=text.value.trim();if(!v)return;addUser(v);text.value='';chips.innerHTML='';smartReply(v);});
 
   function open(){opened=true;panel.classList.add('open');teaser.classList.remove('show');if(!body.hasChildNodes())go('start');text.focus();}
   function close(){panel.classList.remove('open');}
