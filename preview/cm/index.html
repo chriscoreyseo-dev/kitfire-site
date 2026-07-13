@@ -308,7 +308,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
     <a href="#services">What We Do</a>
     <a href="#why">Why C&amp;M</a>
     <a href="#products">Catalog</a>
-    <a href="shop.html">Shop</a>
+    <a href="parts-store.html">Parts Store</a>
     <a href="#projects">Projects</a>
     <a href="#team">Team</a>
     <a href="#brands">Vendors</a>
@@ -967,7 +967,7 @@ if(lb){
     chips.innerHTML='';
     (list||[]).forEach(function(c){
       var b=document.createElement('button');b.className='cmai-chip'+(c.cls?' '+c.cls:'');b.textContent=c.t;
-      b.onclick=function(){addUser(c.t);if(c.set)Object.assign(ctx,c.set);if(c.go==='shop'){setTimeout(function(){window.location.href='shop.html';},400);return;}chips.innerHTML='';go(c.go);};
+      b.onclick=function(){addUser(c.t);if(c.set)Object.assign(ctx,c.set);if(c.go==='shop'){setTimeout(function(){window.location.href='parts-store.html';},400);return;}chips.innerHTML='';go(c.go);};
       chips.appendChild(b);
     });
   }
