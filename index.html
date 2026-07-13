@@ -677,10 +677,10 @@ section{padding:110px 0;position:relative}
           <input type="hidden" name="needs" id="fneeds"/>
         </div>
         <div class="f"><label for="fabout">Tell us about your business in a sentence or two</label><textarea id="fabout" name="about" placeholder="What you do, who your customers are, and what's bugging you about your current marketing."></textarea></div>
-        <!-- Submissions relay to ops-techive@kitfire.ai via formsubmit.co (see submit handler). -->
+        <!-- Submissions go to Supabase edge fn kitfire-intake (stored in intake_submissions + notification to ceo@). Replaced formsubmit.co direct relay S160 — it stripped fields + injected sponsor ads. -->
         <button class="btn send" type="submit">Send it — hear back within 24 hours</button>
         <p class="promise">Your info goes to a human, not a mailing list.</p>
-        <p class="promise err" style="display:none;color:#ff6b5e">Hmm — that didn't go through. Email us directly: <a href="mailto:ops-techive@kitfire.ai" style="color:var(--ember1)">ops-techive@kitfire.ai</a></p>
+        <p class="promise err" style="display:none;color:#ff6b5e">Hmm — that didn't go through. Email us directly: <a href="mailto:ceo@kitfire.ai" style="color:var(--ember1)">ceo@kitfire.ai</a></p>
       </form>
       <div class="done">
         <h3>Got it. <span class="ember">You'll hear from us within 24 hours.</span></h3>
@@ -789,7 +789,7 @@ const chips=document.querySelectorAll('#need-chips .chip'),fneeds=document.getEl
 chips.forEach(c=>c.addEventListener('click',()=>{c.classList.toggle('on');
   fneeds.value=[...chips].filter(x=>x.classList.contains('on')).map(x=>x.dataset.v).join(', ');}));
 
-// intake submit — relays to ops-techive@kitfire.ai via formsubmit.co
+// intake submit — Supabase edge fn kitfire-intake: stores the lead + notifies ceo@ (S160)
 document.getElementById('intake-form').addEventListener('submit',async e=>{
   e.preventDefault();
   const f=e.target;
@@ -797,13 +797,12 @@ document.getElementById('intake-form').addEventListener('submit',async e=>{
   const btn=f.querySelector('.send'),err=f.querySelector('.err');
   btn.disabled=true;btn.textContent='Sending…';err.style.display='none';
   try{
-    const r=await fetch('https://formsubmit.co/ajax/ops-techive@kitfire.ai',{
+    const r=await fetch('https://obwjlqrzshdglrccsbtl.supabase.co/functions/v1/kitfire-intake',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        _subject:'New KitFire project inquiry: '+f.business.value,
         name:f.name.value, business:f.business.value, email:f.email.value,
-        website:f.website.value||'(none)', needs:f.needs.value||'(not specified)', about:f.about.value||'(blank)'
+        website:f.website.value||'', needs:f.needs.value||'', about:f.about.value||''
       })
     });
     if(!r.ok) throw new Error('relay '+r.status);
