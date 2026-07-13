@@ -277,7 +277,7 @@ const PRODUCTS = [
   {id:'net-anti-whip', model:'GAW', cat:'Net Hardware', img:'parts/gared-anti-whip-net.jpg', name:'Anti-Whip Net (GAW)', spec:'Top-quality net for collegiate & recreational play. 120-count nylon, hourglass design, stiffened upper loops. Fits all 12-loop no-tie goals. Order minimum 6 dozen.', price:14.00, unit:'each'},
   {id:'hoist-1194', model:'1194', cat:'Hoists & Hardware', img:'parts/gared-1194-electric-hoist.png', name:'1194 Electric Hoist', spec:'The most convenient way to raise and lower gymnasium equipment. Designed for ceiling-hung backstops and fold-up wall-mounted systems.', price:1350.00, unit:''},
   {id:'strap-1100', model:'1100', cat:'Hoists & Hardware', img:'parts/gared-1100-safety-strap.png', name:'1100 Safety Strap (Safstop)', spec:'Catches a backstop in the slight chance of winch or cable failure. Attaches to the facility ceiling as an equipment seat belt.', price:800.00, unit:''},
-  {id:'padding-pmce', model:'PMCE', cat:'Padding & Safety', img:'parts/gared-pmce-padding-gray.png', name:'PMCE Bolt-On Edge Padding', spec:'PRO-MOLD® bolt-on basketball backboard padding. Universally fits any 72″ backboard with a 2″ channel. One kit protects one backboard. 16 colors available.', price:240.00, unit:'per pair'},
+  {id:'padding-pmce', model:'PMCE', cat:'Padding & Safety', img:'parts/gared-pmce-padding-gray.png', img2:'parts/gared-pmce-padding-colors.png', name:'PMCE Bolt-On Edge Padding', spec:'PRO-MOLD® bolt-on basketball backboard padding. Universally fits any 72″ backboard with a 2″ channel. One kit protects one backboard. 16 colors available — hover the photo to see the range.', price:240.00, unit:'per pair'},
   {id:'crank-handle', model:'', cat:'Hoists & Hardware', img:'parts/gared-height-adjuster-crank.jpg', name:'Height Adjuster Hand Crank', spec:'Crank handle compatible with all Gared manual backboard height adjusters.', price:95.00, unit:''},
   {id:'remote-1198', model:'1198', cat:'Hoists & Hardware', img:'parts/gared-1198-wireless-remote.jpg', name:'1198 Wireless Remote Transmitter', spec:'Wireless remote transmitter for Gared electric hoist systems.', price:165.00, unit:''},
   {id:'net-volleyball-7600', model:'7600', cat:'Net Hardware', img:'parts/gared-7600-volleyball-net.jpg', name:'7600 Competition Volleyball Net', spec:'Fully enclosed fiberglass dowels, 4″ square nylon mesh. Free-floating net on 1/8″ steel cable for easy centering. Six adjustable straps with Velcro.', price:425.00, unit:''},
@@ -296,7 +296,9 @@ function render(){
   document.getElementById('resultCount').textContent = PRODUCTS.length + ' parts';
   grid.innerHTML = PRODUCTS.map(p => {
     const media = p.img
-      ? `<img src="${p.img}" alt="${p.name}" loading="lazy">`
+      ? (p.img2
+          ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onmouseenter="this.src='${p.img2}'" onmouseleave="this.src='${p.img}'">`
+          : `<img src="${p.img}" alt="${p.name}" loading="lazy">`)
       : `<span class="noimg">Photo coming soon</span>`;
     return `<article class="card">
       <div class="card-media">
