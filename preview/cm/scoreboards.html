@@ -246,5 +246,63 @@
 function openCalendar(){ window.location.href = 'index.html#quote'; }
 </script>
 
+<!-- ============================================================
+KitFire Lightbox v1 (S159) — drop-in click-to-enlarge for client sites
+USAGE: paste this whole block just before </body>. Zero dependencies.
+- Auto-attaches to every <img> matching the SELECTOR below (default:
+  photos in a /photos/ or /parts/ path — adjust per site so logos and
+  icons are excluded).
+- Caption comes from the image's alt text — write real alt text.
+- Optional per-image alternate view: add data-alt-src="other.jpg" to any
+  image to get a "Swap Photo" button in the enlarged view.
+- Close: click backdrop, the ×, or press Esc.
+- Classes are kf- prefixed to avoid collisions with page CSS.
+Brand palette is C&M navy/orange — swap the two hex values per client.
+============================================================= -->
+<style>
+  .kf-zoomable{cursor:zoom-in}
+  .kf-lightbox{position:fixed;inset:0;background:rgba(8,27,51,.92);z-index:120;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:30px;cursor:zoom-out}
+  .kf-lightbox.open{display:flex}
+  .kf-lightbox img{max-width:92vw;max-height:78vh;object-fit:contain;background:#fff;border-radius:6px;padding:10px;cursor:default}
+  .kf-lightbox .kf-lb-cap{color:#fff;font-family:'Barlow Condensed','Inter',sans-serif;font-size:24px;text-transform:uppercase;letter-spacing:.04em;text-align:center;max-width:90vw}
+  .kf-lightbox .kf-lb-close{position:absolute;top:18px;right:26px;background:none;border:none;color:#fff;font-size:40px;line-height:1;cursor:pointer;opacity:.8}
+  .kf-lightbox .kf-lb-close:hover{opacity:1;color:#FF6B1A}
+  .kf-lightbox .kf-lb-swap{background:#FF6B1A;color:#fff;border:none;cursor:pointer;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:11px 22px;border-radius:100px}
+</style>
+<div class="kf-lightbox" id="kfLightbox">
+  <button class="kf-lb-close" aria-label="Close">&times;</button>
+  <img id="kfLbImg" src="" alt="" onclick="event.stopPropagation()">
+  <div class="kf-lb-cap" id="kfLbCap"></div>
+  <button class="kf-lb-swap" id="kfLbSwap" style="display:none">Swap Photo &#8646;</button>
+</div>
+<script>
+(function(){
+  var SELECTOR = 'img[src*="photos/"], img[src*="parts/"]'; // adjust per site
+  var box = document.getElementById('kfLightbox'),
+      img = document.getElementById('kfLbImg'),
+      cap = document.getElementById('kfLbCap'),
+      swap = document.getElementById('kfLbSwap'),
+      main = '', alt2 = '', showingAlt = false;
+  function open(src, caption, altSrc){
+    main = src; alt2 = altSrc || ''; showingAlt = false;
+    img.src = main; cap.textContent = caption || '';
+    swap.style.display = alt2 ? 'inline-block' : 'none';
+    box.classList.add('open');
+  }
+  function close(){ box.classList.remove('open'); }
+  box.addEventListener('click', close);
+  swap.addEventListener('click', function(e){
+    e.stopPropagation(); showingAlt = !showingAlt; img.src = showingAlt ? alt2 : main;
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+  document.querySelectorAll(SELECTOR).forEach(function(el){
+    el.classList.add('kf-zoomable');
+    el.addEventListener('click', function(){
+      open(el.getAttribute('src'), el.getAttribute('alt'), el.getAttribute('data-alt-src'));
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
