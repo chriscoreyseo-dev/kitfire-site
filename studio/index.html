@@ -64,6 +64,7 @@
   <button data-tab="packet">📦 Packet</button>
   <button data-tab="editdir">🎬 Edit Dir</button>
   <button data-tab="shorts">📱 Shorts</button>
+  <button data-tab="vo">🔊 VO</button>
   <button data-tab="score">⏱ Score</button>
   <button data-tab="voice">🎙 Voice</button>
   <button data-tab="gate">✅ Gate</button>
@@ -156,6 +157,15 @@
       <button class="go" id="tr_go">Render background + composite</button>
       <p style="margin-top:12px; font-size:12px; color:var(--dim);">Fallback while no image key is set: <a href="https://www.vizoryai.com/generate" target="_blank" rel="noopener" style="color:var(--ember2);">render in Vizory →</a></p>
       <div class="doctrine"><b>Why split render from text:</b> baked-in AI text is why wrapper thumbnails look melted. Ours: AI paints the background, the canvas sets real type. Change the words without burning a generation.</div>
+    </div>
+
+    <!-- VO -->
+    <div data-pane="vo" class="hide">
+      <h2>Voiceover <span style="color:var(--dim);font-weight:400">(narration → MP3, in the house voice)</span></h2>
+      <label>Narration <span style="color:var(--dim)">(auto-filled from your last Script run — or paste)</span></label>
+      <textarea id="vo_text" style="min-height:220px" placeholder="Paste plain narration…"></textarea>
+      <button class="go" id="vo_go">Generate voiceover</button>
+      <div class="doctrine"><b>Provider:</b> ElevenLabs if its key is set (best voice), else OpenAI TTS (onyx — deep, dry, ~12¢/video), else it points you back to TubeVoice. One consistent narrator = the brand.</div>
     </div>
 
     <!-- SCORE -->
@@ -259,6 +269,10 @@ document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
   document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
   b.classList.add('on');
   document.querySelectorAll('[data-pane]').forEach(p=>p.classList.toggle('hide', p.dataset.pane!==b.dataset.tab));
+  // convenience: pull the last script's narration into the VO tab
+  if(b.dataset.tab==='vo' && lastPlain && !$('vo_text').value.trim()){
+    $('vo_text').value = lastPlain.replace(/CHARS:\s*\d+\s*$/i,'').trim();
+  }
 });
 
 // length slider label
@@ -376,6 +390,34 @@ function showComposite(){
   box.append(c,dl,note);
   $('outbar').classList.add('hide');
 }
+// ---- voiceover: narration -> MP3 ----
+$('vo_go').onclick = async () => {
+  if(!cfg.url || !cfg.code){ $('gear').click(); return; }
+  const narration = $('vo_text').value.trim();
+  if(!narration){ $('outbox').innerHTML='<div class="hint">Paste narration, or run a Script first.</div>'; return; }
+  const btn=$('vo_go'), orig=btn.textContent;
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span>Recording — chunking + stitching audio';
+  $('outbar').classList.add('hide');
+  try{
+    const r = await fetch(cfg.url,{method:'POST',
+      headers:{'content-type':'application/json','x-studio-code':cfg.code},
+      body:JSON.stringify({mode:'voiceover', inputs:{narration}})});
+    const d = await r.json();
+    if(!r.ok || d.error) throw new Error(d.error||('HTTP '+r.status));
+    const src='data:audio/mp3;base64,'+d.audio_b64;
+    const box=$('outbox'); box.innerHTML='';
+    const au=document.createElement('audio'); au.controls=true; au.src=src; au.style.cssText='width:100%;margin-bottom:12px;';
+    const dl=document.createElement('button'); dl.textContent='Download MP3';
+    dl.style.cssText='padding:10px 18px;border-radius:8px;border:none;cursor:pointer;font-weight:700;background:linear-gradient(90deg,var(--ember),var(--ember2));color:#1a0d05;';
+    dl.onclick=()=>{const a=document.createElement('a');a.href=src;a.download='voiceover.mp3';a.click();};
+    const note=document.createElement('div'); note.className='doctrine'; note.style.marginTop='10px';
+    note.textContent='Voiced by '+(d.provider||'tts')+'. One narrator across every video — that consistency IS the brand.';
+    box.append(au,dl,note);
+  }catch(e){
+    $('outbox').innerHTML='<div class="hint">⚠ '+e.message+'</div>';
+  }finally{ btn.disabled=false; btn.textContent=orig; }
+};
+
 ['tr_text','tr_size','tr_pos'].forEach(id=>$(id).addEventListener('input',()=>{ if(bgImg) showComposite(); }));
 $('tr_go').onclick = async () => {
   if(!cfg.url || !cfg.code){ $('gear').click(); return; }
