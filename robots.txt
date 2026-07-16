@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /preview/
 Disallow: /compare.html
+Disallow: /studio/
 
 Sitemap: https://kitfire.ai/sitemap.xml
