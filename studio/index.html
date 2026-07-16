@@ -162,8 +162,17 @@
     <!-- VO -->
     <div data-pane="vo" class="hide">
       <h2>Voiceover <span style="color:var(--dim);font-weight:400">(narration → MP3, in the house voice)</span></h2>
+      <label>Voice <span style="color:var(--dim)">(needs ElevenLabs key; audition to pick the narrator)</span></label>
+      <select id="vo_voice">
+        <option value="pNInz6obpgDQGcFmaJgB">Adam — deep, dry (default)</option>
+        <option value="nPczCjzI2devNBz1zQrb">Brian — deep, mature narrator</option>
+        <option value="pqHfZKP75CvOlQylNhV4">Bill — older, documentary/world-weary</option>
+        <option value="TxGEqnHWrfWFTfGW9XjX">Josh — deep, younger</option>
+        <option value="onwK4e9ZLuTAKqWW03F9">Daniel — authoritative (British)</option>
+        <option value="JBFqnCBsd6RMkjVDRZzb">George — warm, mature (British)</option>
+      </select>
       <label>Narration <span style="color:var(--dim)">(auto-filled from your last Script run — or paste)</span></label>
-      <textarea id="vo_text" style="min-height:220px" placeholder="Paste plain narration…"></textarea>
+      <textarea id="vo_text" style="min-height:200px" placeholder="Paste plain narration…"></textarea>
       <button class="go" id="vo_go">Generate voiceover</button>
       <div class="doctrine"><b>Provider:</b> ElevenLabs if its key is set (best voice), else OpenAI TTS (onyx — deep, dry, ~12¢/video), else it points you back to TubeVoice. One consistent narrator = the brand.</div>
     </div>
@@ -401,7 +410,7 @@ $('vo_go').onclick = async () => {
   try{
     const r = await fetch(cfg.url,{method:'POST',
       headers:{'content-type':'application/json','x-studio-code':cfg.code},
-      body:JSON.stringify({mode:'voiceover', inputs:{narration}})});
+      body:JSON.stringify({mode:'voiceover', inputs:{narration, voice_id:$('vo_voice').value}})});
     const d = await r.json();
     if(!r.ok || d.error) throw new Error(d.error||('HTTP '+r.status));
     const src='data:audio/mp3;base64,'+d.audio_b64;
