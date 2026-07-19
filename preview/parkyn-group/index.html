@@ -366,6 +366,50 @@
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 
+<!-- Exit-intent offer (S183). Real offer only: the no-cost discovery call.
+     Fires once per visitor (localStorage), desktop mouse-exit toward chrome,
+     armed after 12s on page. Esc / outside-click / X all close it. -->
+<style>
+  .xi-veil{position:fixed;inset:0;z-index:120;background:rgba(13,33,53,0.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px;}
+  .xi-veil.open{display:flex;}
+  .xi-card{position:relative;max-width:520px;width:100%;background:var(--cream);border-radius:14px;padding:44px 42px 38px;box-shadow:0 40px 100px rgba(0,0,0,0.35);text-align:center;opacity:0;transform:translateY(18px) scale(0.97);transition:opacity .35s ease, transform .35s ease;}
+  .xi-veil.open .xi-card{opacity:1;transform:none;}
+  .xi-x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--slate);cursor:pointer;line-height:1;}
+  .xi-kicker{font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
+  .xi-card h3{font-family:'Fraunces',serif;font-size:27px;line-height:1.2;color:var(--navy);margin-bottom:12px;}
+  .xi-card p{font-size:15px;color:var(--slate);margin-bottom:24px;}
+  .xi-card .btn{margin:0 6px 8px;}
+  .xi-sub{font-size:12.5px;color:var(--slate);margin-top:10px;}
+  .xi-sub a{color:var(--navy);font-weight:600;}
+  @media(max-width:480px){.xi-card{padding:34px 24px 28px;}}
+</style>
+<div class="xi-veil" id="xiVeil" role="dialog" aria-modal="true" aria-label="Before you go">
+  <div class="xi-card">
+    <button class="xi-x" id="xiX" aria-label="Close">&times;</button>
+    <div class="xi-kicker">Before you go</div>
+    <h3>Leaving with the same team problem you came with?</h3>
+    <p>The first conversation with Kevin costs nothing, and he'll tell you honestly whether coaching will move it. Thirty years of leaders at Ford, NASA, and Deloitte started with this same call.</p>
+    <a class="btn fire" href="mailto:kevin@parkyngroup.com?subject=Discovery%20Call%20Request" id="xiGo">Book the Discovery Call</a>
+    <div class="xi-sub">or call <a href="tel:+17346343868">(734) 634-3868</a> — Kevin answers his own phone</div>
+  </div>
+</div>
+<script>
+(function(){
+  const KEY='pg_exit_offer_shown';
+  if(localStorage.getItem(KEY))return;
+  const veil=document.getElementById('xiVeil');
+  let armed=false;setTimeout(()=>{armed=true;},12000);
+  function show(){if(!armed||localStorage.getItem(KEY))return;localStorage.setItem(KEY,'1');veil.classList.add('open');document.removeEventListener('mouseout',onOut);}
+  function hide(){veil.classList.remove('open');}
+  function onOut(e){if(!e.relatedTarget&&e.clientY<=8)show();}
+  document.addEventListener('mouseout',onOut);
+  document.getElementById('xiX').addEventListener('click',hide);
+  document.getElementById('xiGo').addEventListener('click',hide);
+  veil.addEventListener('click',(e)=>{if(e.target===veil)hide();});
+  document.addEventListener('keydown',(e)=>{if(e.key==='Escape')hide();});
+})();
+</script>
+
 <!-- Ember v1 — Parkyn Group AI assistant (KitFire install, S183).
      Endpoint: Supabase edge fn parkyn-chat (staged; graceful offline fallback until deployed).
      Name "Ember" = placeholder pending Kevin/Chris ruling. -->
