@@ -222,6 +222,40 @@
   </div>
 </section>
 
+<section class="capture" id="edu-series" style="padding:56px 0;border-top:1px solid rgba(255,255,255,.08)">
+  <div class="wrap" style="max-width:640px;text-align:center">
+    <span class="eyebrow" style="justify-content:center">Not ready to talk?</span>
+    <h2 style="margin:10px 0 8px;font-size:1.6rem">Get the contractor AI education series.</h2>
+    <p style="margin:0 0 22px;opacity:.75">Six short emails. What AI answering actually does, what it costs to miss a call, how to check your own setup — useful whether you hire us or not. No spam, unsubscribe anytime.</p>
+    <form id="eduForm" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+      <input name="name" required placeholder="Your name" style="flex:1 1 150px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:inherit;font:inherit">
+      <input name="business" required placeholder="Company" style="flex:1 1 150px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:inherit;font:inherit">
+      <input name="email" type="email" required placeholder="Email" style="flex:1 1 200px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:inherit;font:inherit">
+      <button class="btn" type="submit" style="flex:0 0 auto">Send me the series</button>
+    </form>
+    <p id="eduMsg" style="display:none;margin-top:14px;font-weight:600"></p>
+  </div>
+</section>
+<script>
+(function(){
+  var f=document.getElementById('eduForm'),m=document.getElementById('eduMsg');
+  if(!f)return;
+  f.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var d=new FormData(f);
+    try{
+      var r=await fetch('https://obwjlqrzshdglrccsbtl.supabase.co/functions/v1/kitfire-intake',{
+        method:'POST',headers:{'content-type':'application/json'},
+        body:JSON.stringify({name:d.get('name'),business:d.get('business'),email:d.get('email'),needs:'newsletter-signup (contractor education series)',about:'source page: '+location.pathname})
+      });
+      var j=await r.json();
+      m.style.display='block';
+      if(j.ok){m.textContent='Done. First email is on its way.';f.style.display='none';}
+      else{m.textContent='Something hiccuped. Call or text (810) 510-2801 and we will add you by hand.';}
+    }catch(_){m.style.display='block';m.textContent='Something hiccuped. Call or text (810) 510-2801 and we will add you by hand.';}
+  });
+})();
+</script>
 <footer class="footer">
   <div class="wrap">
     <span class="fl"><span class="flame" aria-hidden="true"></span>KitFire</span>
