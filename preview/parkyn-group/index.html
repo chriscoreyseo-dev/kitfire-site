@@ -94,12 +94,18 @@
   .cred span{font-size:13px;color:var(--slate);}
   @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-top:56px;padding-bottom:56px;}}
 
-  /* CLIENT PROOF */
-  .proof{background:var(--navy);color:#fff;padding:56px 0;}
+  /* CLIENT PROOF — scrolling marquee */
+  .proof{background:var(--navy);color:#fff;padding:56px 0;overflow:hidden;}
   .proof .label{text-align:center;font-size:12px;letter-spacing:0.26em;text-transform:uppercase;color:#8FA6BA;margin-bottom:30px;}
-  .logos{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;}
-  .logos span{font-family:'Fraunces',serif;font-size:19px;color:#DCE6EF;opacity:0.9;letter-spacing:0.04em;}
-  .proof .tail{text-align:center;margin-top:28px;font-size:14px;color:#AFC2D3;}
+  .marquee{position:relative;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .marquee-track{display:flex;align-items:center;gap:0;width:max-content;animation:pg-marquee 36s linear infinite;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  .marquee-track span{font-family:'Fraunces',serif;font-size:21px;color:#DCE6EF;letter-spacing:0.04em;white-space:nowrap;padding:0 26px;position:relative;}
+  .marquee-track span::after{content:'';position:absolute;right:-3px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--orange);opacity:0.75;}
+  @keyframes pg-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .proof .tail{text-align:center;margin-top:30px;font-size:14px;color:#AFC2D3;}
 
   /* SECTIONS */
   section{padding:88px 0;}
@@ -234,8 +240,11 @@
 <div class="proof">
   <div class="wrap">
     <div class="label rv">Kevin has developed leaders at</div>
-    <div class="logos rv d1">
-      <span>Ford</span><span>NASA</span><span>Pepsi</span><span>Chrysler</span><span>Whirlpool</span><span>Deloitte</span><span>Caterpillar</span><span>Thomson Reuters</span><span>BNSF Railway</span><span>Viacom</span><span>Henkel</span><span>Mylan Labs</span><span>Waste Management</span><span>Citco</span>
+    <div class="marquee rv d1" aria-label="Ford, NASA, Pepsi, Chrysler, Whirlpool, Deloitte, Caterpillar, Thomson Reuters, BNSF Railway, Viacom, Henkel, Mylan Labs, Waste Management, Citco">
+      <div class="marquee-track">
+        <span>Ford</span><span>NASA</span><span>Pepsi</span><span>Chrysler</span><span>Whirlpool</span><span>Deloitte</span><span>Caterpillar</span><span>Thomson Reuters</span><span>BNSF Railway</span><span>Viacom</span><span>Henkel</span><span>Mylan Labs</span><span>Waste Management</span><span>Citco</span>
+        <span aria-hidden="true">Ford</span><span aria-hidden="true">NASA</span><span aria-hidden="true">Pepsi</span><span aria-hidden="true">Chrysler</span><span aria-hidden="true">Whirlpool</span><span aria-hidden="true">Deloitte</span><span aria-hidden="true">Caterpillar</span><span aria-hidden="true">Thomson Reuters</span><span aria-hidden="true">BNSF Railway</span><span aria-hidden="true">Viacom</span><span aria-hidden="true">Henkel</span><span aria-hidden="true">Mylan Labs</span><span aria-hidden="true">Waste Management</span><span aria-hidden="true">Citco</span>
+      </div>
     </div>
     <p class="tail rv d2">From the plant floor to the executive suite — the same behaviors decide who people follow.</p>
   </div>
