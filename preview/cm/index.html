@@ -64,6 +64,10 @@ nav a:hover{color:var(--orange)}
 .hero .wrap{padding-top:170px;padding-bottom:120px;max-width:980px;text-align:center}
 .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:-.01em;margin-bottom:8px}
 .hero h1 .or{color:var(--orange)}
+.hero-logo{line-height:0}
+.hero-logo .plate{display:inline-block;background:#fff;padding:clamp(18px,3vw,30px) clamp(24px,4vw,42px);border-radius:20px;box-shadow:0 22px 60px rgba(4,14,28,.45),0 0 0 1px rgba(255,255,255,.12)}
+.hero-logo img{display:block;width:min(70vw,340px);height:auto}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .hero .lead{font-size:clamp(1.05rem,2vw,1.3rem);color:#d9e2ee;max-width:760px;margin:18px auto 34px}
 .hero .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center}
 .hero .call{color:#fff;font-weight:800;font-size:1.05rem;text-decoration:none}
@@ -214,6 +218,8 @@ nav a:hover{color:var(--orange)}
 .team{background:var(--surface);padding:84px 0}
 .team .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
 .tm{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;transition:transform .3s,box-shadow .3s}
+.tm .face{width:104px;height:104px;border-radius:50%;overflow:hidden;margin-bottom:16px;border:3px solid var(--orange);box-shadow:0 8px 22px rgba(8,27,51,.16)}
+.tm .face img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
 .tm:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(15,42,77,.12)}
 .tm .role{color:var(--orange);font-weight:800;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
 .tm h3{font-size:1.15rem;color:var(--navy);margin-bottom:6px}
@@ -327,7 +333,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
   <div class="hero-seal" aria-hidden="true"><b>43</b><small>Years<br/>Est. 1983</small></div>
   <div class="wrap">
     <span class="eyebrow rv">Serving Schools &amp; Facilities Across Michigan · In Business Since 1983</span>
-    <h1 class="rv">When the Gym Has to Be Ready,<br/><span class="or">Michigan Calls C&M.</span></h1>
+    <h1 class="rv hero-logo"><span class="plate"><img src="cm-logo-hero.png?v=1" alt="" width="333" height="128"/></span><span class="vh">C&amp;M Associates — Michigan's Gymnasium Equipment Specialists. When the gym has to be ready, Michigan calls C&amp;M.</span></h1>
     <p class="lead rv">For 43 years, Michigan schools, colleges, churches and community centers have trusted C&M Associates to sell, install, and service the equipment that keeps their gyms running. One accountable company, start to finish.</p>
     <div class="ctas rv">
       <a class="btn" href="#quote">Request a Quote</a>
@@ -430,7 +436,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
     <div class="mimap rv" id="service-area">
       <span class="mm-eyebrow">Our Work Across Michigan</span>
       <h3>We don't just serve Michigan. <span class="or">We're all over it.</span></h3>
-      <p class="mm-sub">A dozen recent gymnasium and athletic installs — from Ann Arbor to Kalamazoo to the shores of Saginaw Bay. Hover or tap any pin to see the project.</p>
+      <p class="mm-sub">Nineteen gymnasium and athletic installs — from Monroe to Harbor Springs, Lake Michigan to Lake Huron. Hover or tap any pin to see the project.</p>
       <div class="map-wrap">
         <svg class="mi-map" viewBox="0 0 500 490" role="img" aria-label="Map of Michigan showing completed C&M Associates projects, with a zoomed inset of Southeast Michigan">
           <defs>
@@ -479,6 +485,21 @@ footer.site a{color:#dbe4f0;text-decoration:none}
           <g class="pin" tabindex="0" role="button" aria-label="Portage North Middle School, Portage" data-name="Portage North Middle School" data-city="Portage, MI" data-install="Complete gym package — ceiling backstop, Daktronics scoreboard, and full custom wall padding." data-brand="Daktronics / Performance Sports" data-img="photos/proj-portage.jpg"><circle class="dot" cx="284" cy="432" r="5.5"/></g>
           <text class="city-label" x="288" y="447" text-anchor="middle">Portage</text>
 
+          <g class="pin" tabindex="0" role="button" aria-label="Oscoda Community Center, Oscoda" data-name="Oscoda Community Center" data-city="Oscoda, MI" data-install="Ceiling-suspended basketball backstops, volleyball systems, radius and divider curtains, wall pads, and column pads." data-brand="Project photos coming soon" data-img=""><circle class="dot" cx="406" cy="257" r="5.5"/></g>
+          <text class="city-label" x="396" y="251" text-anchor="end">Oscoda</text>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Shay Elementary School, Harbor Springs" data-name="Shay Elementary School" data-city="Harbor Springs, MI" data-install="Ceiling-suspended backstops, wall pads, and wall benches." data-brand="" data-img="photos/proj-shay.jpg"><circle class="dot" cx="311" cy="183" r="5.5"/></g>
+          <text class="city-label" x="311" y="171" text-anchor="middle">Harbor Springs</text>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Spring Lake High School, Spring Lake" data-name="Spring Lake High School" data-city="Spring Lake, MI" data-install="Perimeter netting, batting cages, and peak-fold divider curtains." data-brand="" data-img="photos/proj-springlake.jpg"><circle class="dot" cx="244" cy="356" r="5.5"/></g>
+          <text class="city-label" x="254" y="352" text-anchor="start">Spring Lake</text>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Michigan State University, East Lansing" data-name="Michigan State University" data-city="East Lansing, MI" data-install="Perimeter netting, divider curtains, basketball backstops, ceiling-suspended volleyball, scoreboards, and shot clocks." data-brand="" data-img="photos/proj-msu-wide.jpg"><circle class="dot" cx="342" cy="385" r="5.5"/></g>
+          <text class="city-label" x="342" y="373" text-anchor="middle">East Lansing</text>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Olivet College, Olivet" data-name="Olivet College" data-city="Olivet, MI" data-install="Divider curtain." data-brand="Project photos coming soon" data-img=""><circle class="dot" cx="316" cy="408" r="5.5"/></g>
+          <text class="city-label" x="326" y="404" text-anchor="start">Olivet</text>
+
           <!-- Southeast Michigan inset (zoomed) -->
           <rect class="inset-bg" x="20" y="195" width="150" height="255" rx="10"/>
           <text class="inset-title" x="95" y="211" text-anchor="middle">SE Michigan · Zoomed</text>
@@ -504,6 +525,10 @@ footer.site a{color:#dbe4f0;text-decoration:none}
 
           <g class="pin" tabindex="0" role="button" aria-label="Woodhaven High School, Woodhaven" data-name="Woodhaven High School — Warriors" data-city="Woodhaven, MI" data-install="Custom dugout rail padding and field protection for the baseball complex." data-brand="Performance Sports" data-img="photos/proj-woodhaven.jpg"><circle class="dot" cx="127" cy="356" r="5.5"/></g>
 
+          <g class="pin" tabindex="0" role="button" aria-label="Novi High School, Novi" data-name="Novi High School" data-city="Novi, MI" data-install="Baseball and softball backstop padding." data-brand="" data-img="photos/proj-novi.jpg"><circle class="dot" cx="101" cy="297" r="5.5"/></g>
+
+          <g class="pin" tabindex="0" role="button" aria-label="Monroe High School, Monroe" data-name="Monroe High School" data-city="Monroe, MI" data-install="Mezzanine divider curtain." data-brand="" data-img="photos/proj-monroe.jpg"><circle class="dot" cx="112" cy="397" r="5.5"/></g>
+
           <g class="pin" tabindex="0" role="button" aria-label="Whiteford High School, Ottawa Lake" data-name="Whiteford High School — Bobcats" data-city="Ottawa Lake, MI" data-install="Pair of ceiling-suspended glass backstops over a freshly finished navy-and-gold court." data-brand="Performance Sports Systems" data-img="photos/proj-whiteford.jpg"><circle class="dot" cx="64" cy="427" r="5.5"/></g>
         </svg>
 
@@ -522,7 +547,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
         <span class="k"><span class="ks">★</span> C&amp;M HQ — Brighton</span>
         <span class="k"><span class="kb"></span> Southeast Michigan, zoomed</span>
       </div>
-      <div class="mm-stat">12 recent projects · 10 Michigan communities · real installs, real photos</div>
+      <div class="mm-stat">19 recent projects · 17 Michigan communities · real installs, real photos</div>
       <ul class="mm-sr">
         <li>University of Michigan — North Campus Rec, Ann Arbor</li>
         <li>Saginaw Valley State University, University Center</li>
@@ -536,6 +561,13 @@ footer.site a{color:#dbe4f0;text-decoration:none}
         <li>Shepherd of the Lakes Lutheran, Brighton</li>
         <li>Brighton Indoor Practice Facility, Brighton</li>
         <li>Woodhaven High School, Woodhaven</li>
+        <li>Michigan State University, East Lansing</li>
+        <li>Oscoda Community Center, Oscoda</li>
+        <li>Shay Elementary School, Harbor Springs</li>
+        <li>Spring Lake High School, Spring Lake</li>
+        <li>Monroe High School, Monroe</li>
+        <li>Olivet College, Olivet</li>
+        <li>Novi High School, Novi</li>
       </ul>
     </div>
   </div>
@@ -613,7 +645,7 @@ footer.site a{color:#dbe4f0;text-decoration:none}
       <div class="proj rv"><div class="ph" data-motion="zoom" style="background-image:url('photos/proj-edselford.jpg')"></div><div class="cap"><small>Wall Padding</small><b>Wall Padding &amp; Backstop</b><i>Edsel Ford High School — Dearborn, MI</i></div></div>
       <div class="proj rv"><div class="ph" data-motion="pan" style="background-image:url('photos/proj-brighton.jpg')"></div><div class="cap"><small>Outdoor &amp; Field</small><b>Indoor Goal Posts &amp; Netting</b><i>Brighton Indoor Practice Facility</i></div></div>
     </div>
-    <div class="rv" style="text-align:center;margin-top:40px"><a class="btn" href="projects.html">See All 17 Projects →</a></div>
+    <div class="rv" style="text-align:center;margin-top:40px"><a class="btn" href="projects.html">See All 24 Projects →</a></div>
   </div>
 </section>
 
@@ -638,8 +670,8 @@ footer.site a{color:#dbe4f0;text-decoration:none}
     <h2 class="rv" style="font-size:clamp(1.7rem,3.4vw,2.5rem)">The People Behind Every Install</h2>
     <p class="rv" style="max-width:760px;margin:14px 0 0;color:var(--ink-muted)">Michigan-based since 1983. When you call, you talk to one of us — not a call center. <!-- ASSET GATE: head-shot + 2-3 sentence bio per person (Chris requested from Ben/Tyler) --></p>
     <div class="grid">
-      <div class="tm rv"><div class="role">Owner</div><h3>Ben Hurst</h3><a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></div>
-      <div class="tm rv"><div class="role">Estimating / Sales</div><h3>Tyler Emmert</h3><a href="mailto:temmert@candmassoc.com">temmert@candmassoc.com</a></div>
+      <div class="tm rv"><div class="face"><img src="team/ben-hurst.jpg?v=1" alt="Ben Hurst, Owner of C&amp;M Associates" loading="lazy"/></div><div class="role">Owner</div><h3>Ben Hurst</h3><a href="mailto:bhurst@candmassoc.com">bhurst@candmassoc.com</a></div>
+      <div class="tm rv"><div class="face"><img src="team/tyler-emmert.jpg?v=1" alt="Tyler Emmert, Estimating and Sales at C&amp;M Associates" loading="lazy"/></div><div class="role">Estimating / Sales</div><h3>Tyler Emmert</h3><a href="mailto:temmert@candmassoc.com">temmert@candmassoc.com</a></div>
       <div class="tm rv"><div class="role">Project Administrator</div><h3>Tammy Henning</h3><a href="mailto:thenning@candmassoc.com">thenning@candmassoc.com</a></div>
       <div class="tm rv"><div class="role">Accounting Manager</div><h3>Cindy Erickson</h3><a href="mailto:cerickson@candmassoc.com">cerickson@candmassoc.com</a></div>
       <div class="tm rv"><div class="role">Field Supervisor</div><h3>Tom Gray</h3><a href="tel:+18102205335">(810) 220-5335</a></div>

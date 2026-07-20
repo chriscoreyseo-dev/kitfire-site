@@ -218,7 +218,7 @@
       <button class="chip" data-filter="padding">Wall Padding</button>
       <button class="chip" data-filter="field">Outdoor &amp; Field</button>
     </div>
-    <div class="filter-count">Showing <strong id="count">17</strong> projects</div>
+    <div class="filter-count">Showing <strong id="count">24</strong> projects</div>
   </div>
 </div>
 
@@ -315,6 +315,13 @@ const projects = [
   {img:'photos/proj-fairbanks.jpg', cat:'field', tags:['backstop'], title:'Outdoor In-Ground Backstop', meta:'Outdoor & Field · Backstops', desc:'Gared in-ground basketball system with adjustable glass backboard on a lakeside residential court.', facility:'Private Residence', location:'Michigan', brand:'Gared'},
   {img:'photos/proj-woodhaven.jpg', cat:'field', tags:['padding'], title:'Baseball Dugout Rail Padding', meta:'Outdoor & Field · Padding', desc:'Custom dugout rail padding and field protection for the Warriors baseball complex.', facility:'Woodhaven High School', location:'Woodhaven, MI', brand:'Performance Sports'},
   {img:'photos/proj-svsu-track.jpg', cat:'padding', tags:['field'], title:'Indoor Track Column Padding', meta:'Wall Padding · Indoor Track', desc:'Structural column padding lining the banked competition track at the university’s indoor athletic complex.', facility:'Saginaw Valley State University', location:'University Center, MI', brand:'Performance Sports'},
+  {img:'photos/proj-msu-wide.jpg', cat:'divider', tags:['field'], title:'Perimeter Netting & Divider Curtains', meta:'Divider Curtains · Netting', desc:'Perimeter netting and divider curtains across the multi-court recreation gym — part of a full package with backstops, ceiling-suspended volleyball, scoreboards, and shot clocks.', facility:'Michigan State University', location:'East Lansing, MI', brand:'—'},
+  {img:'photos/proj-msu-bbvb1.jpg', cat:'backstop', tags:['divider'], title:'Backstops & Ceiling-Suspended Volleyball', meta:'Backstops · Volleyball', desc:'Basketball backstops and ceiling-suspended volleyball systems across the Spartan recreation courts.', facility:'Michigan State University', location:'East Lansing, MI', brand:'—'},
+  {img:'photos/proj-msu-curtain.jpg', cat:'divider', tags:[], title:'Court Divider Curtains', meta:'Divider Curtains', desc:'Divider curtains separating simultaneous play across the multi-court facility.', facility:'Michigan State University', location:'East Lansing, MI', brand:'—'},
+  {img:'photos/proj-shay.jpg', cat:'backstop', tags:['padding'], title:'Backstops, Wall Pads & Wall Benches', meta:'Backstops · Padding', desc:'Ceiling-suspended backstops, wall pads, and wall benches for the elementary gymnasium.', facility:'Shay Elementary School', location:'Harbor Springs, MI', brand:'—'},
+  {img:'photos/proj-springlake.jpg', cat:'divider', tags:['field'], title:'Netting, Batting Cages & Divider Curtains', meta:'Divider Curtains · Netting', desc:'Perimeter netting, batting cages, and peak-fold divider curtains across the high-school athletic spaces.', facility:'Spring Lake High School', location:'Spring Lake, MI', brand:'—'},
+  {img:'photos/proj-monroe.jpg', cat:'divider', tags:[], title:'Mezzanine Divider Curtain', meta:'Divider Curtains', desc:'Mezzanine divider curtain over the Trojans competition gym.', facility:'Monroe High School', location:'Monroe, MI', brand:'—'},
+  {img:'photos/proj-novi.jpg', cat:'padding', tags:['field'], title:'Baseball & Softball Backstop Padding', meta:'Padding · Outdoor & Field', desc:'Custom backstop padding for the baseball and softball fields.', facility:'Novi High School', location:'Novi, MI', brand:'—'},
 ];
 
 const grid = document.getElementById('grid');
@@ -336,7 +343,7 @@ function render(filter='all'){
         <p>${p.desc}</p>
         <div class="card-scope">
           <span class="scope-tag">${p.facility}</span>
-          <span class="scope-tag">${p.brand}</span>
+          ${p.brand && p.brand !== '—' ? `<span class="scope-tag">${p.brand}</span>` : ''}
         </div>
       </div>
     </div>
