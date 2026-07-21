@@ -81,7 +81,7 @@
     {
       "@type": "Question",
       "name": "Won't AI-generated content sound generic?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Generic AI content comes from generic instructions. Every piece KitFire produces runs on your business file — your services, your customers, your voice, your area — and a human reviews it before it ships. Corrections are recorded permanently, so month three sounds more like you than month one." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Generic AI content comes from generic instructions. Every piece KitFire produces runs on your business file — your services, your customers, the way you talk, your area — and a human reviews it before it ships. We learn it from how you already write and talk — your website, your emails, your questionnaire answers. Nothing to record, nothing to set up. Corrections are recorded permanently, so month three sounds more like you than month one." }
     },
     {
       "@type": "Question",
@@ -91,7 +91,7 @@
     {
       "@type": "Question",
       "name": "How long does it take to get an AI worker running?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Working in minutes, not weeks. Your AI worker goes live the day you start — then it learns your business file, and by day two it knows your services, your prices, and your voice. Human review stays on everything it does." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Working in minutes, not weeks. Your AI worker goes live the day you start — then it learns your business file, and by day two it knows your services, your prices, and the way you talk to customers. Human review stays on everything it does." }
     },
     {
       "@type": "Question",
@@ -158,6 +158,27 @@ section{padding:110px 0;position:relative}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* ===== WORKER SLAM-IN (S202 — the crew arrives) ===== */
+@keyframes slamIn{0%{opacity:0;transform:translateY(-110px) rotate(var(--tilt,-2deg)) scale(1.03)}62%{opacity:1;transform:translateY(7px) rotate(calc(var(--tilt,-2deg)*-.35)) scale(.99)}80%{transform:translateY(-3px) rotate(0deg) scale(1.005)}100%{opacity:1;transform:none}}
+@keyframes slamShake{0%,100%{transform:none}25%{transform:translateY(2px)}50%{transform:translateY(-1px)}75%{transform:translateY(1px)}}
+@keyframes slamFlash{0%{opacity:.85;transform:scaleX(.6)}100%{opacity:0;transform:scaleX(1.2)}}
+#workers .slam-h{opacity:0}
+#workers.armed .slam-h{animation:slamIn .45s cubic-bezier(.22,1.4,.36,1) forwards}
+#workers.armed .wrap{animation:slamShake .32s ease-out .4s}
+#workers .cards .card{opacity:0;position:relative}
+#workers .cards .card::after{content:"";position:absolute;left:10%;right:10%;bottom:-7px;height:12px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,138,30,.65),transparent 70%);opacity:0;pointer-events:none}
+#workers.armed .cards .card{animation:slamIn .45s cubic-bezier(.22,1.4,.36,1) forwards;animation-delay:var(--slam-d,.42s)}
+#workers.armed .cards .card::after{animation:slamFlash .28s ease-out forwards;animation-delay:calc(var(--slam-d,.42s) + .3s)}
+#workers.armed .cards .card.landed{opacity:1;animation:none}
+#workers .cards .card:nth-child(odd){--tilt:-2.2deg}
+#workers .cards .card:nth-child(even){--tilt:2.2deg}
+#workers .cards .card:nth-child(1){--slam-d:.42s}
+#workers .cards .card:nth-child(2){--slam-d:.54s}
+#workers .cards .card:nth-child(3){--slam-d:.66s}
+#workers .cards .card:nth-child(4){--slam-d:.78s}
+#workers .cards .card:nth-child(5){--slam-d:.9s}
+#workers .cards .card:nth-child(6){--slam-d:1.02s}
 
 /* ===== NAV ===== */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;transition:background .3s,padding .3s,box-shadow .3s}
@@ -482,39 +503,39 @@ section{padding:110px 0;position:relative}
 <!-- ============ AI WORKERS (S160 repositioning) ============ -->
 <section class="get" id="workers">
   <div class="wrap">
-    <span class="eyebrow rv">What we automate</span>
-    <h2 class="rv">AI workers we install <span class="ember">in your business.</span></h2>
-    <p class="lead rv">Each one is built on your business — your services, your prices, your voice — tested hard before it goes live, and watched by us after. This isn't software you have to learn. It's work that stops being yours.</p>
+    <span class="eyebrow rv">Meet the crew</span>
+    <h2 class="slam-h">AI workers we install <span class="ember">in your business.</span></h2>
+    <p class="lead rv">Each one is built on your business — your services, your prices, the way you talk to customers — tested hard before it goes live, and watched by us after. This isn't software you have to learn. It's work that stops being yours.</p>
     <div class="cards">
-      <div class="card rv">
+      <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
         <h3>Website assistant</h3>
-        <p>Answers your customers' questions day and night, in your voice, from your real facts — and captures their name and number when they're ready. The one on this page, bottom right? Same product. Try it.</p>
+        <p>I answer your customers' questions day and night — the way you'd answer them, from your real facts. When they're ready, I get their name and number. Bottom right corner of this page? That's me. Come say hi.</p>
       </div>
-      <div class="card rv d1">
+      <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div>
         <h3>Email triage &amp; drafts</h3>
-        <p>Sorts the inbox, answers the routine, and drafts replies to the rest for your one-click approval. You read summaries, not threads.</p>
+        <p>I sort your inbox, answer the routine, and draft the rest for your one-click approval. You read summaries. I read threads.</p>
       </div>
-      <div class="card rv d2">
+      <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></div>
         <h3>Review responses</h3>
-        <p>Every Google review answered — warm, specific, in your voice, within hours. The five-stars feel appreciated; the bad one gets a calm, professional reply instead of silence.</p>
+        <p>I answer every Google review — warm, specific, written like you'd write it, within hours. Your five-stars feel appreciated. Your bad one gets a calm, professional reply instead of silence.</p>
       </div>
-      <div class="card rv">
+      <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
         <h3>Quote &amp; lead follow-up</h3>
-        <p>Every quote chased, every lead nurtured, on schedule, without you remembering. The job stops going to whoever called back first — because you always call back first.</p>
+        <p>I chase every quote and nurture every lead, on schedule, without being reminded. The job stops going to whoever called back first — because with me, that's always you.</p>
       </div>
-      <div class="card rv d1">
+      <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
         <h3>Lead intake</h3>
-        <p>Form fills and inquiries answered instantly, qualified politely, and logged where you'll see them — so nothing sits unread for a day and goes cold.</p>
+        <p>A form fill comes in — I answer it instantly, qualify it politely, and log it where you'll see it. Nothing sits unread overnight on my watch.</p>
       </div>
-      <div class="card rv d2">
+      <div class="card">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
         <h3>Internal paperwork</h3>
-        <p>Meeting notes, job summaries, reports, proposals — drafted from your notes in minutes, not evenings. The office work that keeps owners at the desk after the crew goes home.</p>
+        <p>Meeting notes, job summaries, reports, proposals — I draft them from your notes in minutes, not evenings. You go home when the crew does.</p>
       </div>
     </div>
     <p class="rv" style="margin-top:34px;color:var(--muted);max-width:720px">Every worker runs with <strong style="color:var(--ink)">human oversight</strong> — nothing goes public without sign-off — and we monitor, fix, and tune them monthly. Automations that nobody watches quietly break. Ours are watched.</p>
@@ -565,7 +586,7 @@ section{padding:110px 0;position:relative}
       <div class="card rv d2">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
         <h3>Weekly LinkedIn post</h3>
-        <p>A real post, in your voice, about your work — every week, written and scheduled for you. Approved by you before it goes anywhere.</p>
+        <p>A real post that sounds like you wrote it, about your real work — every week, written and scheduled for you. Approved by you before it goes anywhere.</p>
       </div>
       <div class="card rv">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V2H6.5A2.5 2.5 0 004 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg></div>
@@ -608,7 +629,7 @@ section{padding:110px 0;position:relative}
   <div class="wrap">
     <span class="eyebrow rv">Why it compounds</span>
     <h2 class="rv">Most marketing help starts over every month. <span class="ember">Ours remembers everything.</span></h2>
-    <p class="lead rv">Every job we run for you adds to a permanent file on your business — your niche, your customers, your voice, what worked. The output in month six isn't the same as month one. It's better, because by then we know you.</p>
+    <p class="lead rv">Every job we run for you adds to a permanent file on your business — your niche, your customers, how you talk, what worked. The output in month six isn't the same as month one. It's better, because by then we know you.</p>
     <div class="timeline">
       <div class="mo rv" style="--heat:.35">
         <span class="tag">Month 1</span>
@@ -623,7 +644,7 @@ section{padding:110px 0;position:relative}
         <span class="tag">Month 3</span>
         <h3>Sounding like you</h3>
         <ul>
-          <li>Your voice &amp; preferences locked in — fewer edits</li>
+          <li>Your wording &amp; preferences locked in — fewer edits</li>
           <li>Content aimed at the searches that convert in your niche</li>
           <li>Seasonal patterns worked into the calendar</li>
         </ul>
@@ -654,7 +675,7 @@ section{padding:110px 0;position:relative}
         <div class="price">$2,000<small> + $295/mo</small></div>
         <p class="under">One job, handled forever. Pick it: website assistant, review responses, or email triage. Need several? That's The AI Office.</p>
         <ul>
-          <li>Built on your business facts, in your voice</li>
+          <li>Built on your business facts, sounding like you</li>
           <li>Tested hard before it ever meets a customer</li>
           <li>We host it, watch it, and tune it monthly</li>
           <li>Nothing goes public without human sign-off</li>
@@ -795,9 +816,9 @@ section{padding:110px 0;position:relative}
     <span class="eyebrow rv">Questions owners actually ask</span>
     <h2 class="rv">Fair questions. <span class="ember">Straight answers.</span></h2>
     <details class="qa rv"><summary>Do I need to understand AI to work with you?</summary><div class="a">No. You never touch it. You answer a questionnaire, you approve work before it goes public, and you read a plain-English summary of what happened. That's the whole job description.</div></details>
-    <details class="qa rv"><summary>Won't AI content sound generic?</summary><div class="a">Generic AI content comes from generic instructions. Every piece we produce runs on your business file — your services, your customers, your voice, your area — and a human reviews it before it ships. When something misses, you say so once, and it's recorded permanently. That's why month three sounds more like you than month one.</div></details>
+    <details class="qa rv"><summary>Won't AI content sound generic?</summary><div class="a">Generic AI content comes from generic instructions. Every piece we produce runs on your business file — your services, your customers, the way you talk, your area — and a human reviews it before it ships. We learn it from how you already write and talk — your website, your emails, your questionnaire answers. Nothing to record, nothing to set up. When something misses, you say so once, and it's recorded permanently. That's why month three sounds more like you than month one.</div></details>
     <details class="qa rv"><summary>What does AI automation actually cost?</summary><div class="a">Real numbers, right here: your First AI Worker is $2,000 installed plus $295/month for us to host, watch, and tune it. The AI Office — three to five workers running your busy work — is $6,000 plus $995/month. The Whole Department adds the full marketing engine (SEO, weekly LinkedIn, blog, Google Business Profile) for $2,200/month. Website builds are quoted per project. Month-to-month, no long contracts, human review on everything.</div></details>
-    <details class="qa rv"><summary>How long until it's actually working?</summary><div class="a">Minutes, not weeks. Your AI worker goes live the day you start — then it learns your business file, and by day two it knows your services, your prices, and your voice. No software rollout, no training sessions, nothing for you to learn. Human review stays on everything it does.</div></details>
+    <details class="qa rv"><summary>How long until it's actually working?</summary><div class="a">Minutes, not weeks. Your AI worker goes live the day you start — then it learns your business file, and by day two it knows your services, your prices, and the way you talk to customers. No software rollout, no training sessions, nothing for you to learn. Human review stays on everything it does.</div></details>
     <details class="qa rv"><summary>What kind of work can AI actually take over?</summary><div class="a">The busy work that eats your week: routine email answered and the rest drafted for your approval, every Google review responded to, quotes and leads followed up on schedule, customer questions answered on your website day and night, and internal paperwork — summaries, reports, proposals — drafted in minutes. If a task is repetitive and lives in words, it can probably stop being yours.</div></details>
     <details class="qa rv"><summary>Why pay monthly instead of a one-time build?</summary><div class="a">Because automations nobody watches quietly break — a vendor changes something, an integration shifts, and your "working" system fails silently while you assume it's fine. One-time builders hand you the keys and leave. The monthly care fee means we're watching, fixing, and tuning your AI workers every month — and you have a human to call, locally, when something needs to change.</div></details>
     <details class="qa rv"><summary>How long does a new website take?</summary><div class="a">Most builds go from your questionnaire to a click-through preview link — one you can open on your phone and browse like the real site — in a matter of weeks. You approve it before anything goes live; your current site stays untouched until you do.</div></details>
@@ -836,6 +857,13 @@ addEventListener('scroll',()=>{
 // scroll reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Worker slam-in: arm once on scroll-in; .landed frees cards for hover effects after the drop */
+const ws=document.getElementById('workers');
+if(ws){
+  new IntersectionObserver((es,o)=>es.forEach(en=>{if(en.isIntersecting){ws.classList.add('armed');o.disconnect()}}),{threshold:.15}).observe(ws);
+  ws.querySelectorAll('.cards .card').forEach(c=>c.addEventListener('animationend',ev=>{if(ev.animationName==='slamIn')c.classList.add('landed')}));
+}
 
 // hero ember sparks (reduced-motion gated)
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
