@@ -234,8 +234,14 @@ section{padding:110px 0;position:relative}
 .pain .pivot{margin-top:44px;font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);text-align:center}
 
 /* ===== THE FILM ===== */
-.cinema{margin-top:44px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,138,30,.3);box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 70px rgba(255,110,30,.1);background:#000}
+.cinema{position:relative;margin-top:44px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,138,30,.3);box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 70px rgba(255,110,30,.1);background:#000}
 .cinema video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.bigplay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;border:0;cursor:pointer;background:var(--grad);display:flex;align-items:center;justify-content:center;z-index:2;transition:transform .2s ease;animation:playpulse 2.2s ease-out infinite}
+.bigplay:hover{transform:translate(-50%,-50%) scale(1.1)}
+.bigplay svg{width:40px;height:40px;fill:#fff;margin-left:6px}
+.bigplay.gone{opacity:0;pointer-events:none;transition:opacity .25s ease}
+@keyframes playpulse{0%{box-shadow:0 12px 40px rgba(0,0,0,.55),0 0 0 0 rgba(255,138,30,.55)}70%{box-shadow:0 12px 40px rgba(0,0,0,.55),0 0 0 24px rgba(255,138,30,0)}100%{box-shadow:0 12px 40px rgba(0,0,0,.55),0 0 0 0 rgba(255,138,30,0)}}
+@media (max-width:640px){.bigplay{width:68px;height:68px}.bigplay svg{width:30px;height:30px;margin-left:4px}}
 
 /* ===== HOW IT WORKS ===== */
 .how h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:16px}
@@ -475,6 +481,9 @@ section{padding:110px 0;position:relative}
     <h2 class="rv" style="font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:16px">What we do, <span class="ember">in 57 seconds.</span></h2>
     <div class="cinema rv d1">
       <video id="hookfilm" src="assets/second-crew.mp4" poster="assets/second-crew-poster.jpg" preload="none" playsinline controls></video>
+      <button class="bigplay" id="bigplay" type="button" aria-label="Play the film">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -870,6 +879,13 @@ const ws=document.getElementById('workers');
 if(ws){
   new IntersectionObserver((es,o)=>es.forEach(en=>{if(en.isIntersecting){ws.classList.add('armed');o.disconnect()}}),{threshold:.15}).observe(ws);
   ws.querySelectorAll('.cards .card').forEach(c=>c.addEventListener('animationend',ev=>{if(ev.animationName==='slamIn')c.classList.add('landed')}));
+}
+
+/* Big center play button on the film — hides once playback starts */
+const bp=document.getElementById('bigplay'),hf=document.getElementById('hookfilm');
+if(bp&&hf){
+  bp.addEventListener('click',()=>hf.play());
+  hf.addEventListener('play',()=>bp.classList.add('gone'));
 }
 
 // hero ember sparks (reduced-motion gated)
