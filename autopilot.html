@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Autopilot — free AI build skill by KitFire</title>
+<meta name="description" content="Free skill: an AI orchestrator that builds a local business a 4-page site, an SEO blog post, a design layout, and a competitor-gap SEO plan in one pass. Built by KitFire.">
+<style>
+  :root{--navy:#0b1220;--panel:#111c2e;--ink:#e8eefc;--mut:#9fb0d0;--orange:#ff7a1a;--line:#22304a}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--navy);color:var(--ink);font:16px/1.6 -apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
+  .kit{color:var(--orange);font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:13px}
+  h1{font-size:34px;line-height:1.15;margin:10px 0 6px;font-weight:800}
+  h1 span{color:var(--orange)}
+  .sub{color:var(--mut);font-size:18px;margin:0 0 22px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+  a.btn,button.btn{cursor:pointer;border:0;border-radius:10px;padding:14px 20px;font-size:16px;font-weight:700;text-decoration:none;display:inline-block}
+  .btn-o{background:var(--orange);color:#111}
+  .btn-g{background:#1c2b45;color:var(--ink);border:1px solid var(--line)}
+  ul{margin:8px 0 0 0;padding-left:20px}li{margin:4px 0;color:var(--mut)}li b{color:var(--ink)}
+  pre{white-space:pre-wrap;word-wrap:break-word;background:#0a1424;border:1px solid var(--line);border-radius:10px;padding:16px;max-height:340px;overflow:auto;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:#cde0ff}
+  .muted{color:var(--mut);font-size:14px}
+  .foot{margin-top:40px;color:var(--mut);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+  .foot a{color:var(--orange)}
+  .ok{color:#37d67a;font-weight:700}
+  input[type=email]{flex:1;min-width:200px;background:#0a1424;border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--ink);font-size:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kit">Built by KitFire</div>
+  <h1>Project <span>Autopilot</span></h1>
+  <p class="sub">One prompt. An AI orchestrator builds a local business a full web presence in a single pass — free.</p>
+
+  <div class="card">
+    <b>What it builds, start to finish:</b>
+    <ul>
+      <li><b>A 4-page website</b> — Home, Services, About/Reviews, Contact (mobile-first, click-to-call).</li>
+      <li><b>An SEO blog post</b> aimed at winnable long-tail keywords.</li>
+      <li><b>A design layout</b> — color, type, hero, applied automatically.</li>
+      <li><b>A competitor-gap SEO plan</b> — the buyer-intent phrases your competitors forgot, plus meta tags + schema.</li>
+    </ul>
+    <p class="muted" style="margin-top:14px">It decomposes the job into specialist subagents (research, SEO, copy, build, design, QA), supervises them, and runs a self-correcting review loop before it hands you the files. Runs in <b>Claude Code / Cowork</b> (where subagents &amp; skills live). Single-session, stateless.</p>
+  </div>
+
+  <div class="row">
+    <a class="btn btn-o" href="data:application/zip;base64,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" download="project-autopilot.skill">⬇ Download the skill (1-click install)</a>
+    <button class="btn btn-g" onclick="copyPrompt()">📋 Copy the prompt</button>
+  </div>
+  <p class="muted" id="copymsg"></p>
+
+  <div class="card">
+    <b>The prompt</b> <span class="muted">— paste into Claude Code / Cowork, or install the skill above.</span>
+    <pre id="prompt"></pre>
+  </div>
+
+  <div class="card">
+    <b>Want the pro version?</b>
+    <p class="muted" style="margin:6px 0 12px">Live keyword data (real volume + difficulty), plus we'll build your site for you. Drop your email — no spam.</p>
+    <form action="https://formsubmit.co/ceo@kitfire.ai" method="POST" class="row" style="margin:0">
+      <input type="hidden" name="_subject" value="Project Autopilot — pro/lead request">
+      <input type="hidden" name="source" value="autopilot-qr">
+      <input type="email" name="email" placeholder="you@business.com" required>
+      <button class="btn btn-o" type="submit">Send it</button>
+    </form>
+  </div>
+
+  <div class="foot">
+    Free to use and share. Built by <a href="https://kitfire.ai">KitFire</a> — we install AI workers in your business, then we run them.
+  </div>
+</div>
+
+<script id="promptsrc" type="text/plain"># Project Autopilot  ·  Built by KitFire
+
+You are the **orchestrator**. Given a local business, you run an end-to-end build the way a founder runs a team: decompose the project, spin up specialist subagents (use the Task/subagent tool), supervise them, run a self-correcting QA pass, then assemble and hand back the finished work — all in ONE session.
+
+**Scope discipline (do not violate):** this skill is a single-session, stateless project builder. It does NOT persist memory across sessions, does NOT self-direct future work, and does NOT run any autonomous decision-gating. It builds the project, finishes, and stops.
+
+**Cost-routing:** run yourself (the supervisor) on a strong model (Fable 5 / Opus). Run the grunt subagents on a cheap fast model (Haiku). Frontier judgment where it matters, cheap horsepower everywhere else.
+
+---
+
+## INPUT (ask for these if missing)
+- Business name + city/service area
+- Their website URL if any (else you'll research from scratch)
+- Phone number + hours if known (else research)
+- Any must-have services or offers
+
+## THE SUBAGENTS (spin up via the Task tool, supervise each)
+
+**1. Research agent** (Haiku)
+Pull the business's REAL data from the web: exact name, phone, address/service area, services, hours, and real reviews (Google/Angi/Yelp). Return a clean fact sheet. NEVER invent facts — flag anything unverifiable.
+
+**2. SEO gap-hunter** (strong model — this is the differentiator)
+- Identify the top 3–5 local competitors.
+- Read their live pages and map what they target.
+- Find the GAPS: long-tail, buyer-intent phrases competitors are NOT covering (e.g. "emergency [service] [city] weekend," "flat-rate [service] near me," "[service] same day [city]"). Prioritize low-competition, high-intent, local terms a small shop can actually win.
+- Produce: (a) a one-page competitor-gap map, (b) a target long-tail cluster for the blog post, (c) meta for every page — title tags (<60 chars), meta descriptions (<155 chars), H1s, and JSON-LD **LocalBusiness + FAQ** schema.
+- Note: this runs tool-free on web search + on-page reading. If a keyword tool (Ahrefs/SEMrush/Search Console) is connected, enrich with real volume/difficulty ("pro" mode).
+
+**3. Copywriter** (Haiku)
+Write the 4-page site copy and one SEO blog post aimed at the target long-tail cluster. Voice: clear, local, benefit-first, strong CTAs. No fluff, no fabricated claims/credentials.
+
+**4. Site builder** (Haiku)
+Produce ONE self-contained, mobile-first HTML file — 4 pages/sections: **Home** (hero + CTA, trust strip, top services), **Services** (list + flat pricing + why-us), **About/Reviews** (story + real reviews + guarantee), **Contact** (click-to-call `tel:`, form, hours, service-area). Insert the meta + schema from the gap-hunter. Semantic HTML, fast, no external build step.
+
+**5. Designer** (Haiku)
+Apply a clean, rugged-or-polished (match the trade) visual system: color palette, type pairing, hero treatment, spacing, buttons. Keep it fast and accessible (contrast, tap targets).
+
+**6. QA reviewer / self-correcting loop** (strong model)
+Check the assembled output and send fixes back to the relevant subagent until clean:
+- All 4 pages present; nav works; mobile layout holds.
+- Phone number correct and click-to-call works; CTAs present on every page.
+- Meta + schema present and valid; title/description lengths in range.
+- Blog post targets the long-tail cluster and cross-links into the site.
+- No fabricated facts, no Lorem Ipsum, no broken links.
+Loop: generate → review → fix → re-review until it passes.
+
+## ASSEMBLE + DELIVER
+Return, in one folder:
+1. `index.html` (the self-contained 4-page site)
+2. `blog-post.md` (the SEO post)
+3. `seo-plan.md` (competitor-gap map + target long-tails + all meta/schema)
+4. A 3-line summary: what was built, the top 3 gap phrases targeted, and the recommended next step (host + point domain).
+
+Hosting is optional and human-approved — output the files; do not publish anywhere without the user's explicit go.
+
+## GUARDRAILS
+- Real data only. Verify phone/hours/reviews; flag anything you couldn't confirm.
+- No fabricated testimonials, certifications, awards, or claims.
+- Do not publish, deploy, or send anything without explicit human approval.
+- Single-session, stateless. No cross-session memory, no autonomous follow-on actions.
+- This skill teaches/ships the public orchestration + SEO craft only — nothing about durable memory or decision-gating.
+
+## FINISH
+Print the summary and the folder path. Stop. Do not schedule or continue work.</script>
+<script>
+  var raw=document.getElementById('promptsrc').textContent.trim();
+  document.getElementById('prompt').textContent=raw;
+  function copyPrompt(){
+    navigator.clipboard.writeText(raw).then(function(){
+      document.getElementById('copymsg').innerHTML='<span class="ok">Copied.</span> Paste it into Claude Code or Cowork.';
+    },function(){
+      document.getElementById('copymsg').textContent='Select the prompt below and copy manually.';
+    });
+  }
+</script>
+</body>
+</html>
