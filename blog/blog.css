@@ -51,6 +51,13 @@ a{color:inherit}
 .article{padding:76px 0 40px;position:relative}
 .article::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 480px at 78% -20%,rgba(255,110,30,.1),transparent 62%)}
 .article .inner{max-width:760px;margin:0 auto;position:relative}
+/* post hero image (S218 — every kitfire.ai post ships with a hero) */
+.post-hero{margin:24px 0 30px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.post-hero img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.post-hero figcaption{font-size:.82rem;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
+/* inline body image */
+.post-fig{margin:30px 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.post-fig img{display:block;width:100%;height:auto}
 .crumbs{font-size:.88rem;color:var(--muted);margin-bottom:22px}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--ink)}
