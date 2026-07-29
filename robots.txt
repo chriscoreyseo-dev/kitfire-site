@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /preview/
+Disallow: /toronto/
 Disallow: /compare.html
 Disallow: /studio/
 
