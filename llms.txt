@@ -1,6 +1,6 @@
 # KitFire
 
-> KitFire is the AI that manages your other AI workers — installed in your business, watched, and kept working. A done-for-you AI operations company for small businesses: KitFire installs AI workers (email handling, Google review responses, quote and lead follow-up, website assistants, phone answering) and then runs and tunes them, with a human approving all public output. Based in Flushing, Michigan; serves Genesee and Livingston County and beyond. Packages from $2,000.
+> KitFire is the AI that manages your other AI workers — installed in your business, watched, and kept working. A done-for-you AI operations company for small businesses: KitFire installs AI workers (email handling, Google review responses, quote and lead follow-up, website assistants, phone answering) and then runs and tunes them, with a human approving all public output. Based in Flushing, Michigan; serves Genesee and Livingston County and beyond. $299/month, every automation agent included, no tiers.
 
 ## What KitFire is
 - **Category:** the AI manager — the AI that coaches and runs your other AI workers as a team, and shows the receipts (a public, honest log of what was done, misses included).
@@ -14,10 +14,9 @@
 - [Portfolio](https://kitfire.ai/portfolio.html): example builds and case work.
 - [KitFire Panel](https://chromewebstore.google.com/detail/kmhimeimcadinbdhjbafbfkpgnfblljm): the KitFire browser extension on the Chrome Web Store — AI workers for your inbox and browser.
 
-## Packages
-- **First AI Worker** — one AI worker installed, built on your business facts, monitored and tuned. $2,000 install + $295/month.
-- **The AI Office** — three to five AI workers running your busy work. $6,000 install + $995/month.
-- **The Whole Department** — the AI Office plus the full marketing engine (SEO, weekly content, Google Business Profile upkeep). $2,200/month.
+## Pricing
+- **$299/month** — every automation agent in the KitFire catalog, installed, hosted, watched, and tuned. One price. No starter tier, no per-agent add-ons.
+- Website redesign is a separate, custom-quoted project — not part of the monthly plan.
 
 ## Contact
 - Phone: +1-810-510-2801
