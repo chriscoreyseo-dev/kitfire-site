@@ -76,20 +76,7 @@
     inp.disabled = true;
     var t = add("Blaze is typing…", "ai typing");
     var ctrl = ("AbortController" in window) ? new AbortController() : null;
-    var timer = ctrl ? setTimeout(function () {
-  if (document.getElementById('kfw')) return;
-  if (!['https://kitfire.ai', 'https://www.kitfire.ai'].includes(window.location.origin)) {
-    var live = document.createElement('a');
-    live.href = 'https://kitfire.ai/#blaze-chat';
-    live.textContent = 'Chat live with Blaze ↗';
-    live.style.cssText = 'position:fixed;bottom:22px;right:22px;z-index:9999;background:#ff8a1e;color:#171719;padding:14px 20px;border-radius:30px;font:700 14px system-ui;box-shadow:0 4px 20px #0003';
-    document.body.appendChild(live);
-    return;
-  }
-  // Approved offer FAQ: the legacy AI service still has older commercial grounding.
-  // Keep price/buildout answers authoritative until that service is updated.
-  var OFFER = 'Current KitFire offer: $299/month for access to our AI automations (Forge). Custom buildout, setup, websites, funnels, and profile work are scoped and quoted separately; they are not included in the $299. For your project quote, use the free audit form at https://kitfire.ai/#start.';
-  var COMMERCIAL = /(?:[$€£]|\b(?:cost|price|pricing|fee|fees|payment|pay|paid|plan|plans|tier|tiers|budget|afford|buildout|setup|install|installed|installation|included|includes|include|subscription|monthly|per month)\b|what do i actually get)/i; ctrl.abort(); }, 20000) : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
     fetch(API, {
       method: "POST", headers: { "content-type": "application/json" },
       body: JSON.stringify({ messages: hist.slice(-12) }),
@@ -105,37 +92,11 @@
         add(d.reply, "ai");
       })
       .catch(function () {
-  if (document.getElementById('kfw')) return;
-  if (!['https://kitfire.ai', 'https://www.kitfire.ai'].includes(window.location.origin)) {
-    var live = document.createElement('a');
-    live.href = 'https://kitfire.ai/#blaze-chat';
-    live.textContent = 'Chat live with Blaze ↗';
-    live.style.cssText = 'position:fixed;bottom:22px;right:22px;z-index:9999;background:#ff8a1e;color:#171719;padding:14px 20px;border-radius:30px;font:700 14px system-ui;box-shadow:0 4px 20px #0003';
-    document.body.appendChild(live);
-    return;
-  }
-  // Approved offer FAQ: the legacy AI service still has older commercial grounding.
-  // Keep price/buildout answers authoritative until that service is updated.
-  var OFFER = 'Current KitFire offer: $299/month for access to our AI automations (Forge). Custom buildout, setup, websites, funnels, and profile work are scoped and quoted separately; they are not included in the $299. For your project quote, use the free audit form at https://kitfire.ai/#start.';
-  var COMMERCIAL = /(?:[$€£]|\b(?:cost|price|pricing|fee|fees|payment|pay|paid|plan|plans|tier|tiers|budget|afford|buildout|setup|install|installed|installation|included|includes|include|subscription|monthly|per month)\b|what do i actually get)/i;
         if (timer) clearTimeout(timer);
         t.remove();
         add(FALLBACK, "ai");
       })
-      .then(function () {
-  if (document.getElementById('kfw')) return;
-  if (!['https://kitfire.ai', 'https://www.kitfire.ai'].includes(window.location.origin)) {
-    var live = document.createElement('a');
-    live.href = 'https://kitfire.ai/#blaze-chat';
-    live.textContent = 'Chat live with Blaze ↗';
-    live.style.cssText = 'position:fixed;bottom:22px;right:22px;z-index:9999;background:#ff8a1e;color:#171719;padding:14px 20px;border-radius:30px;font:700 14px system-ui;box-shadow:0 4px 20px #0003';
-    document.body.appendChild(live);
-    return;
-  }
-  // Approved offer FAQ: the legacy AI service still has older commercial grounding.
-  // Keep price/buildout answers authoritative until that service is updated.
-  var OFFER = 'Current KitFire offer: $299/month for access to our AI automations (Forge). Custom buildout, setup, websites, funnels, and profile work are scoped and quoted separately; they are not included in the $299. For your project quote, use the free audit form at https://kitfire.ai/#start.';
-  var COMMERCIAL = /(?:[$€£]|\b(?:cost|price|pricing|fee|fees|payment|pay|paid|plan|plans|tier|tiers|budget|afford|buildout|setup|install|installed|installation|included|includes|include|subscription|monthly|per month)\b|what do i actually get)/i; inp.disabled = false; inp.focus(); });
+      .then(function () { inp.disabled = false; inp.focus(); });
   }
 
   el.querySelector(".bub").onclick = function () {
